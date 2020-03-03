@@ -16,8 +16,8 @@
 <big><big><big><br>版本号：<u>V0.0.1</u></big></big></big>
 <big><big><big><br>时间：<u>2020年02月22日</u></big></big></big>
 
-<big><big><big><br>GitHub：<u>https://github.com/wzy6642</u></big></big></big>
 <big><big><big><br>e-mail：<u>807698462@qq.com</u></big></big></big>
+<big><big><big><br>GitHub：<u>https://github.com/wzy6642/Math-in-Machine-Learning-and-Deep-Learning</u></big></big></big>
 </center>
 <br><br><br><br><br><br><br>
 
@@ -195,7 +195,7 @@ $$
 
 &emsp;&emsp;结合律：$\forall \ a \in S$，都有 $(f \circ g) \circ h=f \circ (g \circ h)$，所以满足结合律；
 
-&emsp;&emsp;单位元：不难发现 $f \circ g$ 够成了恒同映射，即 $\forall a \in S,f \circ g(a)=a$，所以 $\forall a \in S,f \circ g \circ h(a)=h \circ f \circ g(a)=h(a)$；
+&emsp;&emsp;单位元：不难发现 $f \circ g$ 构成了恒同映射，即 $\forall a \in S,f \circ g(a)=a$，所以 $\forall a \in S,f \circ g \circ h(a)=h \circ f \circ g(a)=h(a)$；
 
 &emsp;&emsp;逆映射：对于每一个$a \in S$，均有 $f \circ g \circ h \circ (f \circ g \circ h(a))^{-1}=(f \circ g \circ h)^{-1} \circ f \circ g \circ h(a)=f \circ g(a)$
 
@@ -498,7 +498,7 @@ $$
  \end{matrix}
 \right]
 $$
-不难发现此处的系数矩阵便是我们的二阶旋转矩阵。那么我们尝试考虑一下三维空间内绕 $z$ 轴旋转的情况是什么样子的呢，我们先给出一个直观的感受。
+不难发现此处的系数矩阵便是我们的二阶旋转矩阵。那么我们尝试考虑一下三维空间内绕 $x$ 轴旋转的情况是什么样子的呢，我们先给出一个直观的感受。
 <div align=center><img src="figure/三维旋转矩阵.jpg" width = 400 height = 400 /></div>
 <center>
 图1.5 绕x轴三维旋转
