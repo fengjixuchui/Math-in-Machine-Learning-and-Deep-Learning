@@ -439,6 +439,22 @@ R=
  \end{matrix}
 \right),\ \ \ 其中\ 0 \leq \theta < 2\pi
 $$
+&emsp;&emsp;  我们在这里给出二阶矩阵的逆矩阵的计算方法
+$$
+\left(
+ \begin{matrix}
+   a & b\\
+   c & d
+ \end{matrix}
+\right)^{-1}=\frac{1}{ad-bc}
+\left(
+ \begin{matrix}
+   d & -b\\
+   -c & a
+ \end{matrix}
+\right)
+$$
+
 &emsp;&emsp;  在下例中，$SO(2)$ 可以被看作是 $SO(3)$ 的子群
 $$
 R=
@@ -614,3 +630,14 @@ $$
 若  \ det(A)<0，-(-det(A))^{1/n}I_n
 $$
 且 $SL(n,R)$ 的陪集与 $R$ 之间具有双射关系。
+
+&emsp;&emsp;3. $SO(n)$ 是 $GL^{+}(n,R)$ 的子群，$SO(n)$ 的陪集是矩阵组成的集合：
+$$
+A \ SO(n)=\{AQ \ | \ Q \in SO(n)\}，A \in GL^{+}(n,R)
+$$
+我们若将矩阵用极坐标进行表示，可以发现 $SO(n)$ 的陪集和 $n$ 阶正的对称的正定矩阵之间满足双射关系，且这些对称矩阵的特征值均为正。
+
+&emsp;&emsp;4. 群 $SO(2)$ 是群 $SO(3)$ 的子群，$SO(2)$ 的陪集是由矩阵组成的集合：
+$$
+Q \ SO(2)=\{QR \ | \ R \in SO(2)\}，Q \in SO(3)
+$$
