@@ -604,7 +604,7 @@ $c \ mod \ n \Rightarrow a \ mod \ n=c\ mod \ n$，所以满足传递性。
 
 &emsp;&emsp;若我们利用双射 $L_{g_2^{-1}}$ 同时对 $g_1H$ 和 $g_2H$ 进行作用，我们能分别得到 $L_{g_2^{-1}}(g_1H)=g_2^{-1}g_1H$，$L_{g_2^{-1}}(g_2H)=g_2^{-1}g_2H=H$，所以 $g_1H=g_2H \Leftrightarrow g_2^{-1}g_1H=H$，若 $g_2^{-1}g_1H=H$，由于 $1 \in H$，所以我们根据封闭性能得到 $g_2^{-1}g_1 \in H$。相反的，如果 $g_2^{-1}g_1 \in H$，由于 $H$ 是一个群，所以其左平移 $L_{g_2^{-1}g_1}$ 是 $H$ 的双射，所以 $g_2^{-1}g_1H=H$。综上，$g_2^{-1}g_1H=H \Leftrightarrow g_2^{-1}g_1 \in H$。
 
-&emsp;&emsp;因此元素 $g \in G$ 的等价类是陪集 $gH$（或陪集 $Hg$）。由于 $L_g$ 是 $H$ 到 $gH$ 的双射，所以 $H$ 的所有陪集 $gH$ 具有相同的基数（元素的个数）且与 $H$ 的元素个数相等。映射 $L_{g^{-1}} \circ R_g$ 是左陪集 $gH$ 与右陪集 $Hg$ 之间的映射，由于 $\forall \ h \in H,L_{g{-1}}(R_g(gh))=L_{g{-1}}(ghg)=g^{-1}ghg=hg$，所以映射为双射，故而它们有相同的基数。综上，左（右）陪集元素个数与 $H$ 的元素个数相等。我们从特定的群 $G$ 中取特定的陪集 $gH$，可以得到如下结论：
+&emsp;&emsp;因此元素 $g \in G$ 的等价类是陪集 $gH$（或陪集 $Hg$）。由于 $L_g$ 是 $H$ 到 $gH$ 的双射，所以 $H$ 的所有陪集 $gH$ 具有相同的基数（元素的个数）且与 $H$ 的元素个数相等。映射 $L_{g^{-1}} \circ R_g$ 是左陪集 $gH$ 与右陪集 $Hg$ 之间的映射，由于 $\forall \ h \in H,L_{g^{-1}}(R_g(gh))=L_{g^{-1}}(ghg)=g^{-1}ghg=hg$，所以映射为双射，故而它们有相同的基数。综上，左（右）陪集元素个数与 $H$ 的元素个数相等。我们从特定的群 $G$ 中取特定的陪集 $gH$，可以得到如下结论：
 
 **命题1.7：** （拉格朗日定理）对于任意的有限群 $G$ 以及其任意子群 $H$，$H$ 的阶数可以除尽 $G$ 的阶数。
 
@@ -641,3 +641,59 @@ $$
 $$
 Q \ SO(2)=\{QR \ | \ R \in SO(2)\}，Q \in SO(3)
 $$
+群 $SO(3)$ 的作用我们可以表述为将球体 $R^3$ 表面 $S^2$ 上的一点 $x \in S^2$ 进行旋转，旋转过程满足 $\forall  \ Q \in SO(3), \ x \rightarrow Qx$，其中 $S^2=\{(x,y,z) \in R^3 \ | \ x^2+y^2+z^2=1\}$。我们用 $N=(0,0,1)$ 表示球体 $S^2$ 的北极点，不难发现，当 $N$ 固定时，$SO(2)$ 恰好是 $SO(3)$ 的子群。这导致陪集 $Q \ SO(2)$ 的所有的旋转 $Q \ R$ 都将点 $N$ 映射到点 $Q \ N \in S^2$ ，并且可以发现 $SO(2)$ 的陪集与 $S^2$ 上的点满足双射关系。此映射关系满足满射与 $SO(3)$ 对 $S^2$ 的作用满足传递性有关。$\forall \ x \in S^2$，均有旋转矩阵 $Q \in SO(3)$，使得 $QN=x$。
+
+&emsp;&emsp;通过下式我们可以定义左陪集（或者右陪集）之间的乘积运算：
+$$
+(g_1H)(g_2H)=(g_1g_2)H
+$$
+但是这个运算性质并不是普遍存在的，除非子群 $H$ 拥有特殊的性质才成立。在示例1.3中，可以对例1进行陪集间的乘积运算，但是对例2，3中的陪集并不能做乘积运算。那么哪些陪集可以做乘积运算呢？若子群 $H$ 的核满足同态，那么其左陪集可以进行乘积运算，我们在这里给出同态的定义。
+
+**定义1.7：** 给定两个任意的群 $G$ 和 $G'$，我们定义映射关系 $\varphi$，使得 $G \rightarrow G'$ 是同态 $\Leftrightarrow$ $\forall \ g_1,g_2 \in G, \ \varphi(g_1g_2)=\varphi(g_1)\varphi(g_2)$。当 $g_1=g_2=e \in G$ 时，我们可以发现 $\varphi(e)=e'$，当 $g_1=g,g_2=g^{-1}$ 时，我们可以发现 $\varphi(g^{-1})=(\varphi(g))^{-1}$。
+
+**示例1.4：**
+
+&emsp;&emsp;1. 映射 $\varphi:Z \rightarrow Z/nZ$，其中 $\forall \ m \in Z, \ \varphi(m)=m \ mod \ n$ 是一个同态。
+
+&emsp;&emsp;2. 映射 $det:GL(n,R) \rightarrow R$ 是一个同态，因为 $\forall \ A,B \in GL(n,R),det(AB)=det(A)det(B)$。同样的映射 $det:O(n) \rightarrow R$ 也是一个同态。
+
+&emsp;&emsp;如果 $\varphi:G \rightarrow G'$ 和 $\psi:G' \rightarrow G''$ 是群同态，那么 $\psi \circ \varphi:G \rightarrow G''$ 也是一个同态。如果 $\varphi:G \rightarrow G'$ 是群的同态，并且 $H \subseteq G,H' \subseteq G'$ 是两个子群，那么有 $Im \ H=\varphi(H)=\{\varphi(g) \ | \ g \in H\}$ 是 $G'$ 的子群，并且 $\varphi^{-1}(H')=\{g \in G \ | \ \varphi(g) \in H'\}$ 是 $G$ 的子群。特殊的，当 $H'=\{e'\}$ 时，计算结果为 $\varphi$ 的核，记作 $Ker \ \varphi$。
+
+**定义1.8：** 若映射 $\varphi:G \rightarrow G'$ 是群的同态，且 $H \subseteq G$ 是 $G$ 的一个子群，那么 $G'$ 的子群可由下式计算 $Im \ H=\varphi(H)=\{\varphi(g) \ | \  g \in H\}$，其中 $Im \ H$ 称作 $H$ 在 $\varphi$ 之下的象，同时也是 $G'$ 的子群。$Ker \ \varphi=\{g \in G \ | \ \varphi(g)=e'\}$ 称作 $\varphi$ 的核。
+
+**示例1.5：**
+
+&emsp;&emsp;1. 同态 $\varphi:Z \rightarrow Z/nZ$ 的核是 $nZ$。
+
+&emsp;&emsp;2. 同态 $det:GL(n,R) \rightarrow R$ 的核是 $SL(n,R)$，同样的，同态 $det:O(n) \rightarrow R$ 的核是 $SO(n)$。
+
+&emsp;&emsp;我们将经常对满足单射的群的同态进行分析。
+
+**命题1.8：** 如果映射 $\varphi:G \rightarrow G'$ 是群的同态，那么 $\varphi:G \rightarrow G'$ 是一个单射  $\Leftrightarrow$ $Ker \ \varphi=\{e\}$ （我们也可以写作 $Ker \ \varphi=(0)$）。
+
+&emsp;&emsp;证明：假设 $\varphi$ 满足单射。若 $\varphi(e)=e'$， $\varphi(g)=e'$，则 $\varphi(g)=\varphi(e)$。因为 $\varphi$ 满足单射，所以 $g=e$，所以 $Ker \ \varphi=\{e\}$。相反的，假定 $Ker \ \varphi=\{e\}$，若 $\varphi(g_1)=\varphi(g_2)$，那么等式两端同乘 $(\varphi(g_1))^{-1}$，我们有 $e'=(\varphi(g_1))^{-1}\varphi(g_1)=(\varphi(g_1))^{-1}\varphi(g_2)$，由于 $\varphi$ 是一个同态，所以 $(\varphi(g_1))^{-1}=\varphi(g_1^{-1})$，所以
+$$
+e'=(\varphi(g_1))^{-1}\varphi(g_2)=\varphi(g_1^{-1})\varphi(g_2)=\varphi(g_1^{-1}g_2)
+$$
+上式表明 $g_1^{-1}g_2 \in Ker \ \varphi$，但由于 $Ker \ \varphi=\{e\}$ 所以我们有 $g_1^{-1}g_2=e$，故而 $g_2=g_1$，验证了 $\varphi$ 满足单射。
+
+**定义1.9：** 若存在同态 $\psi:G' \rightarrow G$，我们说群的同态 $\varphi:G \rightarrow G'$ 是一个同构。也就是说
+$$
+\psi \circ \varphi=id_G \ \ 并且  \ \ \varphi \circ \psi=id_{G'}\ \ \ \ \ \ \ \ \  (\sharp)
+$$
+如果 $\varphi$ 是同构我们说群 $G$ 与 $G'$ 是同构的。当 $G'=G$ ，我们便将其称之为自同构。
+
+&emsp;&emsp;命题1.2的证明过程显示了如果一个群同态 $\varphi:G \rightarrow G'$ 是一个同构，那么存在唯一的同态 $\psi:G' \rightarrow G$ 满足条件 $\sharp$。这个同态被记为 $\varphi^{-1}$。
+
+&emsp;&emsp;左平移 $L_g$ 和右平移 $R_g$ 是 $G$ 的自同构。
+
+&emsp;&emsp;假设 $\varphi:G \rightarrow G'$ 是一个双射同态，并且 $\varphi^{-1}$ 是 $\varphi$ 的逆映射，那我们对于 $\forall \ a,b \in G$，都有
+$$
+\varphi(\varphi^{-1}(a)\varphi^{-1}(b))=\varphi(\varphi^{-1}(a))\varphi(\varphi^{-1}(b))=ab\\
+\varphi^{-1}(ab)=\varphi^{-1}(a)\varphi^{-1}(b)
+$$
+这证明了 $\varphi^{-1}$ 是一个同态，因此我们给出下述结论。
+
+**命题1.9：** 双射群的同态 $\varphi:G \rightarrow G'$ 是一个同构。
+
+&emsp;&emsp;我们先对性质 $(\ast)\ \ \ \forall \ g \in G,\ gH=Hg$ 进行分析，在等式两端同时乘 $g^{-1}$，便有 $\forall \ g \in G,\ gHg^{-1}=H$，并且呢 $(\ast\ast)\ \ \ \forall \ g \in G,\ gHg^{-1} \subseteq G$。这是因为 $\forall \ g \in G,\ gHg^{-1} \subseteq H$ 意味着 $H \subseteq g^{-1}Hg$。
