@@ -604,13 +604,28 @@ $c \ mod \ n \Rightarrow a \ mod \ n=c\ mod \ n$，所以满足传递性。
 
 &emsp;&emsp;若我们利用双射 $L_{g_2^{-1}}$ 同时对 $g_1H$ 和 $g_2H$ 进行作用，我们能分别得到 $L_{g_2^{-1}}(g_1H)=g_2^{-1}g_1H$，$L_{g_2^{-1}}(g_2H)=g_2^{-1}g_2H=H$，所以 $g_1H=g_2H \Leftrightarrow g_2^{-1}g_1H=H$，若 $g_2^{-1}g_1H=H$，由于 $1 \in H$，所以我们根据封闭性能得到 $g_2^{-1}g_1 \in H$。相反的，如果 $g_2^{-1}g_1 \in H$，由于 $H$ 是一个群，所以其左平移 $L_{g_2^{-1}g_1}$ 是 $H$ 的双射，所以 $g_2^{-1}g_1H=H$。综上，$g_2^{-1}g_1H=H \Leftrightarrow g_2^{-1}g_1 \in H$。
 
-&emsp;&emsp;因此元素 $g \in G$ 的等价类是陪集 $gH$（或陪集 $Hg$）。由于 $L_g$ 是 $H$ 到 $gH$ 的双射，所以 $H$ 的所有陪集 $gH$ 具有相同的基数（元素的个数）且与 $H$ 的元素个数相等。映射 $L_{g^{-1}} \circ R_g$ 是左陪集 $gH$ 与右陪集 $Hg$ 之间的映射，由于 $\forall \ h \in H,L_{g^{-1}}(R_g(gh))=L_{g^{-1}}(ghg)=g^{-1}ghg=hg$，所以映射为双射，故而它们有相同的基数。综上，左（右）陪集元素个数与 $H$ 的元素个数相等。我们从特定的群 $G$ 中取特定的陪集 $gH$，可以得到如下结论：
+&emsp;&emsp;因此元素 $g \in G$ 的等价类是陪集 $gH$（或陪集 $Hg$）。子群不同的左（右）陪集就是将整个群划分为若干互不相交的集合。由于 $L_g$ 是 $H$ 到 $gH$ 的双射，所以 $H$ 的所有陪集 $gH$ 具有相同的基数（元素的个数）且与 $H$ 的元素个数相等。映射 $L_{g^{-1}} \circ R_g$ 是左陪集 $gH$ 与右陪集 $Hg$ 之间的映射，由于 $\forall \ h \in H,L_{g^{-1}}(R_g(gh))=L_{g^{-1}}(ghg)=g^{-1}ghg=hg$，所以映射为双射，故而它们有相同的基数。综上，左（右）陪集元素个数与 $H$ 的元素个数相等。我们从特定的群 $G$ 中取特定的陪集 $gH$，可以得到如下结论：
 
 **命题1.7：** （拉格朗日定理）对于任意的有限群 $G$ 以及其任意子群 $H$，$H$ 的阶数可以除尽 $G$ 的阶数。
 
 **定义1.6：** 给定一个有限群 $G$ 以及 $G$ 的一个子群 $H$，如果 $n=|G|,\ h=|H|$，那么比值 $\frac{n}{h}$ 可以记为 $(G:H)$，并将其称为 $H$ 在 $G$ 中的指数。
 
-&emsp;&emsp;指数 $(G:H)$ 是 $G$ 的子群 $H$ 中左陪集（或右陪集）的个数，命题1.7可以被表述为 $|G|=(G:H)|H|$。$H$ 中所有左陪集组成的集合（一般来说，这个集合不是一个群）可以记作 $G/H$，一个陪集便是 $G/H$ 中的一个元素。
+&emsp;&emsp;指数 $(G:H)$ 是 $G$ 的子群 $H$ 中左陪集（或右陪集）的个数，命题1.7可以被表述为 $|G|=(G:H)|H|$。$H$ 中所有左陪集组成的集合（一般来说，这个集合不是一个群）可以记作 $G/H$，一个陪集便是 $G/H$ 中的一个元素。我们这里给出一个有限群的例子加以说明：
+
+&emsp;&emsp;我们令 $G$ 表示6阶群，$H$ 为 $G$ 的子群且 $H$ 的阶数为2
+<div align=center><img src="figure/陪集.jpg" width="70%" /></div>
+
+&emsp;&emsp;我们先分析 $H$ 的左陪集，$\forall \ g \in G$，有
+<div align=center><img src="figure/左陪集.jpg" width="100%" /></div>
+
+不难发现 $e \sim a$，$b \sim f$，$c \sim d$。所以 $H$ 的左陪集有3个，分别为 $(e,a)$，$(b,f)$，$(c,d)$，每个左陪集均和 $H$ 的元素个数相同，且左陪集个数等于群 $G$ 的阶除以 $H$ 的阶。$G/H=((e,a),(b,f),(c,d))$。
+
+&emsp;&emsp;我们再分析 $H$ 的右陪集，$\forall \ g \in G$，有
+<div align=center><img src="figure/右陪集.jpg" width="100%" /></div>
+
+不难发现 $e \sim a$，$b \sim d$，$c \sim f$。所以 $H$ 的右陪集有3个，分别为 $(e,a)$，$(b,d)$，$(c,f)$，每个右陪集均和 $H$ 的元素个数相同，且右陪集个数等于群 $G$ 的阶除以 $H$ 的阶。$G/H=((e,a),(b,d),(c,f))$。
+
+&emsp;&emsp;需要注意的是虽然左陪集的元素个数等于右陪集的元素个数，但是左陪集和右陪集不一定相同哦。
 
 **示例1.3：**
 
@@ -697,3 +712,11 @@ $$
 **命题1.9：** 双射群的同态 $\varphi:G \rightarrow G'$ 是一个同构。
 
 &emsp;&emsp;我们先对性质 $(\ast)\ \ \ \forall \ g \in G,\ gH=Hg$ 进行分析，在等式两端同时乘 $g^{-1}$，便有 $\forall \ g \in G,\ gHg^{-1}=H$，并且呢 $(\ast\ast)\ \ \ \forall \ g \in G,\ gHg^{-1} \subseteq G$。这是因为 $\forall \ g \in G,\ gHg^{-1} \subseteq H$ 意味着 $H \subseteq g^{-1}Hg$。
+
+**命题1.10：** 令 $\varphi:G \rightarrow G'$ 是一个群同态，那么 $H=Ker \ \varphi$ 满足性质($\ast$)和($\ast\ast$)。
+
+&emsp;&emsp;证明：我们有
+$$
+\varphi(ghg^{-1})=\varphi(g)\varphi(h)\varphi(g^{-1})=\varphi(g)e'\varphi(g)^{-1}=\varphi(g)\varphi(g)^{-1}=e'
+$$
+$\forall \ h \in H=Ker \ \varphi$ 以及 $\forall \ g \in G$。所以，通过定义 $H=Ker \ \varphi$，我们有 $gHg^{-1} \subseteq H$。
