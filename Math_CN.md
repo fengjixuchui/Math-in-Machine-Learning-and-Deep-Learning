@@ -32,34 +32,34 @@
 &emsp;&emsp;我们首先引入笛卡尔积的概念：假设我们有集合 $A=\{a_1,a_2,a_3\}, B=\{b_1,b_2,b_3\}$，那么 $A$ 与 $B$ 的笛卡尔积记作 $A \circ B$，计算结果为有序数对，即 $A \circ B=\{(a,b)|a \in A,b \in B\}$ 。不难发现当 $A,B$ 的元素均为实数时，笛卡尔积表示平面直角坐标系。当然我们也可以定义某一种具体的运算方式，例如 $A+B$ （除此之外，我们还可以定义 "$-$" 以及 "$\times$" 运算），此时 $A+B=\{a+b|a \in A,b \in B\}$。当然，集合的元素不仅仅局限在实数范围内，更一般的，我们可以用字符串作为其元素，例如：$A=\{东，西\}，B=\{南，北\}$ 那么 $A \circ B = \{(东，南)，(东，北)，(西，南)，(西，北)\}$。那么经过笛卡尔积的运结果包含多少个元素呢？不难发现，当被作用的集合均为有限集时，最终计算结果的元素个数就是各个集合元素个数的乘积。
 
 ## 1.1 群、子群、陪集
-&emsp;&emsp;实数组成的集合$R$有两种运算操作：加法 $+$：$R + R \rightarrow R$ ，以及乘法 $\times$：$R \times R \rightarrow R$，实数集之间的加法和乘法运算本质上是一个阿贝尔群。接下来我们回忆一下群的定义。
+&emsp;&emsp;实数组成的集合 $\mathbb{R}$ 有两种运算操作：加法 $+$：$\mathbb{R} + \mathbb{R} \rightarrow \mathbb{R}$ ，以及乘法 $\times$：$\mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$，实数集之间的加法和乘法运算本质上是一个阿贝尔群。接下来我们回忆一下群的定义。
 
 **定义1.1：** 两个集合 $G$ 通过二元运算符操作 $\cdot$ 便可得到一个群<font color=#ea4335>（注：这里的 $\cdot$ 可取 $\times$ 或 $+$，下同）</font>，例如：$G \times G \rightarrow G$ <font color=#ea4335>（当且仅当<u>三个 $G$ 都相同</u>的情况下才叫二元运算，且本章仅对二元运算进行讨论）</font>，该运算操作可以将集合中的每一组元素 $a,b\in G$ 进行有效的结合，从而得到 $a\cdot b\in G$。我们先对一些计算的结果是否为二元运算进行讨论：
-> 1、我们有 $Z \cdot Z \rightarrow Z$，其中 $Z$ 表示整数集
+> 1、我们有 $\mathbb{Z} \cdot \mathbb{Z} \rightarrow \mathbb{Z}$，其中 $\mathbb{Z}$ 表示整数集
 >> (1)、当 $\cdot$ 表示 $+$ 时，是二元运算；<br>
 >> (2)、当 $\cdot$ 表示 $-$ 时，是二元运算；<br>
 >> (3)、当 $\cdot$ 表示 $\times$ 时，是二元运算；<br>
 >> (4)、当 $\cdot$ 表示 $\div$ 时，不是二元运算，因为分母不能为0，且两个整数相除的计算结果不一定为整数。
 
-> 2、我们有 $Z \cdot Z \rightarrow Z$，其中 $Z=Z-\{0\}$ 表示非零整数集
+> 2、我们有 $\mathbb{Z} \cdot \mathbb{Z} \rightarrow \mathbb{Z}$，其中 $\mathbb{Z}=\mathbb{Z}-\{0\}$ 表示非零整数集
 >> (1)、当 $\cdot$ 表示 $+$ 时，不是二元运算，因为相反数的和为0；<br>
 >> (2)、当 $\cdot$ 表示 $-$ 时，不是二元运算，因为相同数的差为0；<br>
 >> (3)、当 $\cdot$ 表示 $\times$ 时，是二元运算；<br>
 >> (4)、当 $\cdot$ 表示 $\div$ 时，不是二元运算，因为商不一定为整数。
 
-> 3、我们有 $R^+ \cdot R^+ \rightarrow R^+$，其中 $R^+$ 表示正实数集
+> 3、我们有 $\mathbb{R}^+ \cdot \mathbb{R}^+ \rightarrow \mathbb{R}^+$，其中 $\mathbb{R}^+$ 表示正实数集
 >> (1)、当 $\cdot$ 表示 $+$ 时，是二元运算；<br>
 >> (2)、当 $\cdot$ 表示 $-$ 时，不是二元运算，因为计算结果可能为0或者负数；<br>
 >> (3)、当 $\cdot$ 表示 $\times$ 时，是二元运算；<br>
 >> (4)、当 $\cdot$ 表示 $\div$ 时，是二元运算。
 
-> 4、我们有 $Q \cdot Q \rightarrow Q$，其中 $Q=Q-\{0\}$ 表示非零有理数集
+> 4、我们有 $\mathbb{Q} \cdot \mathbb{Q} \rightarrow \mathbb{Q}$，其中 $\mathbb{Q}=\mathbb{Q}-\{0\}$ 表示非零有理数集
 >> (1)、当 $\cdot$ 表示 $+$ 时，不是二元运算，因为相反数的和为0；<br>
 >> (2)、当 $\cdot$ 表示 $-$ 时，不是二元运算，因为相同数的差为0；<br>
 >> (3)、当 $\cdot$ 表示 $\times$ 时，是二元运算；<br>
 >> (4)、当 $\cdot$ 表示 $\div$ 时，是二元运算。
 
-> 5、我们有 $V \cdot V \rightarrow V$，其中 $V$ 表示元素为实数的向量，即 $V=\{a_i|a_i \in R\}$，由于向量加法的运算方式为：$\{a_1,a_2,a_3\}+\{b_1,b_2,b_3\}=\{a_1+b_1,a_2+b_2,a_3+b_3\}$，即对应位置元素相加，不难发现其计算结果的元素仍然为实数，所以该运算过程为二元运算。
+> 5、我们有 $V \cdot V \rightarrow V$，其中 $V$ 表示元素为实数的向量，即 $V=\{a_i|a_i \in \mathbb{R}\}$，由于向量加法的运算方式为：$\{a_1,a_2,a_3\}+\{b_1,b_2,b_3\}=\{a_1+b_1,a_2+b_2,a_3+b_3\}$，即对应位置元素相加，不难发现其计算结果的元素仍然为实数，所以该运算过程为二元运算。
 
 > 6、我们有 $M_n \cdot M_n \rightarrow M_n$，其中 $M_n$ 表示实数组成的 $n$ 阶方阵，不难发现 $n$ 阶实数方阵相加的结果仍为 $n$ 阶实数方阵， $n$ 阶实数方阵相减的结果仍为 $n$ 阶实数方阵， $n$ 阶实数方阵相乘的结果仍为 $n$ 阶实数方阵，所以上述运算均为二元运算。
 
@@ -72,17 +72,17 @@
 
 左上角表示二元运算符，第一行表示集合 $A$，第一列也表示集合 $A$，剩余部分表示二元运算结果，可见运算结果和集合包含的元素是一致的。所以，判断是否封闭，我们只需要判断各部分间元素是否均相同即可。
 
-&emsp;&emsp;群具有四个性质：封闭性（$\forall a,b \in G \Rightarrow a \cdot b \in G$）、结合律、单位元素、逆元素。我们定义 $a,b,c$ 为集合 $G$ 中的元素，即 $a,b,c\in G$，$e$ 为集合 $G$ 的单位元素，且 $e\in G$ ，集合 $G$ 中的每一个元素均可逆，那么有下述等式恒成立（必须满足二元运算）：
+&emsp;&emsp;群具有四个性质：封闭性（$\forall a,b \in G \Rightarrow a \cdot b \in G$）、结合律、单位元素、逆元素。我们定义 $a,b,c$ 为集合 $G$ 中的元素，即 $a,b,c\in G$，$e$ 为集合 $G$ 的单位元素，且 $e\in G$ ，集合 $G$ 中的每一个元素均可逆，那么有下述等式恒成立（这里的 $\cdot$ 必须满足二元运算）：
 
 （等式1：结合律）$a \cdot(b \cdot c)=(a \cdot b) \cdot c$
 
 （等式2：单位元）$a \cdot e=e \cdot a=a$
 
-（等式3：逆元素）对于集合$G$中的每一个元素$a$，$a \in G$，都有$a^{-1} \in G$，满足$a \cdot a^{-1}=a^{-1} \cdot a=e$
+（等式3：逆元素）对于集合 $G$ 中的每一个元素 $a$，$a \in G$，都有 $a^{-1} \in G$，满足 $a \cdot a^{-1}=a^{-1} \cdot a=e$
 
 &emsp;&emsp;交换律：对于群 $G$ 中任意的两个元素 $a,b$ ，即 $a,b \in G$，若 $a \cdot b=b \cdot a$，那么我们称群 $G$ 是可交换的，也称之为<font color=#ea4335>阿贝尔群</font>。若图1.1中蓝色部分组成的方阵中的元素关于主对角线对称，即 $a_{ij}=a_{ji}$，此时就满足交换律。
 
-&emsp;&emsp;两个实数集 $M$ 使用二元运算符 $\cdot$ 进行运算：$M \times M \rightarrow M$，若元素仅仅满足结合律（<u>当元素个数较少时，我们可以遍历每一种情况判断是否相等</u>）和单位元，那么我们将其称作<font color=#ea4335>独异点</font>。例如，两个由自然数组成的集合 $N=\{0,1,\cdots,n,\cdots \}$ 进行加法运算，构成可交换独异点，但由于其不满足等式3，所以不能被称为群。我们接下来给出几个群的例子供大家学习。
+&emsp;&emsp;两个实数集 $M$ 使用二元运算符 $\cdot$ 进行运算：$M \times M \rightarrow M$，若元素仅仅满足结合律（<u>当元素个数较少时，我们可以遍历每一种情况判断是否相等</u>）和单位元，那么我们将其称作<font color=#ea4335>独异点</font>。例如，两个由自然数组成的集合 $\mathbb{N}=\{0,1,\cdots,n,\cdots \}$ 进行加法运算，构成可交换独异点，但由于其不满足等式3，所以不能被称为群。我们接下来给出几个群的例子供大家学习。
 
 <div align=center><img src="figure/群的判断.jpg" width="100%"/></div>
 <center>
@@ -91,65 +91,65 @@
 
 **示例1.1：**
 
-&emsp;&emsp;1. 将两个集合 $Z=\{\cdots,-n,\cdots,-1,0,1,\cdots,n,\cdots\}$ 进行相加便构成一个单位元为0的阿贝尔群。但是两个 $Z^*$ 进行相乘并不能得到群，其中 $Z^*=Z-\{0\}$ 。分析过程如下：
+&emsp;&emsp;1. 将两个集合 $\mathbb{Z}=\{\cdots,-n,\cdots,-1,0,1,\cdots,n,\cdots\}$ 进行相加便构成一个单位元为0的阿贝尔群。但是两个 $\mathbb{Z}^*$ 进行相乘并不能得到群，其中 $\mathbb{Z}^*=\mathbb{Z}-\{0\}$ 。分析过程如下：
 
 （1） 相加
 
-&emsp;&emsp;a、封闭性：$\forall a,b \in Z$，我们都有 $a+b \in Z$，所以满足封闭性。
+&emsp;&emsp;a、封闭性：$\forall a,b \in \mathbb{Z}$，我们都有 $a+b \in \mathbb{Z}$，所以满足封闭性。
 
-&emsp;&emsp;b、结合律：$\forall a,b,c \in Z$，我们都有 $(a+b)+c=a+(b+c)$，所以满足结合律。
+&emsp;&emsp;b、结合律：$\forall a,b,c \in \mathbb{Z}$，我们都有 $(a+b)+c=a+(b+c)$，所以满足结合律。
 
-&emsp;&emsp;c、单位元：$\forall a \in Z$，我们都有 $a+0=0+a=a$，所以满足单位元。
+&emsp;&emsp;c、单位元：$\forall a \in \mathbb{Z}$，我们都有 $a+0=0+a=a$，所以满足单位元。
 
-&emsp;&emsp;d、逆元素：$\forall a \in Z$，我们都有 $a+b=0$，且 $b \in Z$，所以满足逆元素。
+&emsp;&emsp;d、逆元素：$\forall a \in \mathbb{Z}$，我们都有 $a+b=0$，且 $b \in \mathbb{Z}$，所以满足逆元素。
 
-&emsp;&emsp;e、交换律：$\forall a,b \in Z$，我们都有 $a+b=b+a$，所以满足交换律。
+&emsp;&emsp;e、交换律：$\forall a,b \in \mathbb{Z}$，我们都有 $a+b=b+a$，所以满足交换律。
 
-&emsp;&emsp;综上，$Z$ 是单位元为0的阿贝尔群。
+&emsp;&emsp;综上，$\mathbb{Z}$ 是单位元为0的阿贝尔群。
 
 （2） 相乘
 
-&emsp;&emsp;a、封闭性：$\forall a,b \in Z^*$，我们都有 $a \times b \in Z^*$，所以满足封闭性。
+&emsp;&emsp;a、封闭性：$\forall a,b \in \mathbb{Z}^*$，我们都有 $a \times b \in \mathbb{Z}^*$，所以满足封闭性。
 
-&emsp;&emsp;b、结合律：$\forall a,b,c \in Z^*$，我们都有 $(a \times b) \times c=a \times (b \times c)$，所以满足结合律。
+&emsp;&emsp;b、结合律：$\forall a,b,c \in \mathbb{Z}^*$，我们都有 $(a \times b) \times c=a \times (b \times c)$，所以满足结合律。
 
-&emsp;&emsp;c、单位元：$\forall a \in Z^*$，我们都有 $a \times 1=1 \times a=a$，所以满足单位元。
+&emsp;&emsp;c、单位元：$\forall a \in \mathbb{Z}^*$，我们都有 $a \times 1=1 \times a=a$，所以满足单位元。
 
-&emsp;&emsp;d、逆元素：$\forall a \in Z^*$，我们不一定有 $b \times a=1,b \in Z$，所以不满足逆元素。
+&emsp;&emsp;d、逆元素：$\forall a \in \mathbb{Z}^*$，我们不一定有 $b \times a=1,b \in \mathbb{Z}^*$，所以不满足逆元素。
 
-&emsp;&emsp;综上，$Z$ 不是群，仅为独异点。需要注意的是 $Z,Z^*$ 的元素均为无限的。
+&emsp;&emsp;综上，$\mathbb{Z}^*$ 不是群，仅为独异点。需要注意的是 $\mathbb{Z},\mathbb{Z}^*$ 的元素个数均为无限的。
 
-&emsp;&emsp;2. 通过将两个有理数组成的集合 $Q$（集合中的元素均可写为 $p/q$ 的形式，其中 $p,q\in Z$ 且 $q\neq0$）进行相加，可以得到一个单位元为0的阿贝尔群。将两个集合 $Q^*$ 进行相乘也可得到一个单位元为1的阿贝尔群，其中 $Q^*=Q-\{0\}$。分析过程如下：
+&emsp;&emsp;2. 通过将两个有理数组成的集合 $\mathbb{Q}$（集合中的元素均可写为 $p/q$ 的形式，其中 $p,q\in \mathbb{Z}$ 且 $q\neq0$）进行相加，可以得到一个单位元为0的阿贝尔群。将两个集合 $\mathbb{Q}^*$ 进行相乘也可得到一个单位元为1的阿贝尔群，其中 $\mathbb{Q}^*=\mathbb{Q}-\{0\}$。分析过程如下：
 
 （1） 相加
 
-&emsp;&emsp;a、封闭性：$\forall a,b \in Q$，我们都有 $a+b \in Q$，所以满足封闭性。
+&emsp;&emsp;a、封闭性：$\forall a,b \in \mathbb{Q}$，我们都有 $a+b \in \mathbb{Q}$，所以满足封闭性。
 
-&emsp;&emsp;b、结合律：$\forall a,b,c \in Q$，我们都有 $(a+b)+c=a+(b+c)$，所以满足结合律。
+&emsp;&emsp;b、结合律：$\forall a,b,c \in \mathbb{Q}$，我们都有 $(a+b)+c=a+(b+c)$，所以满足结合律。
 
-&emsp;&emsp;c、单位元：$\forall a \in Q$，我们都有 $a+0=0+a=a$，所以满足单位元。
+&emsp;&emsp;c、单位元：$\forall a \in \mathbb{Q}$，我们都有 $a+0=0+a=a$，所以满足单位元。
 
-&emsp;&emsp;d、逆元素：$\forall a \in Q$，我们都有 $a+b=0,b \in Q$，所以满足逆元素。
+&emsp;&emsp;d、逆元素：$\forall a \in \mathbb{Q}$，我们都有 $a+b=0,b \in \mathbb{Q}$，所以满足逆元素。
 
-&emsp;&emsp;e、交换律：$a,b \in Q$，我们都有 $a+b=b+a$，所以满足交换律。
+&emsp;&emsp;e、交换律：$a,b \in \mathbb{Q}$，我们都有 $a+b=b+a$，所以满足交换律。
 
-&emsp;&emsp;综上，$Q$ 是单位元为0的阿贝尔群。
+&emsp;&emsp;综上，$\mathbb{Q}$ 是单位元为0的阿贝尔群。
 
 （2） 相乘
 
-&emsp;&emsp;a、封闭性：$\forall a,b \in Q^*$，我们都有 $a \times b \in Q^*$，所以满足封闭性。
+&emsp;&emsp;a、封闭性：$\forall a,b \in \mathbb{Q}^*$，我们都有 $a \times b \in \mathbb{Q}^*$，所以满足封闭性。
 
-&emsp;&emsp;b、结合律：$\forall a,b,c \in Q^*$，我们都有 $(a \times b) \times c=a \times (b \times c)$，所以满足结合律。
+&emsp;&emsp;b、结合律：$\forall a,b,c \in \mathbb{Q}^*$，我们都有 $(a \times b) \times c=a \times (b \times c)$，所以满足结合律。
 
-&emsp;&emsp;c、单位元：$\forall a \in Q^*$，我们都有 $a \times 1=1 \times a=a$，所以满足单位元。
+&emsp;&emsp;c、单位元：$\forall a \in \mathbb{Q}^*$，我们都有 $a \times 1=1 \times a=a$，所以满足单位元。
 
-&emsp;&emsp;d、逆元素：$\forall a \in Q^*$，我们都有 $a \times b=1,b \in Q^*$，所以满足逆元素。
+&emsp;&emsp;d、逆元素：$\forall a \in \mathbb{Q}^*$，我们都有 $a \times b=1,b \in \mathbb{Q}^*$，所以满足逆元素。
 
-&emsp;&emsp;e、交换律：$a,b \in Q^*$，我们都有 $a \times b=b \times a$，所以满足交换律。
+&emsp;&emsp;e、交换律：$a,b \in \mathbb{Q}^*$，我们都有 $a \times b=b \times a$，所以满足交换律。
 
-&emsp;&emsp;综上，$Q^*$ 是单位元为1的阿贝尔群。需要注意的是 $Q,Q^*$ 的元素均为无限的。
+&emsp;&emsp;综上，$\mathbb{Q}^*$ 是单位元为1的阿贝尔群。需要注意的是 $\mathbb{Q},\mathbb{Q}^*$ 的元素个数均为无限的。
 
-&emsp;&emsp;我们发现上述的群都满足交换律，那么有没有不满足交换律的群呢？我们在这里给出一个例子加以说明。 $M^+$ 为由无穷个 $n \times n$ 的可逆方阵（行列式不为0，且元素均为实数）构成的集合，那么 $M^+ \times M^+$ 是不是群呢?分析过程如下：
+&emsp;&emsp;我们发现上述的群都满足交换律，那么有没有不满足交换律的群呢？我们在这里给出一个例子加以说明。 $M^+$ 为由无穷个 $n \times n$ 的可逆方阵（行列式不为0，且元素均为实数）构成的集合，那么 $M^+ \times M^+$ 是不是群呢？分析过程如下：
 
 &emsp;&emsp;a、封闭性：我们取 $\forall A,B \in M^+$，都有 $A \times B \in M^+$，所以满足封闭性。
 
@@ -201,10 +201,10 @@ $$
 
 &emsp;&emsp;故而 $f \circ g \circ h(a)$ 的复合结果为群，且为对称群。这部分知识来自于[知乎专栏](https://zhuanlan.zhihu.com/p/85203425)。
 
-&emsp;&emsp;4. 对于任意的正整数 $p \in N$，定义在 $Z$ 上的同余关系记作 $m \equiv n \ (mod\ p)$，具体定义如下：
+&emsp;&emsp;4. 对于任意的正整数 $p \in \mathbb{N}$，定义在 $\mathbb{Z}$ 上的同余关系记作 $m \equiv n \ (mod\ p)$，具体定义如下：
 
 $$
-m \equiv n \ (mod\ p) \ \Leftrightarrow \ m-n=kp \ ,存在k \in Z
+m \equiv n \ (mod\ p) \ \Leftrightarrow \ \exists  \ k \in \mathbb{Z}, \ m-n=kp
 $$
 其中，$\equiv$ 表示同余符号，即 $m \ mod \ p \equiv n \ mod \ p$ ，读者很容易证明这是一个恒等关系，此外，将同余号两边同时进行相加或相乘，相等关系不变，即若 $m_1 \equiv n_1 \ (mod\ p)$ 且 $m_2 \equiv n_2 \ (mod\ p)$ ，则 $m_1+m_2 \equiv n_1+n_2 \ (mod\ p)$ ， $m_1m_2 \equiv n_1n_2 \ (mod\ p)$ 。我们在这里给出一个算例：
 $$
@@ -218,23 +218,23 @@ $$
 [m]+[n]=[m+n]\\
 [m] \cdot [n]=[mn]
 $$
-读者很容易证明将一组对 $p$ 取余的同余类进行相加可以得到单位元为 $[0]$ 的阿贝尔群，我们将这个群记作 $Z/pZ$ 。分析过程如下：
+读者很容易证明将一组对 $p$ 取余的同余类进行相加可以得到单位元为 $[0]$ 的阿贝尔群，我们将这个群记作 $\mathbb{Z}/p\mathbb{Z}$ 。分析过程如下：
 
-根据上面的定义，我们可以用 $[n]$ 表示对 $p$ 取余为 $n$ 的同余类，那么该集合可以表示为 $[n]=\{a\ | \ a=kp+n,k \in Z\}$。
+根据上面的定义，我们可以用 $[n]$ 表示对 $p$ 取余为 $n$ 的同余类，那么该集合可以表示为 $[n]=\{a\ | \ a=kp+n,k \in \mathbb{Z}\}$。
 
-&emsp;&emsp;封闭性：$\forall \ [a],[b] \in Z$，都有 $[a+b] \in Z$，所以满足封闭性；
+&emsp;&emsp;封闭性：$\forall \ [a],[b] \in \mathbb{Z}$，都有 $[a+b] \in \mathbb{Z}$，所以满足封闭性；
 
-&emsp;&emsp;结合律：$\forall \ [a],[b],[c] \in Z$，都有 $[a+b]+[c]=[a]+[b+c]$，所以满足结合律；
+&emsp;&emsp;结合律：$\forall \ [a],[b],[c] \in \mathbb{Z}$，都有 $[a+b]+[c]=[a]+[b+c]$，所以满足结合律；
 
-&emsp;&emsp;单位元：$\forall \ [a] \in Z$，都有 $[a]+[0]=[0]+[a]=[a]$，所以满足单位元；
+&emsp;&emsp;单位元：$\forall \ [a] \in \mathbb{Z}$，都有 $[a]+[0]=[0]+[a]=[a]$，所以满足单位元；
 
-&emsp;&emsp;逆元素：$\forall \ [a] \in Z$，都有 $[a]+[-a]=[-a]+[a]=[0]$，且 $[-a] \in Z$，所以满足逆元素；
+&emsp;&emsp;逆元素：$\forall \ [a] \in \mathbb{Z}$，都有 $[a]+[-a]=[-a]+[a]=[0]$，且 $[-a] \in \mathbb{Z}$，所以满足逆元素；
 
-&emsp;&emsp;交换律：$\forall \ [a],[b] \in Z$，都有 $[a]+[b]=[b]+[a]$，所以满足交换律。
+&emsp;&emsp;交换律：$\forall \ [a],[b] \in \mathbb{Z}$，都有 $[a]+[b]=[b]+[a]$，所以满足交换律。
 
-&emsp;&emsp;综上，$Z/pZ=\{[0],[1],[2],\cdots,[p-1]\}$ 是一个单位元为 $[0]$ 的阿贝尔群。
+&emsp;&emsp;综上，$\mathbb{Z}/p\mathbb{Z}=\{[0],[1],[2],\cdots,[p-1]\}$ 是一个单位元为 $[0]$ 的阿贝尔群。这里我们需要注意的是 $[-a]=[n-a]$。
 
-&emsp;&emsp;5. 将一组元素为实数或复数的 $n \times n$ 的可逆矩阵进行相乘可以得到一个单位元为单位矩阵 $I_n$ 的群，这个群被称为一般线性群，对于元素为实数的记作 $GL(n,R)$，对于元素为复数的记作 $GL(n,C)$ 。假设我们有 $n$ 阶可逆矩阵 $A,B,C$ ，则有如下计算过程（和2相结合分析）：
+&emsp;&emsp;5. 将一组元素为实数或复数的 $n \times n$ 的可逆矩阵进行相乘可以得到一个单位元为单位矩阵 $I_n$ 的群，这个群被称为一般线性群，对于矩阵元素为实数的记作 $GL(n,\mathbb{R})$，对于矩阵元素为复数的记作 $GL(n,\mathbb{C})$ 。假设我们有 $n$ 阶可逆矩阵 $A,B,C$ ，则有如下计算过程（和2相结合分析）：
 $$
 结合律：(A \times B) \times C = A \times (B \times C)\\
 单位元：A \times I = I \times A = A\\
@@ -242,7 +242,7 @@ $$
 $$
 注：$\because$ 矩阵可逆的充要条件之一是它的行列式不等于0，$\therefore$ 两个可逆矩阵相乘得到矩阵仍然是可逆矩阵。
 
-&emsp;&emsp;6. 将一组元素为实数或复数的 $n \times n$ 的可逆矩阵 $A$ 进行相乘，其中矩阵的行列式为1，即 $det(A)=1$ ，可以得到一个单位元为单位矩阵 $I_n$ 的群，这个群被称为特殊线性群，对于元素为实数的记作 $SL(n,R)$， 对于元素为复数的记作 $SL(n,C)$ 。证明方式如5。
+&emsp;&emsp;6. 将一组元素为实数或复数的 $n \times n$ 的可逆矩阵 $A$ 进行相乘，其中矩阵的行列式为1，即 $det(A)=1$ ，可以得到一个单位元为单位矩阵 $I_n$ 的群，这个群被称为特殊线性群，对于元素为实数的记作 $SL(n,\mathbb{R})$， 对于元素为复数的记作 $SL(n,\mathbb{C})$ 。证明方式如5。
 
 &emsp;&emsp;7. 将一组元素为实数的 $n \times n$ 的矩阵 $Q$ 进行相乘，可以得到一个单位元为单位矩阵 $I_n$ 的群，其中矩阵 $Q$ 满足 $QQ^T=Q^TQ=I_n$ 。我们有 $Q^{-1}=Q^T$ ，这个群被称为正交群，记作 $O(n)$。
 
@@ -298,9 +298,9 @@ $$
 
 **定义1.2：** 若群 $G$ 由有限的 $n$ 个元素组成，我们称群 $G$ 为 $n$ 阶群。若群 $G$ 的元素个数是无穷的，我们称群 $G$ 为无穷阶群。若群为有限群，那么其阶数我们使用符号 $|G|$ 进行表示。除此之外，我们还可对群中某个元素的阶进行分析。在一个群 $G$ 中，使得满足 $a \cdot a \cdot \ \cdots\  \cdot a=e$ （共计 $n$ 个元素 $a$ 做二元运算）的最小正整数 $n$ 叫做 $a$ 的阶，若这样的 $n$ 不存在，称 $a$ 是无穷阶，或者叫 $a$ 的阶是无穷。
 
-&emsp;&emsp;例如 $G=Z$，我们有二元运算 $+$，使得 $G + G \rightarrow G$，不难发现 $G$ 是幺元为0的阿贝尔群。那么，当 $a=e$ 时满足 $e=e$，所以 $e$ 的阶为1，对于其它 $a \neq e$ 的元素呢，显然不论多少个 $a$ 进行相加都得不到 $e$，所以我们说这些元素阶都是无穷的。
+&emsp;&emsp;例如 $G=\mathbb{Z}$，我们有二元运算 $+$，使得 $G + G \rightarrow G$，不难发现 $G$ 是幺元为0的阿贝尔群。那么，当 $a=e$ 时满足 $e=e$，所以 $e$ 的阶为1，对于其它 $a \neq e$ 的元素呢，显然不论多少个 $a$ 进行相加都得不到 $e$，所以我们说这些元素阶都是无穷的。
 
-&emsp;&emsp;例如 $G=Q-\{0\}$，我们有二元运算 $\times$，使得 $G \times G \rightarrow G$，不难发现 $G$ 是幺元为1的阿贝尔群。那么，当 $a=e$ 时满足 $e=e$，所以 $e$ 的阶为1，对于其它 $a \neq e$ 的元素呢，显然-1的偶次幂为1，所以其阶为2，除了1、-1之外，不论多少个 $a$ 进行相乘都得不到 $e$，所以我们说这些元素阶都是无穷的。
+&emsp;&emsp;例如 $G=\mathbb{Q}-\{0\}$，我们有二元运算 $\times$，使得 $G \times G \rightarrow G$，不难发现 $G$ 是幺元为1的阿贝尔群。那么，当 $a=e$ 时满足 $e=e$，所以 $e$ 的阶为1，对于其它 $a \neq e$ 的元素呢，显然-1的偶次幂为1，所以其阶为2，除了1、-1之外，不论多少个 $a$ 进行相乘都得不到 $e$，所以我们说这些元素阶都是无穷的。
 
 &emsp;&emsp;我们目前接触到的群都为无穷阶群，那么有没有有限群呢？我们在这里给出一个例子：集合 $G=\{1,\frac{-1+ \sqrt{3} \imath}{2},\frac{-1- \sqrt{3} \imath}{2}\}$，我们对其做二元运算 $G \times G \rightarrow G$，可以得到单位元为1的阿贝尔群，验证过程如下：
 
@@ -363,9 +363,9 @@ $$
 </center>
 其中“象”指函数对变量的映射结果。
 
-&emsp;&emsp;1、我们令 $A=R$，$\bar{A}=R^+$，其中 $A$ 上的二元运算为 $+$，$\bar{A}$ 上的二元运算为 $\times$，作用方式 $\varphi$ 为 $x \rightarrow e^x$，即求某一个变量的指数函数值。那么，$\forall x,y \in A,\overline{x+y}=e^{x+y}=e^{x}e^{y}=\bar{x}\bar{y}=\bar{x} \times \bar{y}$，故而为同态映射。这里的作用方式为双射。
+&emsp;&emsp;1、我们令 $A=\mathbb{R}$，$\bar{A}=\mathbb{R}^+$，其中 $A$ 上的二元运算为 $+$，$\bar{A}$ 上的二元运算为 $\times$，作用方式 $\varphi$ 为 $x \rightarrow e^x$，即求某一个变量的指数函数值。那么，$\forall x,y \in A,\overline{x+y}=e^{x+y}=e^{x}e^{y}=\bar{x}\bar{y}=\bar{x} \times \bar{y}$，故而为同态映射。这里的作用方式为双射。
 
-&emsp;&emsp;2、我们有 $A=Z$，$A$ 上的二元运算为 $+$，$\bar{A}=\{1,-1\}$，$\bar{A}$ 上的二元运算为 $\times$，作用方式 $\varphi_1: \forall a \in A, a \rightarrow 1$。不难发现，$\forall a,b \in A$ 有 $a \cdot b = a+b \in A$，所以 $\overline{a+b}=\varphi_1(a+b)=1$。而对于 $\bar{a} \bar{\cdot} \bar{b}=\varphi_1(a) \times \varphi_1(b)=1 \times 1=1$，综上，$\overline{a+b}=\bar{a} \bar{\cdot} \bar{b}$，所以为同态映射。这里的作用方式为非满射，非单射。
+&emsp;&emsp;2、我们有 $A=\mathbb{Z}$，$A$ 上的二元运算为 $+$，$\bar{A}=\{1,-1\}$，$\bar{A}$ 上的二元运算为 $\times$，作用方式 $\varphi_1: \forall a \in A, a \rightarrow 1$。不难发现，$\forall a,b \in A$ 有 $a \cdot b = a+b \in A$，所以 $\overline{a+b}=\varphi_1(a+b)=1$。而对于 $\bar{a} \bar{\cdot} \bar{b}=\varphi_1(a) \times \varphi_1(b)=1 \times 1=1$，综上，$\overline{a+b}=\bar{a} \bar{\cdot} \bar{b}$，所以为同态映射。这里的作用方式为非满射，非单射。
 
 &emsp;&emsp;3、在2中若把映射方式改为 $\varphi_2: \forall a \in A, a \rightarrow -1$，此时不难发现 $\overline{a+b}=\varphi_2(a+b)=-1$，$\bar{a} \bar{\cdot} \bar{b}=\varphi_2(a) \times \varphi_2(b)=(-1) \times (-1)=1$，故而不为同态映射。
 
@@ -415,19 +415,19 @@ $$
 
 **命题1.5：** 给定有限群 $G$，其子集 $H \subseteq G$ 是群 $G$ 的子群 $\Leftrightarrow$ （1） $e \in H$; （2） 两个 $H$ 做乘积运算后得到的结果是封闭的。
 
-证明：我们先证明必要性 $\Rightarrow$，由于 $H$ 是 $G$ 的子群，所以其肯定满足封闭性且具有单位元 $e$；我们再证明充分性 $\Leftarrow$，封闭性——命题1.5的（2）就是封闭性的定义。结合律——乘积运算满足结合律。单位元——命题1.5的（1）就是单位元。逆元素—— $\forall \ a \in H$，根据封闭性可知 $a,a^1,a^2,\cdots,a^n \in H$，因为 $H$ 的元素个数有限，所以 $\exists \ i,j \in N \ (j>i) \ ,使得 \ a^i=a^j$，这里是为什么呢？若某个元素的 $n$ 次幂之间都不相等，那必然造成集合元素个数是无穷的，这与元素个数有限相悖，所以要使集合的元素个数有限，那元素的 $n$ 次幂的计算结果之间一定存在"周期性"。不难发现 $a^j=a^ia^{j-i}$，由于 $a^i=a^j$，那么 $a^{j-i}=1$，也即 $aa^{j-i-1}=1$。若 $j-i>1$，那么 $a^{-1}=a^{j-i-1} \in H$。若 $j-i=1$，那么 $a=1$，故而 $a^{-1}=a \in H$，因此 $\forall \ a \in H,都有  \ a^{-1} \in H,且 \ aa^{-1}=e \in H$。得证逆元素存在。综上所述，命题1.5成立。这部分知识来自于[百度文库](https://wenku.baidu.com/view/3e3b660a79563c1ec5da7184.html?sxts=1583120406111)。
+证明：我们先证明必要性 $\Rightarrow$，由于 $H$ 是 $G$ 的子群，所以其肯定满足封闭性且具有单位元 $e$；我们再证明充分性 $\Leftarrow$，封闭性——命题1.5的（2）就是封闭性的定义。结合律——乘积运算满足结合律。单位元——命题1.5的（1）就是单位元。逆元素—— $\forall \ a \in H$，根据封闭性可知 $a,a^1,a^2,\cdots,a^n \in H$，因为 $H$ 的元素个数有限，所以 $\exists \ i,j \in \mathbb{N} \ (j>i) \ ,使得 \ a^i=a^j$，这里是为什么呢？若某个元素的 $n$ 次幂之间都不相等，那必然造成集合元素个数是无穷的，这与元素个数有限相悖，所以要使集合的元素个数有限，那元素的 $n$ 次幂的计算结果之间一定存在"周期性"。不难发现 $a^j=a^ia^{j-i}$，由于 $a^i=a^j$，那么 $a^{j-i}=1$，也即 $aa^{j-i-1}=1$。若 $j-i>1$，那么 $a^{-1}=a^{j-i-1} \in H$。若 $j-i=1$，那么 $a=1$，故而 $a^{-1}=a \in H$，因此 $\forall \ a \in H,都有  \ a^{-1} \in H,且 \ aa^{-1}=e \in H$。得证逆元素存在。综上所述，命题1.5成立。这部分知识来自于[百度文库](https://wenku.baidu.com/view/3e3b660a79563c1ec5da7184.html?sxts=1583120406111)。
 
 **示例1.2：**
 
-&emsp;&emsp;1. 对于任意的整数 $n \in Z$，集合 $nZ=\{nk\ |\ k \in Z\}$ 是群 $Z$ 的子群。
+&emsp;&emsp;1. 对于任意的整数 $n \in \mathbb{Z}$，集合 $n\mathbb{Z}=\{nk\ |\ k \in \mathbb{Z}\}$ 是群 $\mathbb{Z}$ 的子群。
 
-&emsp;&emsp;2. 对于 $n \times n$ 的可逆矩阵而言，若其满足 $GL^{+}(n,R)=\{A \in GL(n,R)\ |\ det(A)>0\}$，此时 $GL^{+}(n,R)$ 是群 $GL(n,R)$ 的子群。
+&emsp;&emsp;2. 对于 $n \times n$ 的可逆矩阵而言，若其满足 $GL^{+}(n,\mathbb{R})=\{A \in GL(n,\mathbb{R})\ |\ det(A)>0\}$，此时 $GL^{+}(n,\mathbb{R})$ 是群 $GL(n,\mathbb{R})$ 的子群。
 
-&emsp;&emsp;3. 群 $SL(n,R)$ 是群 $GL(n,R)$ 的子群。
+&emsp;&emsp;3. 群 $SL(n,\mathbb{R})$ 是群 $GL(n,\mathbb{R})$ 的子群。
 
-&emsp;&emsp;4. 群 $O(n)$ 是群 $GL(n,R)$ 的子群。
+&emsp;&emsp;4. 群 $O(n)$ 是群 $GL(n,\mathbb{R})$ 的子群。
 
-&emsp;&emsp;5. 群 $SO(n)$ 是群 $O(n)$ 的子群，同时也是群 $SL(n,R)$ 的子群。
+&emsp;&emsp;5. 群 $SO(n)$ 是群 $O(n)$ 的子群，同时也是群 $SL(n,\mathbb{R})$ 的子群。
 
 &emsp;&emsp;6. 不难发现，每一个 $2 \times 2$ 的旋转矩阵 $R \in SO(2)$ 都可以被写作
 $$
@@ -559,9 +559,9 @@ $$
    a & b\\
    0 & c
  \end{matrix}
-\right)\ \ a,b,c \in R\ \ \ \ a,c \neq 0
+\right)\ \ a,b,c \in \mathbb{R}\ \ \ \ a,c \neq 0
 $$
-&emsp;&emsp; 是群 $GL(2,R)$ 的子群。
+&emsp;&emsp; 是群 $GL(2,\mathbb{R})$ 的子群。
 
 &emsp;&emsp;8. 集合 $V$ 由4个矩阵组成，这些矩阵的具体形式如下
 $$
@@ -572,7 +572,7 @@ $$
  \end{matrix}
 \right)
 $$
-集合 $V$ 是群 $GL(2,R)$ 的子群，被称为克莱因四元群。
+集合 $V$ 是群 $GL(2,\mathbb{R})$ 的子群，被称为克莱因四元群。
 
 **定义1.5：** 若 $H$ 为 $G$ 的一个子群，并且对于任意的 $g \in G$，形如 $gH$ 的计算方式称为 $H$ 在 $G$ 中的左陪集，形如 $Hg$ 的计算方式称为 $H$ 在 $G$ 中的右陪集。$H$ 的左陪集（右陪集亦同）中包含一种等价关系 $\sim$（$a \sim b \Leftrightarrow ab^{-1} \in H$，$a \sim b \Leftrightarrow b^{-1}a \in H$） ，定义如下：对于所有的 $g_1,g_2 \in G$ 有
 $$
@@ -584,7 +584,7 @@ $$
 
 显然，$\sim$ 是一种等价关系。我们这里先说明<font color=#ea4335>关系</font>的定义：对于 $R：A \times A \rightarrow D$，其中 $D=\{对，错\}$，$R$ 为Relation的首字母，若 $R(a,b)=对$，那么我们说 $(a,b)$ 满足关系 $R$，记为 $aRb$。例如：$A=\{1,2\}$，$R$ 表示 $>$，那么 $>(1,2)=\{错\}，>(2,1)=\{对\}$，所以 $(2,1)$ 满足关系 $>$，记为 $2>1$。那么什么是<font color=#ea4335>等价关系</font>呢？等价关系首先应该满足关系，除此之外还要满足：（1）反身性：$\forall a \in A,a \sim a$;（2）对称性：$\forall a,b \in A$，若 $a \sim b$，则 $b \sim a$;（3）传递性：$\forall a,b,c \in A$，若 $a \sim b,b \sim c$，则 $a \sim c$。例如：相等、三角形相似、三角形全等都是等价关系。我们给出一个例子加以说明：
 
-&emsp;&emsp;例：我们有 $A=Z$，关系定义如下：当 $a=b \ (mod\ n)$ 时，$R(a,b) \rightarrow 对$，否则，$R(a,b) \rightarrow 错$，其中 $n$ 为正整数。我们来验证 $R$ 满足等价关系：
+&emsp;&emsp;例：我们有 $A=\mathbb{Z}$，关系定义如下：当 $a=b \ (mod\ n)$ 时，$R(a,b) \rightarrow 对$，否则，$R(a,b) \rightarrow 错$，其中 $n$ 为正整数。我们来验证 $R$ 满足等价关系：
 
 （1）：$R(a,a) \Rightarrow a\  mod \ n=a\  mod \ n$ 恒成立，所以满足反身性；
 
@@ -629,26 +629,26 @@ $c \ mod \ n \Rightarrow a \ mod \ n=c\ mod \ n$，所以满足传递性。
 
 **示例1.3：**
 
-&emsp;&emsp;1. $n$ 是任意的一个正整数，$Z$ （此处的二元运算为 $+$，即 $Z+Z \rightarrow Z$）的子群 $nZ$。0的陪集是集合 $\{0\}$，并且任何非零整数 $m \in Z$ 的陪集是：
+&emsp;&emsp;1. $n$ 是任意的一个正整数，$\mathbb{Z}$ （此处的二元运算为 $+$，即 $\mathbb{Z}+\mathbb{Z} \rightarrow \mathbb{Z}$）的子群 $n\mathbb{Z}$。0的陪集是集合 $\{0\}$，并且任何非零整数 $m \in \mathbb{Z}$ 的陪集是：
 $$
-m+nZ=\{m+nk|k \in Z\}
+m+n\mathbb{Z}=\{m+nk|k \in \mathbb{Z}\}
 $$
-&emsp;&emsp;通过用 $n$ 除 $m$，对于 $0 \leq r \leq n-1$ 存在 $r$ 满足 $m=nq+r$。同时我们会发现 $r$ 是陪集 $m+nZ$ 的最小正元素。这意味着 $nZ$的陪集与以 $n$ 为模的余数组成的集合 $\{0,1,\cdots,n-1\}$ 之间满足双射关系，或者说 $Z$ 的子群 $nZ$ 的陪集与 $Z/nZ$ 之间满足双射关系。
+&emsp;&emsp;通过用 $n$ 除 $m$，对于 $0 \leq r \leq n-1$ 存在 $r$ 满足 $m=nq+r$。同时我们会发现 $r$ 是陪集 $m+n\mathbb{Z}$ 的最小正元素。这意味着 $n\mathbb{Z}$的陪集与以 $n$ 为模的余数组成的集合 $\{0,1,\cdots,n-1\}$ 之间满足双射关系，或者说 $\mathbb{Z}$ 的子群 $n\mathbb{Z}$ 的陪集与 $\mathbb{Z}/n\mathbb{Z}$ 之间满足双射关系。
 
-&emsp;&emsp;2. $SL(n,R)$ 是 $GL(n,R)$ 的子群，$SL(n,R)$ 的陪集是矩阵组成的集合：
+&emsp;&emsp;2. $SL(n,\mathbb{R})$ 是 $GL(n,\mathbb{R})$ 的子群，$SL(n,\mathbb{R})$ 的陪集是矩阵组成的集合：
 $$
-A \ SL(n,R)=\{AB \ | \ B \in SL(n,R)\}, \ A \in GL(n,R)
+A \ SL(n,\mathbb{R})=\{AB \ | \ B \in SL(n,\mathbb{R})\}, \ A \in GL(n,\mathbb{R})
 $$
-&emsp;&emsp;由于 $A$ 可逆，所以其行列式不为零 $det(A) \neq 0$，并且当 $det(A)>0$ 时我们可以将矩阵 $A$ 写作 $A=(det(A))^{1/n}((det(A))^{-1/n}A)$，当 $det(A)<0$ 时我们可以将矩阵 $A$ 写作 $A=(-det(A))^{1/n}((-det(A))^{-1/n}A)$。但是，当 $det(A)>0$ 时 $(det(A))^{-1/n}A \in SL(n,R)$；当 $det(A)<0$ 时，$-(-det(A))^{-1/n}A \in SL(n,R)$，所以陪集 $A \ SL(n,R)$ 包含矩阵：
+&emsp;&emsp;由于 $A$ 可逆，所以其行列式不为零 $det(A) \neq 0$，并且当 $det(A)>0$ 时我们可以将矩阵 $A$ 写作 $A=(det(A))^{1/n}((det(A))^{-1/n}A)$，当 $det(A)<0$ 时我们可以将矩阵 $A$ 写作 $A=(-det(A))^{1/n}((-det(A))^{-1/n}A)$。但是，当 $det(A)>0$ 时 $(det(A))^{-1/n}A \in SL(n,\mathbb{R})$；当 $det(A)<0$ 时，$-(-det(A))^{-1/n}A \in SL(n,\mathbb{R})$，所以陪集 $A \ SL(n,\mathbb{R})$ 包含矩阵：
 $$
 若  \ det(A)>0，(det(A))^{1/n}I_n\\
 若  \ det(A)<0，-(-det(A))^{1/n}I_n
 $$
-据此可推出 $SL(n,R)$ 所有陪集组成的集合（每一个陪集是其中的一个元素）与 $R$ 之间具有双射关系。
+据此可推出 $SL(n,\mathbb{R})$ 所有陪集组成的集合（每一个陪集是其中的一个元素）与 $\mathbb{R}$ 之间具有双射关系。
 
-&emsp;&emsp;3. $SO(n)$ 是 $GL^{+}(n,R)$ 的子群，$SO(n)$ 的陪集是矩阵组成的集合：
+&emsp;&emsp;3. $SO(n)$ 是 $GL^{+}(n,\mathbb{R})$ 的子群，$SO(n)$ 的陪集是矩阵组成的集合：
 $$
-A \ SO(n)=\{AQ \ | \ Q \in SO(n)\}，A \in GL^{+}(n,R)
+A \ SO(n)=\{AQ \ | \ Q \in SO(n)\}，A \in GL^{+}(n,\mathbb{R})
 $$
 我们若将矩阵用极坐标进行表示，可以发现 $SO(n)$ 的陪集和 $n$ 阶正的对称的正定矩阵之间满足双射关系，且这些对称矩阵的特征值均为正。
 
@@ -668,9 +668,9 @@ $$
 
 **示例1.4：**
 
-&emsp;&emsp;1. 映射 $\varphi:Z \rightarrow Z/nZ$，其中 $\forall \ m \in Z, \ \varphi(m)=m \ mod \ n$ 是一个同态。
+&emsp;&emsp;1. 映射 $\varphi:\mathbb{Z} \rightarrow \mathbb{Z}/n\mathbb{Z}$，其中 $\forall \ m \in \mathbb{Z}, \ \varphi(m)=m \ mod \ n$ 是一个同态。
 
-&emsp;&emsp;2. 映射 $det:GL(n,R) \rightarrow R$ 是一个同态，因为 $\forall \ A,B \in GL(n,R),det(AB)=det(A)det(B)$。同样的映射 $det:O(n) \rightarrow R$ 也是一个同态。
+&emsp;&emsp;2. 映射 $det:GL(n,\mathbb{R}) \rightarrow \mathbb{R}$ 是一个同态，因为 $\forall \ A,B \in GL(n,\mathbb{R}),det(AB)=det(A)det(B)$。同样的映射 $det:O(n) \rightarrow \mathbb{R}$ 也是一个同态。
 
 &emsp;&emsp;如果 $\varphi:G \rightarrow G'$ 和 $\psi:G' \rightarrow G''$ 是群同态，那么 $\psi \circ \varphi:G \rightarrow G''$ 也是一个同态。如果 $\varphi:G \rightarrow G'$ 是群的同态，并且 $H \subseteq G,H' \subseteq G'$ 是两个子群，那么有 $Im \ H=\varphi(H)=\{\varphi(g) \ | \ g \in H\}$ 是 $G'$ 的子群，并且 $\varphi^{-1}(H')=\{g \in G \ | \ \varphi(g) \in H'\}$ 是 $G$ 的子群。特殊的，当 $H'=\{e'\}$ 时，计算结果为 $\varphi$ 的核，记作 $Ker \ \varphi$。
 
@@ -678,9 +678,9 @@ $$
 
 **示例1.5：**
 
-&emsp;&emsp;1. 同态 $\varphi:Z \rightarrow Z/nZ$ 的核是 $nZ$。
+&emsp;&emsp;1. 同态 $\varphi:\mathbb{Z} \rightarrow \mathbb{Z}/n\mathbb{Z}$ 的核是 $n\mathbb{Z}$。
 
-&emsp;&emsp;2. 同态 $det:GL(n,R) \rightarrow R$ 的核是 $SL(n,R)$，同样的，同态 $det:O(n) \rightarrow R$ 的核是 $SO(n)$。
+&emsp;&emsp;2. 同态 $det:GL(n,\mathbb{R}) \rightarrow \mathbb{R}$ 的核是 $SL(n,\mathbb{R})$，同样的，同态 $det:O(n) \rightarrow \mathbb{R}$ 的核是 $SO(n)$。
 
 &emsp;&emsp;我们将经常对满足单射的群的同态进行分析。
 
