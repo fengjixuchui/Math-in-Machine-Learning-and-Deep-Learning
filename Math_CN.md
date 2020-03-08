@@ -232,7 +232,7 @@ $$
 
 &emsp;&emsp;交换律：$\forall \ [a],[b] \in \mathbb{Z}$，都有 $[a]+[b]=[b]+[a]$，所以满足交换律。
 
-&emsp;&emsp;综上，$\mathbb{Z}/p\mathbb{Z}=\{[0],[1],[2],\cdots,[p-1]\}$ 是一个单位元为 $[0]$ 的阿贝尔群。这里我们需要注意的是 $[-a]=[n-a]$。
+&emsp;&emsp;综上，$\mathbb{Z}/p\mathbb{Z}=\{[0],[1],[2],\cdots,[p-1]\}$ 是一个单位元为 $[0]$ 的阿贝尔群。这里我们需要注意的是 $[-a]=[p-a]$。
 
 &emsp;&emsp;5. 将一组元素为实数或复数的 $n \times n$ 的可逆矩阵进行相乘可以得到一个单位元为单位矩阵 $I_n$ 的群，这个群被称为一般线性群，对于矩阵元素为实数的记作 $GL(n,\mathbb{R})$，对于矩阵元素为复数的记作 $GL(n,\mathbb{C})$ 。假设我们有 $n$ 阶可逆矩阵 $A,B,C$ ，则有如下计算过程（和2相结合分析）：
 $$
@@ -244,7 +244,54 @@ $$
 
 &emsp;&emsp;6. 将一组元素为实数或复数的 $n \times n$ 的可逆矩阵 $A$ 进行相乘，其中矩阵的行列式为1，即 $det(A)=1$ ，可以得到一个单位元为单位矩阵 $I_n$ 的群，这个群被称为特殊线性群，对于元素为实数的记作 $SL(n,\mathbb{R})$， 对于元素为复数的记作 $SL(n,\mathbb{C})$ 。证明方式如5。
 
-&emsp;&emsp;7. 将一组元素为实数的 $n \times n$ 的矩阵 $Q$ 进行相乘，可以得到一个单位元为单位矩阵 $I_n$ 的群，其中矩阵 $Q$ 满足 $QQ^T=Q^TQ=I_n$ 。我们有 $Q^{-1}=Q^T$ ，这个群被称为正交群，记作 $O(n)$。
+&emsp;&emsp;7. 将一组元素为实数的 $n \times n$ 的矩阵 $Q$ 进行相乘，可以得到一个单位元为单位矩阵 $I_n$ 的群，其中矩阵 $Q$ 满足 $QQ^T=Q^TQ=I_n$ 。我们有 $Q^{-1}=Q^T$ ，这个群被称为正交群，记作 $O(n)$。我们接下来将给出正交阵的定义：
+
+&emsp;&emsp;令 $n$ 阶矩阵 $M$ 包含如下元素 $M=(v_1 \ v_2 \ \cdots \ v_n)$，其中 $v_i$ 是第 $i$ 个列向量，且元素个数为 $n$。现在，我们来考虑 $M \times M$ 的计算过程。
+$$
+M^T \times M=
+\left(
+ \begin{matrix}
+   v_1\\
+   v_2\\
+   \vdots\\
+   v_n
+ \end{matrix}
+\right) \ \times \
+\left(
+ \begin{matrix}
+   v_1 & v_2 & \ldots & v_n
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   v_1 \cdot v_1 & v_1 \cdot v_2 & \ldots & v_1 \cdot v_n\\
+   v_2 \cdot v_1 & v_2 \cdot v_2 & \ldots & v_2 \cdot v_n\\
+   v_3 \cdot v_1 & v_3 \cdot v_2 & \ldots & v_3 \cdot v_n\\
+   \vdots & \vdots & \ddots & \vdots\\
+   v_n \cdot v_1 & v_n \cdot v_2 & \ldots & v_n \cdot v_n
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;矩阵 $M$ 中的向量 $v_i$ 之间满足两两正交，即
+$$
+若i=j, \ \ v_i \cdot v_j=1\\
+若i \neq j, \ \ v_i \cdot v_j=0
+$$
+
+&emsp;&emsp;我们分析一下这里的等式，向量之间的点积也称为向量之间的内积 $v_i \cdot v_j=|v_i| \times |v_j| \times cos<v_i,v_j>$，所以内积能够描述两向量之间的位置关系，当其垂直时，内积为0；当其平行时，内积为向量长度的乘积。所以，正交意味着不同向量之间为垂直关系，且每个向量的模长均为1。鉴于此，我们便有如下等式：
+$$
+M^T \times M =
+\left(
+ \begin{matrix}
+   1 & 0 & 0 & \ldots & 0\\
+   0 & 1 & 0 & \ldots & 0\\
+   0 & 0 & 1 & \ldots & 0\\
+   \vdots & \vdots & \vdots & \ddots & \vdots\\
+   0 & 0 & 0 & \ldots & 1
+ \end{matrix}
+\right)=I
+$$
 
 &emsp;&emsp;8. 将一组元素为实数的 $n \times n$ 的矩阵 $Q$ 进行相乘，可以得到一个单位元为单位矩阵 $I_n$ 的群，其中矩阵 $Q$ 满足 $QQ^T=Q^TQ=I_n \ 且 \ det(Q)=1$ 。就像示例7中一样，我们有 $Q^{-1}=Q^T$  ，这个群被称为特殊正交群或旋转群，记作 $SO(n)$。
 
@@ -403,7 +450,7 @@ $$
 
 （3） 对于所有的 $h \in H$，都有 $h^{-1} \in H$。
 
-&emsp;&emsp;定义的证明：我们先证明充分性 $\Leftarrow$，封闭性——由于 $\forall \  h_1,h_2 \in H,h_1h_2 \in H$，所以满足封闭性。结合律——乘法满足结合律。单位元——根据 $\forall \ h_1 \in H,h_1^{-1} \in H$，且 $\forall \ h_1,h_2 \in H,h_1h_2 \in H$，所以 $h_1h_1^{-1} \in H$，我们将 $h_1h_1^{-1}$ 记作 $e$，那么 $e \in H$。逆元素——由于 $\forall \ h,h^{-1} \in H,h^{-1}h=e$，所以逆元存在；我们再证明必要性 $\Rightarrow$，若 $H$ 为 $G$ 的子群，那么 $H$ 必须满足封闭性，所以能推出（2）。我们将群 $H$ 中的单位元记为 $e'$ （因为此处我们还不能确定子群的单位元是否等于群的单位元），$\forall \ a \in H,e'a=a$，同时由于 $H$ 是 $G$ 的子集，所以 $e',a \in G$，我们又知在 $G$ 中 $ea=a$，所以 $e'=e$，<u>即 $G$ 中的单位元就是 $H$ 中的单位元</u>。由于 $H$ 是一个群，那么 $\forall \ h \in H,hh^{-1}=e\ 且 h^{-1} \in H$，由于 $H$ 是 $G$ 的子集，所以 $h,h^{-1} \in G$，而在 $G$ 中显然有 $hh'=e$，所以 $h^{-1}=h'$，<u>即任意元素在群中的逆元素和子群中的逆元素相等</u>。
+&emsp;&emsp;定义的证明：我们先证明充分性 $\Leftarrow$，封闭性——由于 $\forall \  h_1,h_2 \in H,h_1h_2 \in H$，所以满足封闭性。结合律——乘法满足结合律。单位元——根据 $\forall \ h_1 \in H,h_1^{-1} \in H$，且 $\forall \ h_1,h_2 \in H,h_1h_2 \in H$，所以 $h_1h_1^{-1} \in H$，我们将 $h_1h_1^{-1}$ 记作 $e$，那么 $e \in H$。逆元素——由于 $\forall \ h,h^{-1} \in H,h^{-1}h=e$，所以逆元存在；我们再证明必要性 $\Rightarrow$，若 $H$ 为 $G$ 的子群，那么 $H$ 必须满足封闭性，所以能推出（2）。我们将群 $H$ 中的单位元记为 $e'$ （因为此处我们还不能确定子群的单位元是否等于群的单位元），$\forall \ a \in H,e'a=a$，同时由于 $H$ 是 $G$ 的子集，所以 $e',a \in G$，我们又知在 $G$ 中 $ea=a$，所以 $e'=e$，<u>即 $G$ 中的单位元就是 $H$ 中的单位元</u>。由于 $H$ 是一个群，那么 $\forall \ h \in H,hh^{-1}=e\ 且  \ h^{-1} \in H$，由于 $H$ 是 $G$ 的子集，所以 $h,h^{-1} \in G$，而在 $G$ 中显然有 $hh'=e$，所以 $h^{-1}=h'$，<u>即任意元素在群中的逆元素和子群中的逆元素相等</u>。
 
 &emsp;&emsp;命题1.4的证明过程我们留作练习。
 
@@ -633,7 +680,7 @@ $c \ mod \ n \Rightarrow a \ mod \ n=c\ mod \ n$，所以满足传递性。
 $$
 m+n\mathbb{Z}=\{m+nk|k \in \mathbb{Z}\}
 $$
-&emsp;&emsp;通过用 $n$ 除 $m$，对于 $0 \leq r \leq n-1$ 存在 $r$ 满足 $m=nq+r$。同时我们会发现 $r$ 是陪集 $m+n\mathbb{Z}$ 的最小正元素。这意味着 $n\mathbb{Z}$的陪集与以 $n$ 为模的余数组成的集合 $\{0,1,\cdots,n-1\}$ 之间满足双射关系，或者说 $\mathbb{Z}$ 的子群 $n\mathbb{Z}$ 的陪集与 $\mathbb{Z}/n\mathbb{Z}$ 之间满足双射关系。
+&emsp;&emsp;通过用 $n$ 除 $m$，对于 $0 \leq r \leq n-1$ 存在 $r$ 满足 $m=nq+r$。同时我们会发现 $r$ 是陪集 $m+n\mathbb{Z}$ 的最小正元素。这意味着 $n\mathbb{Z}$ 的陪集与以 $n$ 为模的余数组成的集合 $\{0,1,\cdots,n-1\}$ 之间满足双射关系，或者说 $\mathbb{Z}$ 的子群 $n\mathbb{Z}$ 的陪集与 $\mathbb{Z}/n\mathbb{Z}$ 之间满足双射关系。
 
 &emsp;&emsp;2. $SL(n,\mathbb{R})$ 是 $GL(n,\mathbb{R})$ 的子群，$SL(n,\mathbb{R})$ 的陪集是矩阵组成的集合：
 $$
@@ -644,7 +691,7 @@ $$
 若  \ det(A)>0，(det(A))^{1/n}I_n\\
 若  \ det(A)<0，-(-det(A))^{1/n}I_n
 $$
-据此可推出 $SL(n,\mathbb{R})$ 所有陪集组成的集合（每一个陪集是其中的一个元素）与 $\mathbb{R}$ 之间具有双射关系。
+据此可推出 $SL(n,\mathbb{R})$ 所有陪集组成的集合（每一个陪集是其中的一个元素）与 $\mathbb{R}$ 之间具有双射关系。我们在这里对这个结论加以解释：给定的矩阵 $A$ 那么其对应的陪集必然包括元素 $(det(A))^{1/n}I_n, \ det(A)>0$ 或 $-(-det(A))^{1/n}I_n, \ det(A)<0$，若此时取 $B \in GL(n,\mathbb{R})$，满足 $det(A)=det(B)$，根据陪集间的交集为空集可知 $B$ 和 $A$ 对应的陪集为同一个陪集。所以呢，只有 $A,B \in GL(n,\mathbb{R}), \ det(A) \neq det(B)$ 时，其对应的才为不同的陪集，即行列式不同的矩阵对应的等价类不同。而 $det(A),det(B) \in \mathbb{R}$，所以不同的陪集对应不同的实数，且能取遍整个实数空间，满足一一映射。
 
 &emsp;&emsp;3. $SO(n)$ 是 $GL^{+}(n,\mathbb{R})$ 的子群，$SO(n)$ 的陪集是矩阵组成的集合：
 $$
