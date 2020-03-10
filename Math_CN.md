@@ -699,7 +699,7 @@ A \ SO(n)=\{AQ \ | \ Q \in SO(n)\}，A \in GL^{+}(n,\mathbb{R})
 $$
 我们若将矩阵用极坐标进行表示，可以发现 $SO(n)$ 的陪集和 $n$ 阶对称正定矩阵之间满足双射关系，且这些对称矩阵的特征根均为正。
 
-&emsp;&emsp;我们先来讨论对称矩阵的一种特殊形式：正定矩阵。<u>正定矩阵是一个对称矩阵，且所有的特征值均为正。</u>判断一个矩阵是否为正定矩阵的方法之一是计算其所有的特征值，并检验所有特征值是否均为正。但是对于大型矩阵，计算其所有的特征值并不是一件容易的事情，所以我们需要找其他方法判断一个矩阵是否为正定矩阵。我们给出正定矩阵的另外一种定义：正定矩阵是一个对称矩阵，且其主元均为正。通常情况下，主元的计算要比计算特征值简单一些，因为主元的计算过程只需要对矩阵进行初等变换，然后对其主对角线元素进行分析。我们在这里给出一个例子加以说明：
+&emsp;&emsp;我们先来讨论对称矩阵的一种特殊形式：正定矩阵。<u>正定矩阵是一个对称矩阵，且所有的特征值均为正。</u>当矩阵的特征值均为非负值时，我们说该矩阵是半正定矩阵。判断一个矩阵是否为正定矩阵的方法之一是计算其所有的特征值，并检验所有特征值是否均为正。但是对于大型矩阵，计算其所有的特征值并不是一件容易的事情，所以我们需要找其他方法判断一个矩阵是否为正定矩阵。我们给出正定矩阵的另外一种定义：正定矩阵是一个对称矩阵，且其主元均为正。通常情况下，主元的计算要比计算特征值简单一些，因为主元的计算过程只需要对矩阵进行初等变换，然后对其主对角线元素进行分析。我们在这里给出一个例子加以说明：
 $$
 \left(
  \begin{matrix}
@@ -745,13 +745,59 @@ $$
 \forall \ x \neq 0, \ x^T(A+B)x=x^TAx+x^TBx>0
 $$
 
-&emsp;&emsp;除了上述的判别方法之外，我们这里给出最后一种正定阵的判别方法：若矩阵 $A$ 为正定阵 $\Leftrightarrow \ A=R^TR$，其中 $R$ 为可逆阵，$x^TAx=x^TR^TRx=(Rx)^T(Rx)=\parallel Rx \parallel^2$。如果 $R$ 的列向量之间是线性无关的（即当且仅当 $k_1=k_2=\cdots=k_n=0$ 时， $k_1a_1+k_2a_2+\cdots+k_na_n=0$，我们说 $a_1,a_2,\cdots,a_n$ 之间线性无关），那么若 $x \neq 0$ 就有 $Rx \neq 0$，故而 $x^TAx>0$。当矩阵的特征值均为非负值时，我们说该矩阵是半正定矩阵。
+&emsp;&emsp;除了上述的判别方法之外，我们这里给出最后一种正定阵的判别方法：若矩阵 $A$ 为正定阵 $\Leftrightarrow \ A=R^TR$，其中 $R$ 为可逆阵，$x^TAx=x^TR^TRx=(Rx)^T(Rx)=\parallel Rx \parallel^2$。如果 $R$ 的列向量之间是线性无关的（即当且仅当 $k_1=k_2=\cdots=k_n=0$ 时， $k_1a_1+k_2a_2+\cdots+k_na_n=0$，我们说 $a_1,a_2,\cdots,a_n$ 之间线性无关），那么若 $x \neq 0$ 就有 $Rx \neq 0$，故而 $x^TAx>0$。
 
-&emsp;&emsp;4. 群 $SO(2)$ 是群 $SO(3)$ 的子群，$SO(2)$ 的陪集是由矩阵组成的集合：
+&emsp;&emsp;有了上述知识后，我们给出本例的证明。我们取 $C \in GL^+(n,\mathbb{R})$，那么其对应的陪集为 $C \ SO(n)=\{C \ Q|Q \in SO(n)\}$。若矩阵 $A,B$ 均在此陪集内，则存在 $Q_1,Q_2 \in SO(n)$ 使得 $A=CQ_1, \ B=CQ_2$。那么根据群的封闭性必然存在 $Q_3=Q_2^{-1}Q_1 \in SO(n)$，使得 $Q_1=Q_2Q_3$，故而有 $A=BQ_3$。那么 $AA^T=BQ_3(BQ_3)^T=BQ_3Q_3^TB^T$。由于 $Q_3 \in SO(n)$，所以 $Q_3$ 满足正交，即 $Q_3Q_3^T=I_n$，因为矩阵乘法满足结合律，所以 $AA^T=B(Q_3Q_3^T)B^T=BI_nB^T=BB^T$。根据两个矩阵乘积的行列式的值等于矩阵行列式的乘积，即 $det(CQ_1)=det(C)det(Q_1)$。在本例中，$C \in GL^+(n,\mathbb{R})$，所以 $det(C)>0$，而 $Q \in SO(n)$，所以 $det(Q)=1$，故而 $det(A)>0, \ det(B)>0$，根据此能知道 $A,B$ 均可逆，所以 $AA^T,BB^T$ 的计算结果为正定阵。因为正定阵的算数平方根具有唯一性，所以陪集 $C \ SO(n)$ 有唯一正定表示 $\sqrt{AA^T}$。
+
+&emsp;&emsp;我们接下来对上述证明过程中用到的一些结论加以说明。首先我们讨论为什么对于任意的两个 $n \times n$ 矩阵 $A,B$ （注意，此处的矩阵不能为仅由一个元素组成的标量），有 $det(AB)=det(A)det(B)$。我们先来讨论 $det(A)=0$ 的情况，此时矩阵 $A$ 不可逆，那么 $AB$ 的计算结果也不可逆（若 $A$ 不可逆，那么其秩小于其阶数，即通过初等行变换 $A$ 中可以出现全零行，此时该矩阵与任意矩阵进行相乘均会出现全零行，所以其乘积的结果亦不可逆，需要注意的是一个矩阵经过初等行变换后得到的结果和原始的矩阵是等价的），即 $det(AB)=0$，故而 $det(AB)=det(A)det(B)$。我们再来讨论 $det(A) \neq 0$ 的情况，此时矩阵 $A$ 可逆，那么 $A$ 经过初等行变换可以变为单位阵 $I_n$，故而矩阵 $A$ 可以写作 $A=E_1E_2 \cdots E_k$，其中 $E_k$ 为初等矩阵（初等矩阵是指由单位矩阵经过一次初等变换得到的矩阵，行互换会使行列式变号，某行扩大 $k$ 倍会使行列式变 $k$ 倍，某行乘 $k$ 倍加到另外一行，行列式不变），即 $A$ 可以表示为有限个初等矩阵的乘积，那么 $AB=E_1E_2 \cdots E_kB$。鉴于对任意初等矩阵 $E$，我们都有 $det(EB)=det(E)det(B)$，那么有如下计算过程：
+$$
+det(A)=det(AI_n)=det(E_1E_2 \cdots E_kI_n)\\
+=det(E_1)det(E_2 \cdots E_kI_n)\\
+\vdots\\
+=det(E_1)det(E_2)\cdots det(E_k)1
+$$
+
+***
+
+$$
+det(AB)=det(E_1E_2 \cdots E_kB)\\
+=det(E_1)det(E_2\cdots E_kB)\\
+\vdots\\
+=det(E_1)det(E_2)\cdots det(E_k)det(B)
+$$
+
+***
+
+$$
+det(AB)=det(A)det(B)
+$$
+
+&emsp;&emsp;综上所述，我们便得到两个矩阵乘积的行列式的值等于矩阵行列式的乘积。
+
+&emsp;&emsp;4. 群 $SO(2)$ 是群 $SO(3)$ 的稳定子群，$SO(2)$ 的陪集是由矩阵组成的集合：
 $$
 Q \ SO(2)=\{QR \ | \ R \in SO(2)\}，Q \in SO(3)
 $$
-群 $SO(3)$ 的作用我们可以表述为将球体 $R^3$ 表面 $S^2$ 上的一点 $x \in S^2$ 进行旋转，旋转过程满足 $\forall  \ Q \in SO(3), \ x \rightarrow Qx$，其中 $S^2=\{(x,y,z) \in R^3 \ | \ x^2+y^2+z^2=1\}$。我们用 $N=(0,0,1)$ 表示球体 $S^2$ 的北极点，不难发现，当 $N$ 固定时，$SO(2)$ 恰好是 $SO(3)$ 的子群。这导致陪集 $Q \ SO(2)$ 的所有的旋转 $Q \ R$ 都将点 $N$ 映射到点 $Q \ N \in S^2$ ，并且可以发现 $SO(2)$ 的陪集与 $S^2$ 上的点满足双射关系。此映射关系满足满射与 $SO(3)$ 对 $S^2$ 的作用满足传递性有关。$\forall \ x \in S^2$，均有旋转矩阵 $Q \in SO(3)$，使得 $QN=x$。
+群 $SO(3)$ 的作用我们可以表述为将球体 $R^3$ 表面 $S^2$ 上的一点 $x \in S^2$ 进行旋转，旋转过程满足 $\forall  \ Q \in SO(3), \ x \rightarrow Qx$，其中 $S^2=\{(x,y,z) \in R^3 \ | \ x^2+y^2+z^2=1\}$。我们用 $N=(0,0,1)$ 表示球体 $S^2$ 的北极点，不难发现，当 $N$ 固定时，$SO(2)$ 恰好是 $SO(3)$ 的稳定子群。这导致陪集 $Q \ SO(2)$ 的所有的旋转 $Q \ R$ 都将点 $N$ 映射到点 $Q \ N \in S^2$ ，并且可以发现 $SO(2)$ 的陪集与 $S^2$ 上的点满足双射关系。此映射关系满足满射与 $SO(3)$ 对 $S^2$ 的作用满足传递性有关。$\forall \ x \in S^2$，均有旋转矩阵 $Q \in SO(3)$，使得 $QN=x$。这部分内容涉及李群和李代数的相关知识。具体内容见书《Lie Groups, Physis, and Geometry》。可参考的连接有[1](https://math.stackexchange.com/questions/1177583/quotient-spaces-so3-so2-and-so3-o2)、[2](https://math.stackexchange.com/questions/1219453/how-can-we-prove-that-so2-is-a-subgroup-of-so3)、[3](https://math.stackexchange.com/questions/3575637/cosets-of-so2-in-so3)。
+
+&emsp;&emsp;我们对这里矩阵相乘的过程进行说明：由于 $SO(2)$ 的元素为2阶矩阵，$SO(3)$ 的元素为3阶矩阵，所以其不能直接相乘。此时，我们需要对 $SO(2)$ 中的矩阵扩维至3阶，扩维方法遵循如下约定：$\forall \ R=\left(
+ \begin{matrix}
+   a & b\\
+   c & d
+ \end{matrix}
+\right) \in SO(2)$ 可以将其变换为：
+$$
+R=
+\left(
+ \begin{matrix}
+   a & b & 0\\
+   c & d & 0\\
+   0 & 0 & 1
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;不难发现此时的 $SO(2)$ 是 $SO(3)$ 的子群，并且与扩维前的 $SO(2)$ 是同构的。
 
 &emsp;&emsp;通过下式我们可以定义左陪集（或者右陪集）之间的乘积运算：
 $$
@@ -767,25 +813,25 @@ $$
 
 &emsp;&emsp;2. 映射 $det:GL(n,\mathbb{R}) \rightarrow \mathbb{R}$ 是一个同态，因为 $\forall \ A,B \in GL(n,\mathbb{R}),det(AB)=det(A)det(B)$。同样的映射 $det:O(n) \rightarrow \mathbb{R}$ 也是一个同态。
 
-&emsp;&emsp;如果 $\varphi:G \rightarrow G'$ 和 $\psi:G' \rightarrow G''$ 是群同态，那么 $\psi \circ \varphi:G \rightarrow G''$ 也是一个同态。如果 $\varphi:G \rightarrow G'$ 是群的同态，并且 $H \subseteq G,H' \subseteq G'$ 是两个子群，那么有 $Im \ H=\varphi(H)=\{\varphi(g) \ | \ g \in H\}$ 是 $G'$ 的子群，并且 $\varphi^{-1}(H')=\{g \in G \ | \ \varphi(g) \in H'\}$ 是 $G$ 的子群。特殊的，当 $H'=\{e'\}$ 时，计算结果为 $\varphi$ 的核，记作 $Ker \ \varphi$。
+&emsp;&emsp;如果 $\varphi:G \rightarrow G'$ 和 $\psi:G' \rightarrow G''$ 是群同态，那么 $\psi \circ \varphi:G \rightarrow G''$ 也是一个同态。如果 $\varphi:G \rightarrow G'$ 是群的同态，并且 $H \subseteq G,H' \subseteq G'$ 是两个子群，那么有 $\text{Im} \ H=\varphi(H)=\{\varphi(g) \ | \ g \in H\}$ 是 $G'$ 的子群，并且 $\varphi^{-1}(H')=\{g \in G \ | \ \varphi(g) \in H'\}$ 是 $G$ 的子群。特殊的，当 $H'=\{e'\}$ 时，计算结果为 $\varphi$ 的核，记作 $\text{Ker} \ \varphi$。
 
-**定义1.8：** 若映射 $\varphi:G \rightarrow G'$ 是群的同态，且 $H \subseteq G$ 是 $G$ 的一个子群，那么 $G'$ 的子群可由下式计算 $Im \ H=\varphi(H)=\{\varphi(g) \ | \  g \in H\}$，其中 $Im \ H$ 称作 $H$ 在 $\varphi$ 之下的象，同时也是 $G'$ 的子群。$Ker \ \varphi=\{g \in G \ | \ \varphi(g)=e'\}$ 称作 $\varphi$ 的核。
+**定义1.8：** 若映射 $\varphi:G \rightarrow G'$ 是群的同态，且 $H \subseteq G$ 是 $G$ 的一个子群，那么 $G'$ 的子群可由下式计算 $\text{Im} \ H=\varphi(H)=\{\varphi(g) \ | \  g \in H\}$，其中 $\text{Im} \ H$ 称作 $H$ 在 $\varphi$ 之下的象，同时也是 $G'$ 的子群。$\text{Ker} \ \varphi=\{g \in G \ | \ \varphi(g)=e'\}$ 称作 $\varphi$ 的核。
 
 **示例1.5：**
 
-&emsp;&emsp;1. 同态 $\varphi:\mathbb{Z} \rightarrow \mathbb{Z}/n\mathbb{Z}$ 的核是 $n\mathbb{Z}$。
+&emsp;&emsp;1. 同态 $\varphi:\mathbb{Z} \rightarrow \mathbb{Z}/n\mathbb{Z}$ 的核是 $n\mathbb{Z}$，因为对所有能被整除的项取余的计算结果均为0。
 
-&emsp;&emsp;2. 同态 $det:GL(n,\mathbb{R}) \rightarrow \mathbb{R}$ 的核是 $SL(n,\mathbb{R})$，同样的，同态 $det:O(n) \rightarrow \mathbb{R}$ 的核是 $SO(n)$。
+&emsp;&emsp;2. 同态 $det:GL(n,\mathbb{R}) \rightarrow \mathbb{R}$ 的核是 $SL(n,\mathbb{R})$ （其行列式为1），同样的，同态 $det:O(n) \rightarrow \mathbb{R}$ 的核是 $SO(n)$ （其行列式为1）。
 
 &emsp;&emsp;我们将经常对满足单射的群的同态进行分析。
 
-**命题1.8：** 如果映射 $\varphi:G \rightarrow G'$ 是群的同态，那么 $\varphi:G \rightarrow G'$ 是一个单射  $\Leftrightarrow$ $Ker \ \varphi=\{e\}$ （我们也可以写作 $Ker \ \varphi=(0)$）。
+**命题1.8：** 如果映射 $\varphi:G \rightarrow G'$ 是群的同态，那么 $\varphi:G \rightarrow G'$ 是一个单射  $\Leftrightarrow$ $\text{Ker} \ \varphi=\{e\}$ （我们也可以写作 $\text{Ker} \ \varphi=(0)$）。
 
-&emsp;&emsp;证明：假设 $\varphi$ 满足单射。若 $\varphi(e)=e'$， $\varphi(g)=e'$，则 $\varphi(g)=\varphi(e)$。因为 $\varphi$ 满足单射，所以 $g=e$，所以 $Ker \ \varphi=\{e\}$。相反的，假定 $Ker \ \varphi=\{e\}$，若 $\varphi(g_1)=\varphi(g_2)$，那么等式两端同乘 $(\varphi(g_1))^{-1}$，我们有 $e'=(\varphi(g_1))^{-1}\varphi(g_1)=(\varphi(g_1))^{-1}\varphi(g_2)$，由于 $\varphi$ 是一个同态，所以 $(\varphi(g_1))^{-1}=\varphi(g_1^{-1})$，所以
+&emsp;&emsp;证明：假设 $\varphi$ 满足单射。若 $\varphi(e)=e'$， $\varphi(g)=e'$，则 $\varphi(g)=\varphi(e)$。因为 $\varphi$ 满足单射，所以 $g=e$，所以 $\text{Ker} \ \varphi=\{e\}$。相反的，假定 $\text{Ker} \ \varphi=\{e\}$，若 $\varphi(g_1)=\varphi(g_2)$，那么等式两端同乘 $(\varphi(g_1))^{-1}$，我们有 $e'=(\varphi(g_1))^{-1}\varphi(g_1)=(\varphi(g_1))^{-1}\varphi(g_2)$，由于 $\varphi$ 是一个同态，所以 $(\varphi(g_1))^{-1}=\varphi(g_1^{-1})$，所以
 $$
 e'=(\varphi(g_1))^{-1}\varphi(g_2)=\varphi(g_1^{-1})\varphi(g_2)=\varphi(g_1^{-1}g_2)
 $$
-上式表明 $g_1^{-1}g_2 \in Ker \ \varphi$，但由于 $Ker \ \varphi=\{e\}$ 所以我们有 $g_1^{-1}g_2=e$，故而 $g_2=g_1$，验证了 $\varphi$ 满足单射。
+上式表明 $g_1^{-1}g_2 \in \text{Ker} \ \varphi$，但由于 $\text{Ker} \ \varphi=\{e\}$ 所以我们有 $g_1^{-1}g_2=e$，故而 $g_2=g_1$，验证了 $\varphi$ 满足单射。
 
 **定义1.9：** 若存在同态 $\psi:G' \rightarrow G$，我们说群的同态 $\varphi:G \rightarrow G'$ 是一个同构。也就是说
 $$
@@ -808,10 +854,221 @@ $$
 
 &emsp;&emsp;我们先对性质 $(\ast)\ \ \ \forall \ g \in G,\ gH=Hg$ 进行分析，在等式两端同时乘 $g^{-1}$，便有 $\forall \ g \in G,\ gHg^{-1}=H$，并且呢 $(\ast\ast)\ \ \ \forall \ g \in G,\ gHg^{-1} \subseteq G$。这是因为 $\forall \ g \in G,\ gHg^{-1} \subseteq H$ 意味着 $H \subseteq g^{-1}Hg$。
 
-**命题1.10：** 令 $\varphi:G \rightarrow G'$ 是一个群同态，那么 $H=Ker \ \varphi$ 满足性质($\ast$)和($\ast\ast$)。
+&emsp;&emsp;若 $H$ 是 $G$ 的正规子群，那我们有如下5种等价的判别方法，即 $H$ 是 $G$ 的正规子群 $\Leftrightarrow (1) \Leftrightarrow (2) \Leftrightarrow (3) \Leftrightarrow (4) \Leftrightarrow (5)$。
+
+> (1) $\forall \ g \in G, \ h \in H$，我们有 $ghg^{-1} \in H$。<br>
+> (2) $\forall \ g \in G, \ gHg^{-1} \subseteq H$。<br>
+> (3) $\forall \ g \in G, \ gH=Hg$。<br>
+> (4) $H$ 的每一个右陪集都是一个左陪集。<br>
+> (5) $H$ 是 $G$ 到其他群同态映射的核。
+
+&emsp;&emsp;我们先来证明(4) $\Rightarrow$ (3)。取 $g \in G$，由于 $H$ 的每一个右陪集都是一个左陪集，那么就存在 $b \in G$ 使得 $Hg=bH$。由于群 $H$ 包含单位元 $e$，所以 $g \in Hg=bH$，故而可知 $b^{-1}g \in H$，根据群中的每一个元素都有逆元，且逆元也为群的元素，我们知 $(b^{-1}g)^{-1}=g^{-1}b \in H$。根据上述内容可推出(3)：
+$$
+Hg=(gg^{-1})(bH)=g((g^{-1}b)H)=gH
+$$
+
+&emsp;&emsp;从现在开始，我们便有 $\forall \ g \in G, \ gH=Hg$。现在我们来证明(4) $\Rightarrow$ (5)。若 $aH \neq bH$，那么 $aH \cap bH = \emptyset$。若 $aH \cap bH \neq \emptyset$，那么 $aH=bH$。特别的，我们有 $b \in aH \Rightarrow aH=bH$。所以我们取 $g \in aH \cap bH$，例如 $k \in H, \ g=ak$，$l \in H, \ g=bl$。那么我们有 $\forall \ h \in H, \ ah=blk^{-1}h \in bH$，所以 $aH \subseteq bH$。同样可知 $bH \subseteq aH$，故而他们之间满足等价关系。
+
+&emsp;&emsp;群 $G$ 是子群 $H$ 所有左陪集的不相交并集（所有右陪集的不相交并集）。因为 $\forall \ a \in G$ 是左陪集 $aH$ 的元素（也是右陪集 $Ha$ 的元素），$G$ 是所有左陪集的并集（也是所有右陪集的并集），根据我们之前的知识知道，左陪集之间是不相交的（右陪集之间也是不相交的）。我们接下来证明(5)。首先给出结论：若 $G$ 表示一个群，$H$ 是群 $G$ 的正规子群，那么 $G/H=\{aH|a \in G\}$ 是一个群且满足等式 $aH \times bH = abH$，且存在映射 $\varphi:G \rightarrow G/H, \ a \mapsto aH$，映射 $\varphi$ 为同态满射，其核 $\text{Ker}(\varphi)=H$。
+
+&emsp;&emsp;证明：首先我们分析乘法部分，例如 $\forall \ a,a',b,b' \in G$ 当满足 $aH=a'H, \ bH=b'H$ 时有 $abH=a'b'H$。我们取 $h,k \in H$，使其满足 $a'=ah, \ b'=bk$。由于 $H$ 是 $G$ 的正规子群，那么存在 $h' \in H$ 使得 $hb=bh'$，那么有
+$$
+a'b'H=ahbkH=abh'hH=abH
+$$
+
+根据乘法的结合律，那么对于 $\forall \ aH,bH,cH \in G/H$ 就有如下计算过程：
+$$
+(aH \times bH) \times cH=abH \times cH=abc \times H=aH \times (bcH)=aH \times (bH \times cH)
+$$
+
+其中 $eH=H \in G/H$ 是单位元，因为对于 $\forall \ aH \in G/H$ 有：
+$$
+eH \times aH=eaH=aH=aeH=aH \times eH
+$$
+
+对于 $\forall \ aH \in G/H$ 都存在逆元 $a^{-1}H \in G$，证明如下：
+$$
+aH \times a^{-1}H=aa^{-1}H=eH=H=eH=a^{-1}aH=a^{-1}H \times aH
+$$
+
+所以我们证明了 $G/H$ 是一个群。接下来证明 $\varphi$ 是群同态，对于 $\forall \ a,b \in G$ 满足 $\varphi(a)=aH$ 所以我们有：
+$$
+\varphi(ab)=abH=aH \times bH=\varphi(a)\varphi(b)
+$$
+
+显然 $\varphi$ 是满射的。我们接下来证明 $\text{Ker}(\varphi)=H$，证明过程如下：
+$$
+a \in \text{Ker}(\varphi) \Leftrightarrow \varphi(a)=eH \Leftrightarrow aH=eH \Leftrightarrow a \in H
+$$
+
+备注：$G/H$ 称作商群。最后呢，我们来证明(5) $\Rightarrow$ (1)。首先给出结论：我们有群 $G,G'$，现有映射 $\varphi:G \rightarrow G'$ 是群同态。定义 $H=\text{Ker}(\varphi)$，那么有 $\forall \ g \in G,h \in H, \ ghg^{-1} \in H$。
+
+&emsp;&emsp;证明：我们取 $h \in H, \ gh \in gH$ 那么有
+$$
+\varphi(ghg^{-1})=\varphi(g)\varphi(h)\varphi(g^{-1})=\varphi(g)\varphi(g^{-1})=e_{G'}
+$$
+
+所以 $ghg^{-1} \in H$。以上内容参考自[Mathematics](https://math.stackexchange.com/questions/3043931/equivalent-definitions-of-normal-subgroups)。
+
+**命题1.10：** 令 $\varphi:G \rightarrow G'$ 是一个群同态，那么 $H=\text{Ker} \ \varphi$ 满足性质($\ast$)和($\ast\ast$)。
 
 &emsp;&emsp;证明：我们有
 $$
 \varphi(ghg^{-1})=\varphi(g)\varphi(h)\varphi(g^{-1})=\varphi(g)e'\varphi(g)^{-1}=\varphi(g)\varphi(g)^{-1}=e'
 $$
-$\forall \ h \in H=Ker \ \varphi$ 以及 $\forall \ g \in G$。所以，通过定义 $H=Ker \ \varphi$，我们有 $gHg^{-1} \subseteq H$。
+$\forall \ g \in G, \ \forall \ h \in H=\text{Ker} \ \varphi$。所以，通过定义 $H=\text{Ker} \ \varphi$，我们有 $gHg^{-1} \subseteq H$。
+
+**定义1.10：** 对于任意的群 $G$，其子群 $N$ 是 $G$ 的正规子群 $\Leftrightarrow \forall \ g \in G, \ gNg^{-1}=N$，我们将其记为 $N \vartriangleleft G$。
+
+&emsp;&emsp;命题1.10指出同态 $\varphi:G \rightarrow G'$ 的核 $\text{Ker} \ \varphi$ 是 $G$ 的正规子群。我们注意到，若 $G$ 是一个阿贝尔群，那么 $G$ 的任意一个子群都是正规的。我们回顾一下例1.2，令 $R \in SO(2), \ A \in SL(2,\mathbb{R})$，即：
+$$
+R=
+\left(
+ \begin{matrix}
+   0 & -1\\
+   1 & 0
+ \end{matrix}
+\right), \ \
+A=
+\left(
+ \begin{matrix}
+   1 & 1\\
+   0 & 1
+ \end{matrix}
+\right)
+$$
+
+我们不难发现：
+$$
+A^{-1}=
+\left(
+ \begin{matrix}
+   1 & -1\\
+   0 & 1
+ \end{matrix}
+\right)
+$$
+
+我们可以得到如下计算结果：
+$$
+ARA^{-1}=
+\left(
+ \begin{matrix}
+   1 & 1\\
+   0 & 1
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   0 & -1\\
+   1 & 0
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   1 & -1\\
+   0 & 1
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   1 & -1\\
+   1 & 0
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   1 & -1\\
+   0 & 1
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   1 & -2\\
+   1 & -1
+ \end{matrix}
+\right)
+$$
+
+显然 $ARA^{-1} \notin SO(2)$，那么 $SO(2)$ 不是 $SL(2,\mathbb{R})$ 的正规子群。我们同样可以举反例证明 $O(2)$ 不是 $GL(2,\mathbb{R})$ 的正规子群。
+
+&emsp;&emsp;令 $R \in SO(2), \ Q \in SO(3)$：
+$$
+R=
+\left(
+ \begin{matrix}
+   0 & -1 & 0\\
+   1 & 0 & 0\\
+   0 & 0 & 1
+ \end{matrix}
+\right),  \ \
+Q=
+\left(
+ \begin{matrix}
+   1 & 0 & 0\\
+   0 & 0 & -1\\
+   0 & 1 & 0
+ \end{matrix}
+\right)
+$$
+
+那么有：
+$$
+Q^{-1}=Q^T=\frac{Q^*}{|Q|}
+\left(
+ \begin{matrix}
+   1 & 0 & 0\\
+   0 & 0 & 1\\
+   0 & -1 & 0
+ \end{matrix}
+\right)
+$$
+
+并且我们有如下计算结果：
+$$
+QRQ^{-1}=
+\left(
+ \begin{matrix}
+   1 & 0 & 0\\
+   0 & 0 & -1\\
+   0 & 1 & 0
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   0 & -1 & 0\\
+   1 & 0 & 0\\
+   0 & 0 & 1
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   1 & 0 & 0\\
+   0 & 0 & 1\\
+   0 & -1 & 0
+ \end{matrix}
+\right)\\=
+\left(
+ \begin{matrix}
+   0 & -1 & 0\\
+   0 & 0 & -1\\
+   1 & 0 & 0
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   1 & 0 & 0\\
+   0 & 0 & 1\\
+   0 & -1 & 0
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   0 & 0 & -1\\
+   0 & 1 & 0\\
+   1 & 0 & 0
+ \end{matrix}
+\right)
+$$
+
+显然 $QRQ^{-1} \notin SO(2)$，所以 $SO(2)$ 不是 $SO(3)$ 的正规子群。
