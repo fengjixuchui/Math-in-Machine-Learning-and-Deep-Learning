@@ -619,7 +619,7 @@ $$
  \end{matrix}
 \right)
 $$
-集合 $V$ 是群 $GL(2,\mathbb{R})$ 的子群，被称为克莱因四元群。
+集合 $V$ 是群 $GL(2,\mathbb{R})$ 的子群，被称为<span id="克莱因四元群">克莱因四元群。</span>
 
 **定义1.5：** 若 $H$ 为 $G$ 的一个子群，并且对于任意的 $g \in G$，形如 $gH$ 的计算方式称为 $H$ 在 $G$ 中的左陪集，形如 $Hg$ 的计算方式称为 $H$ 在 $G$ 中的右陪集。$H$ 的左陪集（右陪集亦同）中包含一种等价关系 $\sim$（$a \sim b \Leftrightarrow ab^{-1} \in H$，$a \sim b \Leftrightarrow b^{-1}a \in H$） ，定义如下：对于所有的 $g_1,g_2 \in G$ 有
 $$
@@ -1072,3 +1072,227 @@ QRQ^{-1}=
 $$
 
 显然 $QRQ^{-1} \notin SO(2)$，所以 $SO(2)$ 不是 $SO(3)$ 的正规子群。
+
+&emsp;&emsp;我们取 $T,A \in GL(2,\mathbb{R})$，具体的取值结果如下：
+$$
+T=
+\left(
+ \begin{matrix}
+   1 & 1\\
+   0 & 1
+ \end{matrix}
+\right), \ \
+A=
+\left(
+ \begin{matrix}
+   0 & 1\\
+   1 & 0
+ \end{matrix}
+\right)
+$$
+
+我们有：
+$$
+A^{-1}=
+\left(
+ \begin{matrix}
+   0 & 1\\
+   1 & 0
+ \end{matrix}
+\right)=A
+$$
+
+并且呢
+$$
+ATA^{-1}=
+\left(
+ \begin{matrix}
+   0 & 1\\
+   1 & 0
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   1 & 1\\
+   0 & 1
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   0 & 1\\
+   1 & 0
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   0 & 1\\
+   1 & 1
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   0 & 1\\
+   1 & 0
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   1 & 0\\
+   1 & 1
+ \end{matrix}
+\right)
+$$
+
+矩阵 $T$ 为上三角矩阵，但是 $ATA^{-1}$ 不是上三角矩阵，所以由2阶上三角矩阵组成的群不是 $GL(2,\mathbb{R})$ 的正规子群。
+
+&emsp;&emsp;我们取 $Q \in V$ （$V$ 表示[克莱因四元群](#克莱因四元群)）以及 $A \in GL(2,\mathbb{R})$，具体的取值结果如下：
+$$
+Q=
+\left(
+ \begin{matrix}
+   1 & 0\\
+   0 & -1
+ \end{matrix}
+\right), \ \
+A=
+\left(
+ \begin{matrix}
+   1 & 1\\
+   0 & 1
+ \end{matrix}
+\right)
+$$
+
+我们有：
+$$
+A^{-1}=
+\left(
+ \begin{matrix}
+   1 & -1\\
+   0 & 1
+ \end{matrix}
+\right)
+$$
+
+故而：
+$$
+AQA^{-1}=
+\left(
+ \begin{matrix}
+   1 & 1\\
+   0 & 1
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   1 & 0\\
+   0 & -1
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   1 & -1\\
+   0 & 1
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   1 & -1\\
+   0 & -1
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   1 & -1\\
+   0 & 1
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   1 & -2\\
+   0 & -1
+ \end{matrix}
+\right)
+$$
+
+显然 $AQA^{-1} \notin V$，这表明克莱因四元群不是 $GL(2,\mathbb{R})$ 的正规子群。
+
+&emsp;&emsp;我们取 $Q \in SO(2,\mathbb{R})$ 以及 $A \in O(2,\mathbb{R})$，具体的取值结果如下：
+$$
+Q=
+\left(
+ \begin{matrix}
+   \frac{\sqrt{3}}{2} & -\frac{1}{2}\\
+   \frac{1}{2} & \frac{\sqrt{3}}{2}
+ \end{matrix}
+\right), \ \
+A=
+\left(
+ \begin{matrix}
+   0 & -1\\
+   1 & 0
+ \end{matrix}
+\right)
+$$
+
+我们有：
+$$
+A^{-1}=
+\left(
+ \begin{matrix}
+   0 & 1\\
+   -1 & 0
+ \end{matrix}
+\right)
+$$
+
+故而：
+$$
+AQA^{-1}=
+\left(
+ \begin{matrix}
+   0 & -1\\
+   1 & 0
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   \frac{\sqrt{3}}{2} & -\frac{1}{2}\\
+   \frac{1}{2} & \frac{\sqrt{3}}{2}
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   0 & 1\\
+   -1 & 0
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   -\frac{1}{2} & -\frac{\sqrt{3}}{2}\\
+   \frac{\sqrt{3}}{2} & -\frac{1}{2}
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   0 & 1\\
+   -1 & 0
+ \end{matrix}
+\right)\\=
+\left(
+ \begin{matrix}
+   \frac{\sqrt{3}}{2} & -\frac{1}{2}\\
+   \frac{1}{2} & \frac{\sqrt{3}}{2}
+ \end{matrix}
+\right)
+$$
+
+显然 $AQA^{-1} \in SO(2,\mathbb{R})$ 这表明 $SO(2,\mathbb{R})$ 是 $O(2,\mathbb{R})$ 的正规子群。我们这里给出结论：子群 $n\mathbb{Z}, \ GL^{+}(n,\mathbb{R}), \ SL(n,\mathbb{R})$ 以及 $O(n,\mathbb{R})$ 的子群 $SO(n,\mathbb{R})$ 均为正规子群。
+
+&emsp;&emsp;若 $N$ 为 $G$ 的正规子群，那么由 $N$ 的左陪集导出的等价关系（详见定义1.5）和右陪集导出的等价关系是相同的。除此之外呢，这里的等价关系是全等的，这意味着 $\forall \ g_1,g_2,g_1',g_2' \in G$，我们都有：
+> (1) 若 $g_1N=g_1'N$ 且 $g_2N=g_2'N$，那么 $g_1g_2N=g_1'g_2'N$。<br>
+> (2) 若 $g_1N=g_2N$，那么 $g_1'N=g_2'N$。
+
+&emsp;&emsp;最终，通过等式 $(g_1N)(g_2N)=(g_1g_2)N$ 我们可以定义集合 $G/ \sim$ 上的群结构，其中 $G/ \sim$ 表示 $G$ 对 $\sim$ 取模后等价类组成的集合。
+
+**定义1.11：**
