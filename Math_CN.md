@@ -827,7 +827,7 @@ $$
 
 **命题1.8：** 如果映射 $\varphi:G \rightarrow G'$ 是群的同态，那么 $\varphi:G \rightarrow G'$ 是一个单射  $\Leftrightarrow$ $\text{Ker} \ \varphi=\{e\}$ （我们也可以写作 $\text{Ker} \ \varphi=(0)$）。
 
-&emsp;&emsp;证明：假设 $\varphi$ 满足单射。若 $\varphi(e)=e'$， $\varphi(g)=e'$，则 $\varphi(g)=\varphi(e)$。因为 $\varphi$ 满足单射，所以 $g=e$，所以 $\text{Ker} \ \varphi=\{e\}$。相反的，假定 $\text{Ker} \ \varphi=\{e\}$，若 $\varphi(g_1)=\varphi(g_2)$，那么等式两端同乘 $(\varphi(g_1))^{-1}$，我们有 $e'=(\varphi(g_1))^{-1}\varphi(g_1)=(\varphi(g_1))^{-1}\varphi(g_2)$，由于 $\varphi$ 是一个同态，所以 $(\varphi(g_1))^{-1}=\varphi(g_1^{-1})$，所以
+&emsp;&emsp;证明：假设 $\varphi$ 满足单射。若 $\varphi(e)=e'$， $\varphi(g)=e'$，则 $\varphi(g)=\varphi(e)$。因为 $\varphi$ 满足单射，所以 $g=e$，所以 $\text{Ker} \ \varphi=\{e\}$。相反的，假定 $\text{Ker} \ \varphi=\{e\}$，若 $\varphi(g_1)=\varphi(g_2)$，那么等式两端同乘 $(\varphi(g_1))^{-1}$，我们有 $e'=(\varphi(g_1))^{-1}\varphi(g_1)=(\varphi(g_1))^{-1}\varphi(g_2)$，由于 $\varphi$ 是一个同态，所以 $\varphi(g_1^{-1}g_1)=\varphi(e)=e'=\varphi(g_1^{-1})\varphi(g_1) \Rightarrow (\varphi(g_1))^{-1}=\varphi(g_1^{-1})$，所以
 $$
 e'=(\varphi(g_1))^{-1}\varphi(g_2)=\varphi(g_1^{-1})\varphi(g_2)=\varphi(g_1^{-1}g_2)
 $$
