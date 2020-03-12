@@ -827,7 +827,7 @@ $$
 
 **命题1.8：** 如果映射 $\varphi:G \rightarrow G'$ 是群的同态，那么 $\varphi:G \rightarrow G'$ 是一个单射  $\Leftrightarrow$ $\text{Ker} \ \varphi=\{e\}$ （我们也可以写作 $\text{Ker} \ \varphi=(0)$）。
 
-&emsp;&emsp;证明：假设 $\varphi$ 满足单射。若 $\varphi(e)=e'$， $\varphi(g)=e'$，则 $\varphi(g)=\varphi(e)$。因为 $\varphi$ 满足单射，所以 $g=e$，所以 $\text{Ker} \ \varphi=\{e\}$。相反的，假定 $\text{Ker} \ \varphi=\{e\}$，若 $\varphi(g_1)=\varphi(g_2)$，那么等式两端同乘 $(\varphi(g_1))^{-1}$，我们有 $e'=(\varphi(g_1))^{-1}\varphi(g_1)=(\varphi(g_1))^{-1}\varphi(g_2)$，由于 $\varphi$ 是一个同态，所以 $(\varphi(g_1))^{-1}=\varphi(g_1^{-1})$，所以
+&emsp;&emsp;证明：假设 $\varphi$ 满足单射。若 $\varphi(e)=e'$， $\varphi(g)=e'$，则 $\varphi(g)=\varphi(e)$。因为 $\varphi$ 满足单射，所以 $g=e$，所以 $\text{Ker} \ \varphi=\{e\}$。相反的，假定 $\text{Ker} \ \varphi=\{e\}$，若 $\varphi(g_1)=\varphi(g_2)$，那么等式两端同乘 $(\varphi(g_1))^{-1}$，我们有 $e'=(\varphi(g_1))^{-1}\varphi(g_1)=(\varphi(g_1))^{-1}\varphi(g_2)$，由于 $\varphi$ 是一个同态，所以 $\varphi(g_1^{-1}g_1)=\varphi(e)=e'=\varphi(g_1^{-1})\varphi(g_1) \Rightarrow (\varphi(g_1))^{-1}=\varphi(g_1^{-1})$，所以
 $$
 e'=(\varphi(g_1))^{-1}\varphi(g_2)=\varphi(g_1^{-1})\varphi(g_2)=\varphi(g_1^{-1}g_2)
 $$
@@ -1287,7 +1287,7 @@ AQA^{-1}=
 \right)
 $$
 
-显然 $AQA^{-1} \in SO(2,\mathbb{R})$ 这表明 $SO(2,\mathbb{R})$ 是 $O(2,\mathbb{R})$ 的正规子群。我们这里给出结论：子群 $n\mathbb{Z}, \ GL^{+}(n,\mathbb{R}), \ SL(n,\mathbb{R})$ 以及 $O(n,\mathbb{R})$ 的子群 $SO(n,\mathbb{R})$ 均为正规子群。
+显然 $AQA^{-1} \in SO(2,\mathbb{R})$ 这表明 $SO(2,\mathbb{R})$ 是 $O(2,\mathbb{R})$ 的正规子群。我们这里给出结论：$\mathbb{Z}$ 的子群 $n\mathbb{Z}$，$GL(n,\mathbb{R})$ 的子群 $GL^{+}(n,\mathbb{R})$，$GL(n,\mathbb{R})$ 的子群 $SL(n,\mathbb{R})$ 以及 $O(n,\mathbb{R})$ 的子群 $SO(n,\mathbb{R})$ 均为正规子群。
 
 &emsp;&emsp;若 $N$ 为 $G$ 的正规子群，那么由 $N$ 的左陪集导出的等价关系（详见定义1.5）和右陪集导出的等价关系是相同的。除此之外呢，这里的等价关系是全等的，这意味着 $\forall \ g_1,g_2,g_1',g_2' \in G$，我们都有：
 > (1) 若 $g_1N=g_1'N$ 且 $g_2N=g_2'N$，那么 $g_1g_2N=g_1'g_2'N$。<br>
@@ -1295,4 +1295,40 @@ $$
 
 &emsp;&emsp;最终，通过等式 $(g_1N)(g_2N)=(g_1g_2)N$ 我们可以定义集合 $G/ \sim$ 上的群结构，其中 $G/ \sim$ 表示 $G$ 对 $\sim$ 取模后等价类组成的集合。
 
-**定义1.11：**
+**定义1.11：** $G$ 表示一个群，$N$ 表示 $G$ 的正规子群。通过按下式定义左陪集的乘积可以得到一个群：
+$$
+(g_1N)(g_2)N=(g_1g_2)N, \ \ g_1,g_2 \in G
+$$
+
+我们将上述公式的计算结果记为 $G/N$，将其称之为 $G$ 除以 $N$ 的商。归于元素 $g \in G$ 的等价类 $gN$ 记作 $\overline{g}$（或者记作 $[g]$）。映射 $\pi: \ G \rightarrow G/N$ 是群同态，称作正交投影，其计算方式如下：
+$$
+\pi(g)=\overline{g}=gN
+$$
+
+&emsp;&emsp;由于同态的核是一个正规子群，我们可以得到如下这些很有用的结论。
+
+**命题1.11：** 给定一个群的同态 $\varphi: \ G \rightarrow G'$，那么群 $G/\text{Ker} \ \varphi$ 与 $\text{Im} \ \varphi=\varphi(G)$ 之间是同构的。
+
+&emsp;&emsp;证明：由于 $\varphi$ 是满射的，所以 $G'=\text{Im} \  \varphi$，我们定义映射 $\overline{\varphi}: G/ \ \text{Ker} \  \varphi \rightarrow G'$ 满足：
+$$
+\overline{\varphi}(\overline{g})=\varphi(g), \ \ g \in G
+$$
+
+&emsp;&emsp;我们需要检验这个映射的定义不是只对特定的陪集 $\overline{g}=g \ \text{Ker} \ \varphi$ 才有效，并且需要检验它满足同态。若 $g'$ 是陪集 $g \ \text{Ker} \ \varphi$ 中另外的一个元素，这意味着 $\exists \ h \in \text{Ker} \ \varphi, \ g'=gh$，那么我们有：
+$$
+\varphi(g')=\varphi(gh)=\varphi(g)\varphi(h)=\varphi(g)e'=\varphi(g)
+$$
+
+&emsp;&emsp;当 $h \in \text{Ker} \ \varphi$ 时，$\varphi(h)=e'$，所以：
+$$
+\overline{\varphi}(\overline{g'})=\varphi(g')=\varphi(g)=\overline{\varphi}(\overline{g})
+$$
+
+&emsp;&emsp;所以映射 $\overline{\varphi}$ 是有效的。它满足同态是因为：
+$$
+\overline{\varphi}(\overline{g}\overline{g'})=\overline{\varphi}(\overline{gg'})=\varphi(gg')=\varphi(g)\varphi(g')=\overline{\varphi}(\overline{g})\overline{\varphi}(\overline{g'})
+$$
+
+&emsp;&emsp;映射 $\overline{\varphi}$ 满足单射是因为 $\overline{\varphi}(\overline{g})=e' \Leftrightarrow \varphi(g)=e' \Leftrightarrow g \in \text{Ker}\varphi \Leftrightarrow \overline{g}=\overline{e}$。映射 $\overline{\varphi}$ 满足满射是因为 $\varphi$ 满足满射。因此 $\overline{\varphi}$ 是一个双射同态，因此是同构。
+
+&emsp;&emsp;命题1.11被称为第一同构定理。
