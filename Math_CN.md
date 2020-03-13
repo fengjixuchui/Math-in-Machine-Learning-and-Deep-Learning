@@ -1396,3 +1396,45 @@ $$
 $$
 n\mathbb{Z}=\{nk \ | \ k \in \mathbb{Z}\}
 $$
+
+**命题1.14：** $\mathbb{Z}$ 的所有子群 $H$ 均能表示为 $\exists \ n \in \mathbb{N}, \ H=n\mathbb{Z}$ 的形式。
+
+&emsp;&emsp;证明：若 $H$ 为平凡群 $\{0\}$，那么我们令 $n=0$。若 $H$ 是非平凡的，那么对于任意非零元素 $m \in H$，我们仍然有 $-m \in H$，并且 $m$ 或 $-m$ 中有一个是正数。所以我们可以令 $n$ 为 $H$ 中的最小正整数，由命题1.13可知 $n\mathbb{Z}$ 是 $H$ 中包含元素 $n$ 的最小子群。对于任意的 $\forall \ m \in H, \ m \neq 0$，我们可以有如下等式
+$$
+m=nq+r, \ \ \ 其中  \ \ 0 \leq r < n
+$$
+
+由于 $n\mathbb{Z} \subseteq H$，所以我们有 $nq \in H$，并且由于 $m \in H$，故而我们能得出 $r=m-nq \in H$。然而 $0 \leq r < n$，该不等式规定了 $n$ 的极小值，所以 $r=0$ 且 $H=n\mathbb{Z}$。
+
+&emsp;&emsp;给定的任意一个循环群 $G$，对于 $G$ 中的任意一个生成器 $g$，我们可以定义一个映射 $\varphi:\mathbb{Z} \rightarrow G$，其中 $\varphi(m)=g^m$。由于 $g$ 生成了 $G$，所以这个映射满足满射。显然，映射 $\varphi$ 是一个群同态，所以令 $H=\text{Ker} \ \varphi$ 是他的核。根据先前的观察，$\exists \ n \in \mathbb{Z}, \ H=n\mathbb{Z}$，所以根据第一同态定理，我们可以得到商群 $\mathbb{Z}/n\mathbb{Z}$ 到 $G$ 的同构：
+$$
+\overline{\varphi}: \ \mathbb{Z}/n\mathbb{Z} \rightarrow G
+$$
+
+&emsp;&emsp;显然，若 $G$ 是有限阶，那么 $|G|=n$。总之，我们有如下结论。
+
+**命题1.15：** 存在自然数 $n>0$ 使得每一个循环群 $G$ 要么与 $\mathbb{Z}$ 满足同构，要么与 $\mathbb{Z}/n\mathbb{Z}$ 满足同构。当 $G$ 与 $\mathbb{Z}$ 满足同构时，我们说 $G$ 是一个有限循环群。当 $G$ 与 $\mathbb{Z}/n\mathbb{Z}$ 满足同构时，我们说 $G$ 是一个 $n$ 阶循环群。
+
+&emsp;&emsp;当 $m \in \mathbb{Z}$ 时，商群 $\mathbb{Z}/n\mathbb{Z}$ 包含陪集 $m+n\mathbb{Z}=\{m+nk \ | \ k \in \mathbb{Z}\}$。因此，$\mathbb{Z}$ 的等价类可以由以下等价关系 $\equiv$ 进行定义：
+$$
+x \equiv y \Leftrightarrow x-y \in n\mathbb{Z} \Leftrightarrow x \equiv y \ (\text{mod} \ n)
+$$
+
+我们将 $x$ 的等价类 $x+n\mathbb{Z}$ 记为 $\overline{x}$，或者更精确地记为 $[x]_n$。群之间的运算满足如下等式：
+$$
+\overline{x}+\overline{y}=\overline{x+y}
+$$
+
+对于 $\forall \ x \in \mathbb{Z}$，在 $x$ 的等价类 $\overline{x}$ 中有唯一的表示方式：$x \ \text{mod} \ n$（$x$ 除以 $n$ 的非负余数），满足 $0 \ \leq x \ \text{mod} \ n \ \leq \ n-1$。基于此，我们通常认为集合 $\{0,\cdots,n-1\}$ 等同于 $\mathbb{Z}/n\mathbb{Z}$。更确切地说，我们可以通过定义 $+_n$ 给予集合 $\{0,\cdots,n-1\}$ 群结构。
+$$
+x \ +_n \ y=(x+y) \ \text{mod} \ n
+$$
+
+显然通过对集合 $\{0,\cdots,n-1\}$ 进行运算 $+_n$ 可以得到一个群，这个群的单位元是0，并且与 $\mathbb{Z}/n\mathbb{Z}$ 同构。
+
+&emsp;&emsp;我们同样可以按下式定义 $\mathbb{Z}/n\mathbb{Z}$ 上的乘积运算 $\cdot$：
+$$
+\overline{a} \cdot \overline{b}=\overline{ab}=\overline{ab \ \text{mod} \ n}
+$$
+
+我们很容易验证 $\cdot$ 的作用结果是单位元为1的阿贝尔群，且乘积过程满足分配律。
