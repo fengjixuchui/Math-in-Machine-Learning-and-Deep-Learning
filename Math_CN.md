@@ -843,7 +843,7 @@ $$
 
 &emsp;&emsp;左平移 $L_g$ 和右平移 $R_g$ 是 $G$ 的自同构。
 
-&emsp;&emsp;假设 $\varphi:G \rightarrow G'$ 是一个双射同态，并且 $\varphi^{-1}$ 是 $\varphi$ 的逆映射，那我们对于 $\forall \ a,b \in G$，都有
+&emsp;&emsp;假设 $\varphi:G \rightarrow G'$ 是一个**双射同态**，并且 $\varphi^{-1}$ 是 $\varphi$ 的逆映射，那我们对于 $\forall \ a,b \in G'$，都有
 $$
 \varphi(\varphi^{-1}(a)\varphi^{-1}(b))=\varphi(\varphi^{-1}(a))\varphi(\varphi^{-1}(b))=ab\\
 且 \ \ \varphi(\varphi^{-1}(ab))=ab\\
@@ -1332,4 +1332,67 @@ $$
 
 &emsp;&emsp;映射 $\overline{\varphi}$ 满足单射是因为 $\overline{\varphi}(\overline{g})=e' \Leftrightarrow \varphi(g)=e' \Leftrightarrow g \in \text{Ker}\varphi \Leftrightarrow \overline{g}=\overline{e}$。映射 $\overline{\varphi}$ 满足满射是因为 $\varphi$ 满足满射。因此 $\overline{\varphi}$ 是一个双射同态，因此是同构。
 
-&emsp;&emsp;命题1.11被称为第一同构定理。
+&emsp;&emsp;命题1.11被称为第一同构定理。直积构造是一种有效的构造群的方法。
+
+**定义1.12：** 给定两个群 $G$ 和 $H$，我们令 $G \times H$ 表示集合 $G$ 与集合 $H$ 通过乘法运算 $\cdot$ 得到的笛卡尔积，其计算过程如下：
+$$
+(g_1, \ h_1) \cdot (g_2, \ h_2)=(g_1g_2, \ h_1h_2)
+$$
+
+&emsp;&emsp;不难验证 $G \times H$ 的计算结果是一个群，我们将其称作 $G$ 和 $H$ 的直积。
+
+&emsp;&emsp;同样的，若给定 $n$ 个群 $G_1,\cdots,G_n$，我们可以通过相似的方式定义直积 $G_1 \times G_2 \times \cdots \times G_n$。若 $G$ 为一个阿贝尔群且 $H_1, \cdots , H_n$ 均为 $G$ 的子群，我们便可做类似的分析。考虑映射 $a:H_1 \times \cdots \times H_n \rightarrow G$，其中映射方式为 $a(h_1,\cdots,h_n)=h_1+\cdots+h_n$，即对群 $G$ 中的元素做加法 $+$ 操作。很容易验证 $a$ 是一个群同态，所以它的象为 $G$ 的子群，表示为 $H_1+ \cdots + H_n$，称作对群 $H_i$ 进行相加。基于此我们给出如下命题。
+
+**命题1.12：** 给定一个阿贝尔群 $G$，如果 $H_1$ 和 $H_2$ 是群 $G$ 的任意两个子群，即 $H_1 \cap H_2=\{0\}$，那么映射 $a$ 是一个同构
+$$
+a:H_1 \times H_2 \rightarrow H_1 + H_2
+$$
+
+&emsp;&emsp;证明：定义中的映射是一个满射，所以我们仅需要检验其是否满足单射。为此，我们可以发现 $\text{Ker} \ a=\{(0,0)\}$，我们有 $a(a_1,a_2)=0 \Leftrightarrow a_1+a_2=0 \Leftrightarrow a_1=-a_2$，由于 $a_1 \in H_1, \ a_2 \in H_2$，我们可以发现 $a_1,a_2 \in H_1 \cap H_2=\{0\}$，所以 $a_1=a_2=0$，这证明了 $\text{Ker} \ a=\{(0,0)\}$。
+
+&emsp;&emsp;在命题1.12的前提下，意味着 $H_1 \cap H_2=\{0\}$，群 $H_1+H_2$ 称作 $H_1$ 和 $H_2$ 的直和，记作 $H_1 \oplus H_2$，那么我们将有同构 $H_1 \times H_2 \cong H_1 \oplus H_2$。
+
+## 1.2 循环群
+
+&emsp;&emsp;给定一个单位元为1的群 $G$，对于 $\forall g \in G$ 并且对于任意的自然数 $\forall n \in N$，可以通过下式给出 $g^n$ 的定义：
+$$
+g^0=1\\
+g^{n+1}=g \cdot g^n
+$$
+
+&emsp;&emsp;对于任意整数 $\forall n \in \mathbb{Z}$ 我们通过下式定义 $g^n$：
+$$
+g^n=
+\left\{\begin{array}{rcl}
+g^n &  \mbox{if} & n \geq 0 \\
+(g^{-1})^{-n} & \mbox{if} & n < 0
+\end{array}\right.
+$$
+
+&emsp;&emsp;我们很容易验证下列的等式 $\forall \ i,j \in \mathbb{Z}$：
+$$
+g^i \cdot g^j=g^{i+j}\\
+(g^i)^{-1}=g^{-i}\\
+g^i \cdot g^j=g^j \cdot g^i
+$$
+
+&emsp;&emsp;我们通过下式定义 $G$ 的子集 $\langle g \rangle$：
+$$
+\langle g \rangle=\{g^n \ | \ n \in \mathbb{Z}\}
+$$
+
+&emsp;&emsp;下面的命题留作练习：
+
+**命题1.13：** 给定一个群 $G$，对于任意的元素 $\forall \ g \in G$，集合 $\langle g \rangle$ 是 $G$ 中包含元素 $g$ 的最小交换子群（阿贝尔群）。
+
+**定义1.13：** 一个群 $G$ 是循环的 $\Leftrightarrow \exists \ g \in G$ 可以使 $G=\langle g \rangle$，我们将满足此条件的元素 $g \in G$ 称之为 $G$ 的一个生成器。
+
+&emsp;&emsp;例1.2中的克莱因四元群 $V$ 是一个阿贝尔群，但不是一个循环群。这是因为 $V$ 包含4个元素，但所有与单位阵不同的元素都是2阶的，即这些元素的平方等于单位阵。我们这里给出如下结论：克莱因四元群是一个阿贝尔群，是最小的非循环群，其包含三个元素 $i,j,k$ 以及单位元 $e$。每一个元素都和其自身的逆元相等，即 $i=i^{-1}$。并且将任意两个不同于单位元的元素进行相乘，其计算结果不等于单位元，克莱因四元群满足如下等式：
+$$
+i^2=j^2=k^2=ijk=e
+$$
+
+&emsp;&emsp;循环群是 $\mathbb{Z}$ 的商。为此我们可以使用 $\mathbb{Z}$ 的一个基本特性。对于任意的 $\forall \ n \in \mathbb{Z}$，我们令 $n\mathbb{Z}$ 表示 $n$ 的整数倍组成的集合。
+$$
+n\mathbb{Z}=\{nk \ | \ k \in \mathbb{Z}\}
+$$
