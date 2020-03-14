@@ -778,7 +778,13 @@ $$
 $$
 Q \ SO(2)=\{QR \ | \ R \in SO(2)\}，Q \in SO(3)
 $$
-群 $SO(3)$ 的作用我们可以表述为将球体 $R^3$ 表面 $S^2$ 上的一点 $x \in S^2$ 进行旋转，旋转过程满足 $\forall  \ Q \in SO(3), \ x \rightarrow Qx$，其中 $S^2=\{(x,y,z) \in R^3 \ | \ x^2+y^2+z^2=1\}$。我们用 $N=(0,0,1)$ 表示球体 $S^2$ 的北极点，不难发现，当 $N$ 固定时，$SO(2)$ 恰好是 $SO(3)$ 的稳定子群。这导致陪集 $Q \ SO(2)$ 的所有的旋转 $Q \ R$ 都将点 $N$ 映射到点 $Q \ N \in S^2$ ，并且可以发现 $SO(2)$ 的陪集与 $S^2$ 上的点满足双射关系。此映射关系满足满射与 $SO(3)$ 对 $S^2$ 的作用满足传递性有关。$\forall \ x \in S^2$，均有旋转矩阵 $Q \in SO(3)$，使得 $QN=x$。这部分内容涉及李群和李代数的相关知识。具体内容见书《Lie Groups, Physis, and Geometry》。可参考的连接有[1](https://math.stackexchange.com/questions/1177583/quotient-spaces-so3-so2-and-so3-o2)、[2](https://math.stackexchange.com/questions/1219453/how-can-we-prove-that-so2-is-a-subgroup-of-so3)、[3](https://math.stackexchange.com/questions/3575637/cosets-of-so2-in-so3)。
+群 $SO(3)$ 的作用我们可以表述为将球体 $R^3$ 表面 $S^2$ 上的一点 $x \in S^2$ 进行旋转，旋转过程满足 $\forall  \ Q \in SO(3), \ x \rightarrow Qx$，其中 $S^2=\{(x,y,z) \in R^3 \ | \ x^2+y^2+z^2=1\}$。我们用 $N=(0,0,1)$ 表示球体 $S^2$ 的北极点，不难发现，当 $N$ 固定时，$SO(2)$ 恰好是 $SO(3)$ 的稳定子群。这导致陪集 $Q \ SO(2)$ 的所有的旋转 $Q \ R$ 都将点 $N$ 映射到点 $Q \ N \in S^2$ ，并且可以发现 $SO(2)$ 的陪集与 $S^2$ 上的点满足双射关系。此映射关系满足满射与 $SO(3)$ 对 $S^2$ 的作用满足传递性有关。$\forall \ x \in S^2$，均有旋转矩阵 $Q \in SO(3)$，使得 $QN=x$。这部分内容涉及李群和李代数的相关知识。具体内容见书《Lie Groups, Physis, and Geometry》。可参考的连接有[1](https://math.stackexchange.com/questions/1177583/quotient-spaces-so3-so2-and-so3-o2)、[2](https://math.stackexchange.com/questions/1219453/how-can-we-prove-that-so2-is-a-subgroup-of-so3)、[3](https://math.stackexchange.com/questions/3575637/cosets-of-so2-in-so3)。我们给出上述旋转过程的图解说明：
+
+<div align=center><img src="figure/二维到三维.jpg" width="70%" /></div>
+
+<center>
+图1.6 二维旋转到三维旋转的映射
+</center>
 
 &emsp;&emsp;我们对这里矩阵相乘的过程进行说明：由于 $SO(2)$ 的元素为2阶矩阵，$SO(3)$ 的元素为3阶矩阵，所以其不能直接相乘。此时，我们需要对 $SO(2)$ 中的矩阵扩维至3阶，扩维方法遵循如下约定：$\forall \ R=\left(
  \begin{matrix}
@@ -874,7 +880,7 @@ $$
 
 &emsp;&emsp;证明：首先我们分析乘法部分，例如 $\forall \ a,a',b,b' \in G$ 当满足 $aH=a'H, \ bH=b'H$ 时有 $abH=a'b'H$。我们取 $h,k \in H$，使其满足 $a'=ah, \ b'=bk$。由于 $H$ 是 $G$ 的正规子群，那么存在 $h' \in H$ 使得 $hb=bh'$，那么有
 $$
-a'b'H=ahbkH=abh'hH=abH
+a'b'H=ahbkH=abh'kH=abH
 $$
 
 根据乘法的结合律，那么对于 $\forall \ aH,bH,cH \in G/H$ 就有如下计算过程：
@@ -1015,7 +1021,7 @@ $$
 
 那么有：
 $$
-Q^{-1}=Q^T=\frac{Q^*}{|Q|}
+Q^{-1}=Q^T=\frac{Q^*}{|Q|}=
 \left(
  \begin{matrix}
    1 & 0 & 0\\
@@ -1288,7 +1294,7 @@ AQA^{-1}=
 \right)
 $$
 
-显然 $AQA^{-1} \in SO(2,\mathbb{R})$ 这表明 $SO(2,\mathbb{R})$ 是 $O(2,\mathbb{R})$ 的正规子群。我们这里给出结论：$\mathbb{Z}$ 的子群 $n\mathbb{Z}$，$GL(n,\mathbb{R})$ 的子群 $GL^{+}(n,\mathbb{R})$，$GL(n,\mathbb{R})$ 的子群 $SL(n,\mathbb{R})$ 以及 $O(n,\mathbb{R})$ 的子群 $SO(n,\mathbb{R})$ 均为正规子群。
+显然 $AQA^{-1} \in SO(2,\mathbb{R})$ 这表明 $SO(2,\mathbb{R})$ 是 $O(2,\mathbb{R})$ 的正规子群。我们这里给出结论：$\mathbb{Z}$ 的子群 $n\mathbb{Z}$，$GL(n,\mathbb{R})$ 的子群 $GL^{+}(n,\mathbb{R})$，$GL(n,\mathbb{R})$ 的子群 $SL(n,\mathbb{R})$ 以及 $O(n,\mathbb{R})$ 的子群 $SO(n,\mathbb{R})$ 均为正规子群。需特别注意的是 $n\mathbb{Z}$ 是很多群的子群，若 $n$ 为合数，即 $n=rs$ 其中 $r,s \neq 1 \ 且 \ r,s \neq n$，此时 $n\mathbb{Z}$ 是 $r\mathbb{Z}$ 的子群；$n\mathbb{Z}$ 是有理数组成群的子群；$n\mathbb{Z}$ 是整系数多项式组成群的子群。
 
 &emsp;&emsp;若 $N$ 为 $G$ 的正规子群，那么由 $N$ 的左陪集导出的等价关系（详见定义1.5）和右陪集导出的等价关系是相同的。除此之外呢，这里的等价关系是全等的，这意味着 $\forall \ g_1,g_2,g_1',g_2' \in G$，我们都有：
 > (1) 若 $g_1N=g_1'N$ 且 $g_2N=g_2'N$，那么 $g_1g_2N=g_1'g_2'N$。<br>
