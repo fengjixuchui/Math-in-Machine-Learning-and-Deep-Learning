@@ -1298,7 +1298,7 @@ $$
 
 &emsp;&emsp;若 $N$ 为 $G$ 的正规子群，那么由 $N$ 的左陪集导出的等价关系（详见定义1.5）和右陪集导出的等价关系是相同的。除此之外呢，这里的等价关系是全等的，这意味着 $\forall \ g_1,g_2,g_1',g_2' \in G$，我们都有：
 > (1) 若 $g_1N=g_1'N$ 且 $g_2N=g_2'N$，那么 $g_1g_2N=g_1'g_2'N$。<br>
-> (2) 若 $g_1N=g_2N$，那么 $g_1^{-1}N=g_2^{-1}N$。
+> (2) 若 $g_1N=g_2N$，那么 $g_1^{-1}N=g_2^{-1}N$。（这里可由单位元得出）
 
 &emsp;&emsp;最终，通过等式 $(g_1N)(g_2N)=(g_1g_2)N$ 我们可以定义集合 $G/ \sim$ 上的群结构，其中 $G/ \sim$ 表示 $G$ 对 $\sim$ 取模后等价类组成的集合。
 
@@ -1336,7 +1336,7 @@ $$
 \overline{\varphi}(\overline{g}\overline{g'})=\overline{\varphi}(\overline{gg'})=\varphi(gg')=\varphi(g)\varphi(g')=\overline{\varphi}(\overline{g})\overline{\varphi}(\overline{g'})
 $$
 
-&emsp;&emsp;映射 $\overline{\varphi}$ 满足单射是因为 $\overline{\varphi}(\overline{g})=e' \Leftrightarrow \varphi(g)=e' \Leftrightarrow g \in \text{Ker}\varphi \Leftrightarrow \overline{g}=\overline{e}$。映射 $\overline{\varphi}$ 满足满射是因为 $\varphi$ 满足满射。因此 $\overline{\varphi}$ 是一个双射同态，因此是同构。
+&emsp;&emsp;映射 $\overline{\varphi}$ 满足单射是因为 $\overline{\varphi}(\overline{g})=e' \Leftrightarrow \varphi(g)=e' \Leftrightarrow g \in \text{Ker} \ \varphi \Leftrightarrow \overline{g}=\overline{e}$。映射 $\overline{\varphi}$ 满足满射是因为 $\varphi$ 满足满射。因此 $\overline{\varphi}$ 是一个双射同态，因此是同构。
 
 &emsp;&emsp;命题1.11被称为第一同构定理。直积构造是一种有效的构造群的方法。
 
@@ -1360,13 +1360,13 @@ $$
 
 ## 1.2 循环群
 
-&emsp;&emsp;给定一个单位元为1的群 $G$，对于 $\forall g \in G$ 并且对于任意的自然数 $\forall n \in N$，可以通过下式给出 $g^n$ 的定义：
+&emsp;&emsp;给定一个单位元为1的群 $G$，对于 $\forall \ g \in G$ 并且对于任意的自然数 $\forall \ n \in N$，可以通过下式给出 $g^n$ 的定义：
 $$
 g^0=1\\
 g^{n+1}=g \cdot g^n
 $$
 
-&emsp;&emsp;对于任意整数 $\forall n \in \mathbb{Z}$ 我们通过下式定义 $g^n$：
+&emsp;&emsp;对于任意整数 $\forall \ n \in \mathbb{Z}$ 我们通过下式定义 $g^n$：
 $$
 g^n=
 \left\{\begin{array}{rcl}
@@ -1447,7 +1447,7 @@ $$
 
 **命题1.16：** 给定任意整数 $n \geq 1$，对于任意的 $a \in \mathbb{Z}$，剩余类 $\overline{a} \in \mathbb{Z}/n\mathbb{Z}$ 进行乘积运算时是可逆的 $\Leftrightarrow \ \text{gca}(a,n)=1$。
 
- &emsp;&emsp;证明：若 $\overline{a}$ 在 $\mathbb{Z}/n\mathbb{Z}$ 中有逆元 $\overline{b}$，那么 $\overline{a}\overline{b}=1$，这意味着 $ab \equiv 1 \ (\text{mod} \ n)$。换言之，$\exists \ k \in \mathbb{Z} \ ab=1+nk$，我们通常将下式称之为Bezout恒等式。
+ &emsp;&emsp;证明：若 $\overline{a}$ 在 $\mathbb{Z}/n\mathbb{Z}$ 中有逆元 $\overline{b}$，那么 $\overline{a}\overline{b}=1$，这意味着 $ab \equiv 1 \ (\text{mod} \ n)$。换言之，$\exists \ k \in \mathbb{Z}, \ ab=1+nk$，我们通常将下式称之为Bezout恒等式。
  $$
  ab-nk=1
  $$
@@ -1467,4 +1467,61 @@ $$
 
  ## 1.3 环和域
 
- &emsp;&emsp;群 $\mathbb{Z},$
+ &emsp;&emsp;群 $\mathbb{Z}, \ \mathbb{Q}, \ \mathbb{R}, \ \mathbb{C}, \ \mathbb{Z}/n\mathbb{Z}, \ M_n(\mathbb{R})$ 不只是阿贝尔群，他们同时也是交换环。除此之外，$\mathbb{Q}, \ \mathbb{R}, \ \mathbb{C}$ 还是域。我们接下来将介绍环和域的相关知识。
+
+**定义1.16：** 环——在集合 $A$ 上进行两种计算方式 $+: \ A \times A \rightarrow A$ （称作加法）以及 $*: \ A \times A \rightarrow A$ （称作乘法）具有如下性质：
+> (R1) $A$ 在加法 $+$ 作用下是一个阿贝尔群;<br>
+> (R2) 乘法 $*$ 满足结合律并且具有单位元 $1 \in A$;<br>
+> (R3) 乘法 $*$ 关于加法 $+$ 满足分配律。
+
+ &emsp;&emsp;加法操作的单位元用0表示，并且 $a \in A$ 的加法逆元用 $-a$ 表示。更准确地讲，若 $A$ 是一个环，那么任取 $a,b,c \in A$ 都满足如下公理：
+$$
+加法结合律: \ a+(b+c)=(a+b)+c \tag{1.1}
+$$
+$$
+加法交换律: \ a+b=b+a \tag{1.2}
+$$
+$$
+零元素: \ a+0=0+a=a \tag{1.3}
+$$
+$$
+逆元素: \ a+(-a)=(-a)+a=0 \tag{1.4}
+$$
+$$
+乘法结合律: \ a*(b*c)=(a*b)*c \tag{1.5}
+$$
+$$
+乘法单位元: \ a*1=1*a=a \tag{1.6}
+$$
+$$
+乘法分配律: \ (a+b)*c=(a*c)+(b*c) \tag{1.7}
+$$
+$$
+乘法分配律: \ a*(b+c)=(a*b)+(a*c) \tag{1.8}
+$$
+
+&emsp;&emsp;若满足下式，我们称环 $A$ 是可交换的：
+$$
+\forall \ a,b \in A, \ \ \ a*b=b*a
+$$
+
+&emsp;&emsp;通过式(1.7)，(1.8)我们易知：
+$$
+a*0=0*a=0 \tag{1.9}
+$$
+$$
+a*(-b)=(-a)*b=-(a*b) \tag{1.10}
+$$
+
+&emsp;&emsp;注意，式(1.9)意味着若 $1=0$，那么对于所有的 $\forall \ a \in A$，我们都有 $a=0$，故而 $A=\{0\}$。环 $A=\{0\}$ 被称作平凡环。对于满足 $1 \neq 0$ 的环我们称之为非平凡环。对于元素 $a,b \in A$ 之间的乘积 $a*b$ 我们可将其简记为 $ab$。
+
+**示例1.6：**
+
+&emsp;&emsp;1. 加法群 $\mathbb{Z}, \ \mathbb{Q}, \ \mathbb{R}, \ \mathbb{C}$ 是交换环。
+
+&emsp;&emsp;2. 对于任意正整数 $n \in \mathbb{N}$，对集合 $\mathbb{Z}/n\mathbb{Z}$ 进行加运算可以得到群。我们也可通过下式定义 $\forall \ a,b \in \mathbb{Z}$ 上的乘运算：
+$$
+\overline{a}\cdot\overline{b}=\overline{ab}=\overline{ab \  \text{mod} \ n}
+$$
+
+&emsp;&emsp;读者很容易检验该群满足环的公理，其中 $\overline{0}$ 是0，$\overline{1}$ 是乘法单位元。最终得到的群记为 $\mathbb{Z}/n\mathbb{Z}$，有时也被记为 $\mathbb{Z}_n$。
