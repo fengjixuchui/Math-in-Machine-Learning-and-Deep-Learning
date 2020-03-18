@@ -1525,3 +1525,36 @@ $$
 $$
 
 &emsp;&emsp;读者很容易检验该群满足环的公理，其中 $\overline{0}$ 是0，$\overline{1}$ 是乘法单位元。最终得到的群记为 $\mathbb{Z}/n\mathbb{Z}$，有时也被记为 $\mathbb{Z}_n$。
+
+&emsp;&emsp;3. 实系数单变量的多项式构成的群 $\mathbb{R}[X]$ 通过多项式乘法可以构成一个环，并且是一个可交换环。
+
+&emsp;&emsp;4. 令 $d$ 为任意一个正整数。我们取 $m \in \mathbb{N}$ 且 $m \geq 2$，若 $d$ 不能被任意整数 $m^2$ 整除，那么我们说 $d$ 是无平方因子的。例如，$d=1,2,3,5,6,7,10$ 是无平方因子的，而 $4,8,9,12$ 是有平方因子的。若 $d$ 是任意的无平方因子的整数且 $d \geq 2$，那么实数组成的集合是一个可交换环。
+$$
+\mathbb{Z}[\sqrt{d}]=\{a+b\sqrt{d} \in \mathbb{R} \ | \ a,b \in \mathbb{Z}\}
+$$
+
+&emsp;&emsp;若 $z=a+b\sqrt{d} \in \mathbb{Z}[\sqrt{d}]$，我们记作 $\overline{z}=a-b\sqrt{d}$，那么有 $z\overline{z}=a^2-db^2$。
+
+&emsp;&emsp;5. 同样的，若 $d \geq 1$ 是一个正的无平方因子的整数，那么复数组成的集合是一个可交换环：
+$$
+\mathbb{Z}[\sqrt{-d}]=\{a+\imath b\sqrt{d} \in \mathbb{C} \ | \ a,b \in \mathbb{Z}\}
+$$
+
+&emsp;&emsp;若 $z=a+\imath b\sqrt{d} \in \mathbb{Z}[\sqrt{-d}]$，我们记 $\overline{z}=a-\imath b\sqrt{d}$，所以有 $z\overline{z}=a^2+db^2$。当 $d=1$ 时便是高斯研究出的著名的例子。$\mathbb{Z}[\sqrt{-1}]$ 也被记为 $\mathbb{Z}[\imath]$，被称为高斯整数组成的环。
+
+&emsp;&emsp;6. $n \times n$ 的矩阵组成的群 $M_n(\mathbb{R})$ 通过矩阵相乘可以得到一个环。但是它不是一个可交换环。
+
+&emsp;&emsp;7. 利连续函数 $f:(a,b) \rightarrow \mathbb{R}$ 对群 $C(a,b)$ 的元素进行作用，对于 $\forall \ x \in (a,b)$ 的具体作用方式 $f \cdot g$ 定义如下：
+$$
+(f \cdot g)(x)=f(x)g(x)
+$$
+
+**定义1.17：** 给定一个群 $A$，对于任意元素 $\forall \ a \in A$，若存在元素 $\exists \ b \in A$ 满足 $b \neq 0, \ ab=0$，那么我们说 $a$ 是一个零因子。若 $0 \neq 1$ ，那么可交换环 $A$ 是一个积分域（或是一个完整环），且 $ab=0$ 意味着对于 $\forall \ a,b \in A$ 有 $a=0$ 或 $b=0$。换言之，一个整环是一个非平凡可交换环且除了0以外没有零因子。
+
+**示例1.7：**
+
+&emsp;&emsp;1. 环 $\mathbb{Z}, \ \mathbb{Q}, \ \mathbb{R}, \ \mathbb{C}$ 是整环。
+
+&emsp;&emsp;2. 实系数单变量的多项式构成的环 $\mathbb{R}[X]$ 是整环。
+
+&emsp;&emsp;3. 对于任意的正整数 $\forall \ n \in \mathbb{N}$，我们有环 $\mathbb{Z}/n\mathbb{Z}$。
