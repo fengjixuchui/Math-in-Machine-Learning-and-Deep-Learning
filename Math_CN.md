@@ -1513,7 +1513,7 @@ $$
 a*(-b)=(-a)*b=-(a*b) \tag{1.10}
 $$
 
-&emsp;&emsp;注意，式(1.9)意味着若 $1=0$，那么对于所有的 $\forall \ a \in A$，我们都有 $a=0$，故而 $A=\{0\}$。环 $A=\{0\}$ 被称作平凡环。对于满足 $1 \neq 0$ 的环我们称之为非平凡环。对于元素 $a,b \in A$ 之间的乘积 $a*b$ 我们可将其简记为 $ab$。
+&emsp;&emsp;注意，式(1.9)意味着若 $1=0$，那么对于所有的 $\forall \ a \in A$，我们都有 $a=1 \cdot a=0 \cdot a=0$，故而 $A=\{0\}$。环 $A=\{0\}$ 被称作平凡环。对于满足 $1 \neq 0$ 的环我们称之为非平凡环。对于元素 $a,b \in A$ 之间的乘积 $a*b$ 我们可将其简记为 $ab$。
 
 **示例1.6：**
 
@@ -1557,4 +1557,83 @@ $$
 
 &emsp;&emsp;2. 实系数单变量的多项式构成的环 $\mathbb{R}[X]$ 是整环。
 
-&emsp;&emsp;3. 对于任意的正整数 $\forall \ n \in \mathbb{N}$，我们有环 $\mathbb{Z}/n\mathbb{Z}$。
+&emsp;&emsp;3. 对于任意的正整数 $\forall \ n \in \mathbb{N}$，我们有环 $\mathbb{Z}/n\mathbb{Z}$。显然若 $n$ 为合数，那么这个环有零因子。例如，若 $n=4$ 那么我们有 $2 \cdot 2 = 0 \ (\text{mod} \ 4)$。读者利用命题1.16应该可以证明 $\mathbb{Z}/n\mathbb{Z}$ 是一个整环 $\Leftrightarrow \ n$ 是质数。
+
+&emsp;&emsp;4. 若 $d$ 是一个无平方因子整数且 $d \geq 2$，那么环 $\mathbb{Z}[\sqrt{d}]$ 是一个整环。同样的，若 $d \geq 1$ 是一个无平方因子整数，那么环 $\mathbb{Z}[\sqrt{-d}]$ 是一个整环。寻找这些环的逆元素是一个非常有趣的问题。
+
+&emsp;&emsp;5. $n \times n$ 矩阵 $M_n(\mathbb{R})$ 组成的环有零因子。
+
+&emsp;&emsp;环之间的同态是一个映射，该映射保持两个环的加法与乘法运算。
+
+**定义1.18：** 给定两个环 $A$ 和 $B$，$A$ 与 $B$ 之间的同态是一个函数 $h: \ A \rightarrow B$，该函数对于 $\forall \ x,y \in A$ 均满足如下条件：
+$$
+h(x+y)=h(x)+h(y)\\
+h(xy)=h(x)h(y)\\
+h(0)=0\\
+h(1)=1
+$$
+
+&emsp;&emsp;实际上，由于 $B$ 在进行加法运算时能得到群，根据下式可知 $h(0)=0$ ：
+$$
+h(x+y)=h(x)+h(y)
+$$
+
+**示例1.8：**
+
+&emsp;&emsp;1. 若 $A$ 是一个环，那么对于任意整数 $\forall \ n \in \mathbb{Z}$，对于任意 $\forall \ a \in A$，我们通过下式定义 $n \cdot a$ :
+$$
+n \cdot a=\underbrace{a+\cdots+a}_{\text{n}}
+$$
+
+&emsp;&emsp;若 $n \geq 0$ （且 $0 \cdot a=0$）那么有
+$$
+n \cdot a=-(-n) \cdot a
+$$
+
+&emsp;&emsp;若 $n < 0$，那么映射 $h: \ \mathbb{Z} \rightarrow A$ 的计算方式为：
+$$
+h(n)=n \cdot 1_A
+$$
+
+&emsp;&emsp;该映射是环同态，其中 $1_A$ 是 $A$ 的乘法单位元。
+
+&emsp;&emsp;2. 给定任意实数 $\forall \ \lambda \in \mathbb{R}$，赋值映射 $\eta_{\lambda}: \ \mathbb{R}[X] \rightarrow \mathbb{R}$ 的定义如下：
+$$
+\eta_{\lambda}(f(X))=f(\lambda)
+$$
+
+&emsp;&emsp;对于每一个多项式 $f(X) \in \mathbb{R}[X]$ 都是一个环同态。
+
+**定义1.19：** 一个环同态 $h: \ A \rightarrow B$ 是一个同构 $\Leftrightarrow$ 存在环同态 $g: \ B \rightarrow A$ 满足 $g \circ f=id_A$ 并且 $f \circ g=id_B$。从一个环到其自身的同构称之为自同构。
+
+&emsp;&emsp;在群同构的例子中，同态 $g$ 是唯一的并可将其记作 $h^{-1}$。很容易证明双射环同态 $h: \ A \rightarrow B$ 是一个同构。
+
+**定义1.20：** 给定一个环 $A$，其子集 $A'$ 当满足：$A'$ 是 $A$ （在加法作用下）的子群，乘法封闭，包含元素1，这三个条件时，我们称 $A'$ 为 $A$ 的子环。
+
+&emsp;&emsp;例如，我们有下述包含关系，其中包含符号左边的环是包含符号右边环的子环：
+$$
+\mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} \subseteq \mathbb{C}
+$$
+
+&emsp;&emsp;环 $\mathbb{Z}$ 既是 $\mathbb{Z}[\sqrt{d}]$ 的子环，也是 $\mathbb{Z}[\sqrt{-d}]$ 的子环。环 $\mathbb{Z}[\sqrt{d}]$ 是 $\mathbb{R}$ 的子环，环 $\mathbb{Z}[\sqrt{-d}]$ 是 $\mathbb{C}$ 的子环。
+
+&emsp;&emsp;若 $h: \ A \rightarrow B$ 是一个环同态，不难发现对于任意子环 $A'$，映射 $h(A')$ 是 $B$ 的一个子环，并且对于 $B$ 的任意子环 $B'$，逆映射 $h^{-1}(B')$ 是 $A$ 的子环。
+
+&emsp;&emsp;对于环而言，环同态的核 $h: \ A \rightarrow B$ 定义如下：
+$$
+\text{Ker} \ h=\{a \in A \ | \ h(a)=0\}
+$$
+
+&emsp;&emsp;就像群中的例子一样，我们有如下环同态的判别方法。这个证明过程和群的证明过程是一致的。
+
+**命题1.17：** 若 $h: \ A \rightarrow B$ 是环的同态，那么 $h: \ A \rightarrow B$ 满足单射 $\Leftrightarrow \ \text{Ker} \ h=\{0\}$，我们也可写作 $\text{Ker} \ h=(0)$。
+
+&emsp;&emsp;环同态的核是加法群 $A$ 的阿贝尔子群，但通常情况下它不是 $A$ 的子环，因为它有可能不包含乘法单位元1。然而在乘积作用下，它满足封闭性：
+$$
+\forall \ a \in \text{Ker} \ h, \ \forall \ b \in A, \ \ ab \in \text{Ker} \ h \ 且 \ ba \in \text{Ker} \ h
+$$
+
+&emsp;&emsp;这是因为若 $h(a)=0$，那么对于任意的 $\forall \ b \in A$，我们有：
+$$
+h(ab)=h(a)h(b)=0h(b)=0 \ 且 \ h(ba)=h(b)h(a)=h(b)0=0
+$$
