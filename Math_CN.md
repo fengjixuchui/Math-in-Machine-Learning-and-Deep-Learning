@@ -1338,7 +1338,24 @@ $$
 
 &emsp;&emsp;映射 $\overline{\varphi}$ 满足单射是因为 $\overline{\varphi}(\overline{g})=e' \Leftrightarrow \varphi(g)=e' \Leftrightarrow g \in \text{Ker} \ \varphi \Leftrightarrow \overline{g}=\overline{e}$。映射 $\overline{\varphi}$ 满足满射是因为 $\varphi$ 满足满射。因此 $\overline{\varphi}$ 是一个双射同态，因此是同构。
 
-&emsp;&emsp;命题1.11被称为第一同构定理。直积构造是一种有效的构造群的方法。
+&emsp;&emsp;另一种证明方法：我们有映射 $f: \ G/\text{Ker} \ \varphi \rightarrow \text{Im}(\varphi)$，此映射是 $gK$ 到 $\varphi(g)$ 的映射，其中 $K=\text{Ker} \ \varphi$。由前面的知识可知 $K$ 为正规子群。首先我们假设 $a,b \in G \ 且 \ aK=bK$，我们在等式两端同时左乘 $b^{-1}$，即 $b^{-1}aK=K$。在 $b^{-1}aK$ 中我们可取 $e \in K$，此时可推出 $b^{-1}a \in K$。所以有：
+$$
+\varphi(b^{-1}a)=e'
+$$
+
+同时呢我们根据 $\varphi(e)=e'$ 且 $\varphi$ 为同态映射，所以有 $\varphi(bb^{-1})=\varphi(b)\varphi(b^{-1})=e'$，故而有 $(\varphi(b))^{-1}=\varphi(b^{-1})$。鉴于此我们有：
+$$
+\varphi(b^{-1}a)=(\varphi(b))^{-1}\varphi(a)=e'
+$$
+
+那么我们有 $\varphi(a)=\varphi(b)$，同时由于 $aK=bK$ 所以 $f(aK)=f(bK)$，显然 $f$ 满足满射。我们接下来证明 $f$ 满足单射：若 $f(aK)=f(bK)$，那么 $a,b$ 通过作用方式 $\varphi$ 映射到 $\text{Im}(\varphi)$ 中的同一个元素。映射 $\varphi$ 满足同态映射，那么对于 $b^{-1}a \in \text{Ker} \ \varphi \rightarrow \varphi(b^{-1}a)=e'$，这意味着 $b^{-1}aK=K \rightarrow aK=bK$。这说明唯有相同的自变量才能得到相同的象，所以映射 $f$ 满足单射。由于有
+$$
+f(aKbK) \overset{正规}{=} f(abK) \overset{映射}{=} \varphi(ab) \overset{同态}{=} \varphi(a)\varphi(b) \overset{映射}{=} f(aK)f(bK)
+$$
+
+所以 $f$ 满足同构。
+
+&emsp;&emsp;命题1.11被称为<font color=#ea4335> 第一同构定理 </font>。接下来我们将介绍一种有效的构造群的方法：直积构造。
 
 **定义1.12：** 给定两个群 $G$ 和 $H$，我们令 $G \times H$ 表示集合 $G$ 与集合 $H$ 通过乘法运算 $\cdot$ 得到的笛卡尔积，其计算过程如下：
 $$
@@ -1637,3 +1654,10 @@ $$
 $$
 h(ab)=h(a)h(b)=0h(b)=0 \ 且 \ h(ba)=h(b)h(a)=h(b)0=0
 $$
+
+**定义1.21：** 给定一个环 $A$，其加法子群 $\Im$ 满足如下性质：
+$$
+\forall \ a \in \Im, \ b \in A, \ \ \ ab \in \Im \ 且 \ ba \in \Im \tag{#}
+$$
+
+该性质称为双边理想。若 $A$ 是一个交换环，我们便可将上述关系简称为理想。
