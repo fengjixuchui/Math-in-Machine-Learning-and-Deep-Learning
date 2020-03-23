@@ -1321,19 +1321,19 @@ $$
 \overline{\varphi}(\overline{g})=\varphi(g), \ \ g \in G
 $$
 
-&emsp;&emsp;我们需要检验这个映射的定义不是只对特定的陪集 $\overline{g}=g \ \text{Ker} \ \varphi$ 才有效，并且需要检验它满足同态。若 $g'$ 是陪集 $g \ \text{Ker} \ \varphi$ 中另外的一个元素，这意味着 $\exists \ h \in \text{Ker} \ \varphi, \ g'=gh$，那么我们有：
+&emsp;&emsp;我们需要检验这个映射的定义不是只对特定的陪集 $\overline{g}=g \ \text{Ker} \ \varphi$ 才有效，并且需要检验它满足同态。若 $g'$ 是陪集 $g \ \text{Ker} \ \varphi$ 中区别于 $g$ 的一个元素，这意味着 $\exists \ h \in \text{Ker} \ \varphi, \ g'=gh$，且当 $h \in \text{Ker} \ \varphi$ 时，$\varphi(h)=e'$。那么我们有：
 $$
 \varphi(g')=\varphi(gh)=\varphi(g)\varphi(h)=\varphi(g)e'=\varphi(g)
 $$
 
-&emsp;&emsp;当 $h \in \text{Ker} \ \varphi$ 时，$\varphi(h)=e'$，所以：
+&emsp;&emsp;根据上式可知同一陪集中任意的两个元素通过 $\varphi$ 进行映射能够得到相同的象，所以：
 $$
 \overline{\varphi}(\overline{g'})=\varphi(g')=\varphi(g)=\overline{\varphi}(\overline{g})
 $$
 
 &emsp;&emsp;所以映射 $\overline{\varphi}$ 是有效的。它满足同态是因为：
 $$
-\overline{\varphi}(\overline{g}\overline{g'})=\overline{\varphi}(\overline{gg'})=\varphi(gg')=\varphi(g)\varphi(g')=\overline{\varphi}(\overline{g})\overline{\varphi}(\overline{g'})
+\overline{\varphi}(\overline{g}\overline{g'}) \overset{正规}{=} \overline{\varphi}(\overline{gg'})=\varphi(gg')=\varphi(g)\varphi(g')=\overline{\varphi}(\overline{g})\overline{\varphi}(\overline{g'})
 $$
 
 &emsp;&emsp;映射 $\overline{\varphi}$ 满足单射是因为 $\overline{\varphi}(\overline{g})=e' \Leftrightarrow \varphi(g)=e' \Leftrightarrow g \in \text{Ker} \ \varphi \Leftrightarrow \overline{g}=\overline{e}$。映射 $\overline{\varphi}$ 满足满射是因为 $\varphi$ 满足满射。因此 $\overline{\varphi}$ 是一个双射同态，因此是同构。
@@ -1348,14 +1348,24 @@ $$
 \varphi(b^{-1}a)=(\varphi(b))^{-1}\varphi(a)=e'
 $$
 
-那么我们有 $\varphi(a)=\varphi(b)$，同时由于 $aK=bK$ 所以 $f(aK)=f(bK)$，显然 $f$ 满足满射。我们接下来证明 $f$ 满足单射：若 $f(aK)=f(bK)$，那么 $a,b$ 通过作用方式 $\varphi$ 映射到 $\text{Im}(\varphi)$ 中的同一个元素。映射 $\varphi$ 满足同态映射，那么对于 $b^{-1}a \in \text{Ker} \ \varphi \rightarrow \varphi(b^{-1}a)=e'$，这意味着 $b^{-1}aK=K \rightarrow aK=bK$。这说明唯有相同的自变量才能得到相同的象，所以映射 $f$ 满足单射。由于有
+那么我们有 $\varphi(a)=\varphi(b)$，同时由于 $aK=bK$ 所以 $f(aK)=f(bK)$，显然 $f$ 满足满射。我们接下来证明 $f$ 满足单射：若 $f(aK)=f(bK)$，那么 $a,b$ 通过作用方式 $\varphi$ 映射到 $\text{Im}(\varphi)$ 中的同一个元素。映射 $\varphi$ 满足同态映射，那么对于
+$$
+f(aK)=f(bK) \Rightarrow \varphi(a)=\varphi(b) \Rightarrow e'=\varphi^{-1}(a)\varphi(b)=\varphi(a^{-1})\varphi(b)=\varphi(a^{-1}b)\\
+\Rightarrow a^{-1}b \in K \Rightarrow aK=bK
+$$
+
+这说明唯有相同的自变量才能得到相同的象，所以映射 $f$ 满足单射。由于有
 $$
 f(aKbK) \overset{正规}{=} f(abK) \overset{映射}{=} \varphi(ab) \overset{同态}{=} \varphi(a)\varphi(b) \overset{映射}{=} f(aK)f(bK)
 $$
 
 所以 $f$ 满足同构。
 
-&emsp;&emsp;命题1.11被称为<font color=#ea4335> 第一同构定理 </font>。接下来我们将介绍一种有效的构造群的方法：直积构造。
+&emsp;&emsp;命题1.11被称为<font color=#ea4335> 第一同构定理 </font>。我们在这里给出本命题的图解表述：
+
+<div align=center><img src="figure/第一同构定理.jpg" width="90%" /></div>
+
+接下来我们将介绍一种有效的构造群的方法：直积构造。
 
 **定义1.12：** 给定两个群 $G$ 和 $H$，我们令 $G \times H$ 表示集合 $G$ 与集合 $H$ 通过乘法运算 $\cdot$ 得到的笛卡尔积，其计算过程如下：
 $$
