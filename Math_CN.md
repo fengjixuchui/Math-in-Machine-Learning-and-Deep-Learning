@@ -21,7 +21,8 @@
 </center>
 <br><br><br><br><br><br><br>
 
-# 第一章
+# 第一部分：近世代数
+## 第一章
 <big><big><big>
 群、环、域
 </big></big></big>
@@ -31,7 +32,7 @@
 
 &emsp;&emsp;我们首先引入笛卡尔积的概念：假设我们有集合 $A=\{a_1,a_2,a_3\}, B=\{b_1,b_2,b_3\}$，那么 $A$ 与 $B$ 的笛卡尔积记作 $A \circ B$，计算结果为有序数对，即 $A \circ B=\{(a,b)|a \in A,b \in B\}$ 。不难发现当 $A,B$ 的元素均为实数时，笛卡尔积表示平面直角坐标系。当然我们也可以定义某一种具体的运算方式，例如 $A+B$ （除此之外，我们还可以定义 "$-$" 以及 "$\times$" 运算），此时 $A+B=\{a+b|a \in A,b \in B\}$。当然，集合的元素不仅仅局限在实数范围内，更一般的，我们可以用字符串作为其元素，例如：$A=\{东，西\}，B=\{南，北\}$ 那么 $A \circ B = \{(东，南)，(东，北)，(西，南)，(西，北)\}$。那么经过笛卡尔积的运结果包含多少个元素呢？不难发现，当被作用的集合均为有限集时，最终计算结果的元素个数就是各个集合元素个数的乘积。
 
-## 1.1 群、子群、陪集
+### 1.1 群、子群、陪集
 &emsp;&emsp;实数组成的集合 $\mathbb{R}$ 有两种运算操作：加法 $+$：$\mathbb{R} + \mathbb{R} \rightarrow \mathbb{R}$ ，以及乘法 $\times$：$\mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$，实数集之间的加法和乘法运算本质上是一个阿贝尔群。接下来我们回忆一下群的定义。
 
 **定义1.1：** 两个集合 $G$ 通过二元运算符操作 $\cdot$ 便可得到一个群<font color=#ea4335>（注：这里的 $\cdot$ 可取 $\times$ 或 $+$，下同）</font>，例如：$G \times G \rightarrow G$ <font color=#ea4335>（当且仅当<u>三个 $G$ 都相同</u>的情况下才叫二元运算，且本章仅对二元运算进行讨论）</font>，该运算操作可以将集合中的每一组元素 $a,b\in G$ 进行有效的结合，从而得到 $a\cdot b\in G$。我们先对一些计算的结果是否为二元运算进行讨论：
@@ -1385,7 +1386,7 @@ $$
 
 &emsp;&emsp;在命题1.12的前提下，意味着 $H_1 \cap H_2=\{0\}$，群 $H_1+H_2$ 称作 $H_1$ 和 $H_2$ 的直和，记作 $H_1 \oplus H_2$，那么我们将有同构 $H_1 \times H_2 \cong H_1 \oplus H_2$。
 
-## 1.2 循环群
+### 1.2 循环群
 
 &emsp;&emsp;给定一个单位元为1的群 $G$，对于 $\forall \ g \in G$ 并且对于任意的自然数 $\forall \ n \in N$，可以通过下式给出 $g^n$ 的定义：
 $$
@@ -1492,7 +1493,7 @@ $$
 
  &emsp;&emsp;通过命题1.16我们可以发现群 $(\mathbb{Z}/n\mathbb{Z})^*$ 的阶为 $\varphi(n)$。当 $n=2$ 时为平凡群，$(\mathbb{Z}/2\mathbb{Z})^*=\{1\}$。当 $n=3$ 时，$(\mathbb{Z}/3\mathbb{Z})^*=\{1,2\}$。当 $n=4$ 时，$(\mathbb{Z}/4\mathbb{Z})^*=\{1,3\}$。这两个群与群 $\{-1,1\}$ 同构。由于 $\forall \ a \in \{1,\cdots,n-1\}$ 都有 $\text{gcd}(a,n)=1 \ \Leftrightarrow \ n$ 是素数，通过命题1.16我们可知 $(\mathbb{Z}/n\mathbb{Z})^*=\mathbb{Z}/n\mathbb{Z}-\{0\} \ \Leftrightarrow \ n$ 是素数。
 
- ## 1.3 环和域
+ ### 1.3 环和域
 
  &emsp;&emsp;群 $\mathbb{Z}, \ \mathbb{Q}, \ \mathbb{R}, \ \mathbb{C}, \ \mathbb{Z}/n\mathbb{Z}, \ M_n(\mathbb{R})$ 不只是阿贝尔群，他们同时也是交换环。除此之外，$\mathbb{Q}, \ \mathbb{R}, \ \mathbb{C}$ 还是域。我们接下来将介绍环和域的相关知识。
 
@@ -1671,3 +1672,88 @@ $$
 $$
 
 该性质称为双边理想。若 $A$ 是一个交换环，我们便可将上述关系简称为理想。
+
+&emsp;&emsp;不难发现对于任意的环 $A$ 以及任意双边理想 $\Im$，加陪集 $\forall \ a \in A, \ a+\Im$ 构成的集合 $A/\Im$ 是一个环，我们通常将其称为商环。接下来我们将基于命题1.11进行分析，得到第一同构定理。
+
+**命题1.18：** 给定环同态 $h: \ A \rightarrow B$，环 $A/\text{Ker} \ h$ 以及象 $\text{Im} \ h=h(A)$ 之间满足同构。
+
+&emsp;&emsp;域是可交换环 $K$，其中 $K-\{0\}$ 通过乘积能够得到一个群。
+
+**定义1.22：** 若集合 $K$ 是一个环且满足如下性质，那么我们称集合 $K$ 为域：
+> (F1) $0 \neq 1$;<br>
+> (F2) $K^*=K-\{0\}$ 通过乘积 $*$ 作用能够得到群，即对于群中任意的非零元素 $a \neq 0$ 都存在其逆元素;<br>
+> (F3) 乘法 $*$ 是可交换的。
+
+&emsp;&emsp;若乘法 $*$ 不满足可交换，但是环 $K$ 满足性质 $(\text{F1})$ 和 $(\text{F2})$ 那么我们将其称为反称域（或称为非交换域）。
+
+&emsp;&emsp;注意：我们假设对于域的运算 $*$ 是可交换的。这个约定并不是普遍采用的，但是由于我们遇到的大多数域关于乘法 $*$ 都是可交换的，所以我们不妨在域的定义中将此条件包括在内。
+
+**示例1.9：**
+
+&emsp;&emsp;1. 环 $\mathbb{Q}, \mathbb{R}$ 以及 $\mathbb{C}$ 均为域。
+
+&emsp;&emsp;2. 多项式 $f(X),g(X) \in \mathbb{R}[X]$ 其中 $g(X)$ 不是零多项式，进行相除得到的分数 $f(X)/g(X)$ 构成的集合是一个域。
+
+&emsp;&emsp;3. 利用连续函数对环 $C(a,b)$ 进行作用，其中映射的表达式为 $f: \ (a,b) \rightarrow \mathbb{R}$ 且对于 $\forall \ x \in (a,b)$ 均有 $f(x) \neq 0$。我们称环 $C(a,b)$ 是一个域。
+
+&emsp;&emsp;4. 使用命题1.16很容易发现环 $\mathbb{Z}/p\mathbb{Z}$ 是一个域 $\Leftrightarrow \ p$ 是质数。
+
+&emsp;&emsp;5. 若 $d$ 是正的无平方因子的整数且 $d \geq 2$，集合 $\mathbb{Q}(\sqrt{d})=\{a+b\sqrt{d} \in \mathbb{R} \ | \ a,b \in \mathbb{R}\}$ 是一个域。若 $z=a+b\sqrt{d} \in \mathbb{Q}(\sqrt{d})$ 且 $\overline{z}=a-b\sqrt{d}$，很容易验证若 $z \neq 0$ 那么 $z^{-1}=\overline{z}/(z\overline{z})$。
+
+&emsp;&emsp;6. 同样的，若 $g \geq 1$ 是一个无平方因子的整数，复数组成的集合
+$$
+\mathbb{Q}(\sqrt{-d})=\{a+\imath b\sqrt{d} \in \mathbb{C} \ | \ a,b \in \mathbb{Q}\}
+$$
+
+是一个域。若 $z=a+\imath b\sqrt{d} \in \mathbb{Q}(\sqrt{-d})$ 且 $\overline{z}=a-\imath b\sqrt{d}$。那么很容易验证若 $z \neq 0 \rightarrow z^{-1}=\overline{z}/(z\overline{z})$ 。
+
+**定义1.23：** 同态映射 $h: \ K_1 \rightarrow K_2$ 作用于 $K_1,K_2$ 这两个域，该映射也是环 $K_1,K_2$ 之间的同态映射。但是由于 $K_1^*,K_2^*$ 通过乘积作用能得到群，那么域的同态映射一定是单射。
+
+&emsp;&emsp;证明：首先对任意的非零元素 $x \neq 0, \ h(x) \neq 0$ 进行分析
+$$
+1=h(1)=h(xx^{-1}) \overset{同态}{=} h(x)h(x^{-1})\\
+1=h(1)=h(x^{-1}x) \overset{同态}{=} h(x^{-1})h(x)
+$$
+
+所以有 $h(x^{-1})=h(x)^{-1}$。而若要 $h(x)=0$ 我们必须有 $x=0$。最终我们可以得到 $h$ 满足单射。
+
+**定义1.24：** 域同态 $h: \ K_1 \rightarrow K_2$ 是一个同构 $\Leftrightarrow$ 存在同态映射 $g: \ K_2 \rightarrow K_1$ 使得 $g \circ f=id_{K_1}$ 且 $f \circ g=id_{K_2}$。域到其自身的同构称之为自同构。
+
+&emsp;&emsp;就像在环中一样，满足条件的映射 $g$ 是唯一的，且 $g=h^{-1}$。并且双射域同态 $h: \ K_1 \rightarrow K_2$ 是一个同构。
+
+**定义1.25：** 由于任意两个域之间的同态映射 $h: \ K_1 \rightarrow K_2$ 满足单射，$K_1$ 的象 $f(K_1)$ 是 $K_2$ 的子域，我们说 $K_2$ 是 $K_1$ 的延伸。
+
+&emsp;&emsp;例如，$\mathbb{R}$ 是 $\mathbb{Q}$ 的延伸，$\mathbb{C}$ 是 $\mathbb{R}$ 的延伸。域 $\mathbb{Q}(\sqrt{d})$ 以及 $\mathbb{Q}(\sqrt{-d})$ 是 $\mathbb{Q}$ 的延伸，域 $\mathbb{R}$ 是 $\mathbb{Q}(\sqrt{d})$ 的一个延伸，域 $\mathbb{C}$ 是 $\mathbb{Q}(\sqrt{-d})$ 的一个延伸。
+
+**定义1.26：** 我们有域 $K$，若对于所有系数为 $K$ 的多项式 $p(X)$ 都有根在集合 $K$ 中，我们把满足上述关系的域称之为代数闭域。也就是说，存在 $a \in K$，使得 $p(a)=0$。
+
+&emsp;&emsp;可以发现每一个域 $K$ 都存在满足代数闭域的最小代数扩域 $\Omega$，我们把 $\Omega$ 称为 $K$ 的代数闭包。例如，$\mathbb{C}$ 是 $\mathbb{R}$ 的代数闭包，$\mathbb{Q}$ 的代数闭包称为代数数域，这个域包含所有的复数，这些复数的构成方式为：取 $\mathbb{Q}$ 中的元素作为多项式的系数，我们计算该含系数多项式的零点，并将零点作为代数数域的元素。
+
+**定义1.27：** 给定一个域 $K$ 以及 $K$ 的自同构 $h: \ K \rightarrow K$，很容易验证下述集合
+$$
+\text{Fix}(h)=\{a \in K \ | \ h(a)=a\}
+$$
+
+通过用 $h$ 对 $K$ 中的元素进行作用可以得到 $K$ 的子域，我们将其称为 $h$ 的固定域。
+
+&emsp;&emsp;例如，若 $g \geq 2$ 无平方因子，那么映射 $c: \ \mathbb{Q}(\sqrt{d}) \rightarrow \mathbb{Q}(\sqrt{d})$
+$$
+c(a+b\sqrt{d})=a-b\sqrt{d}
+$$
+
+是 $\mathbb{Q}(\sqrt{d})$ 的自同构，并且 $\text{Fix}(c)=\mathbb{Q}$。
+
+&emsp;&emsp;若 $K$ 是一个域，我们有作用方式为 $h(n)=n \cdot 1$ 的环同态 $h: \ \mathbb{Z} \rightarrow K$。如果 $h$ 满足单射，那么 $K$ 包含 $\mathbb{Z}$ 中的所有元素，又因为 $K$ 是一个域，所以它包含 $\mathbb{Q}$ 中的所有元素。在这种情况下，我们说 $K$ 有特征0。若 $h$ 不满足单射，那么 $h(\mathbb{Z})$ 是 $K$ 的子环，并且还是一个整环。$h$ 的核是 $\mathbb{Z}$ 的子群，根据命题1.14我们知道子群的构成方式为：必然存在 $p \geq 1$ 与 $\mathbb{Z}$ 进行相乘得到 $p\mathbb{Z}$。根据第一同构定理可知，$h(\mathbb{Z})$ 是 $p \geq 1$ 到 $\mathbb{Z}/p\mathbb{Z}$ 的同构。但是由于 $\mathbb{Z}/p\mathbb{Z}$ 是一个整环，$p$ 必须为质数 $\Leftrightarrow \ \mathbb{Z}/p\mathbb{Z}$ 是一个域 $\Leftrightarrow \ p$ 是质数。质数 $p$ 称作 $K$ 的特征，我们也说 $K$ 是有有限特征的。
+
+**定义1.28：** 若 $K$ 是一个域，那么有：<br>
+（1）对于所有的整数 $n \geq 1$ 都有 $n \cdot 1 \neq 1$。在这种情况下我们说 $K$ 有特征0。<br>
+（2）存在最小质数 $p$ 满足 $p \cdot 1 = 1$，该质数称作 $K$ 的特征，并且我们说此时的 $K$ 是有有限特征的。
+
+&emsp;&emsp;有特征0的域 $K$ 包含 $\mathbb{Q}$ 中的全部元素，所以该域是无限大的。我们将在章节7.10中发现，一个有限域有非零特征 $p$。然而也存在拥有非零特征的无穷域。
+
+# 第二部分：线性代数
+
+## 第二章
+<big><big><big>
+向量空间、基、线性映射
+</big></big></big>
