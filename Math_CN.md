@@ -1757,3 +1757,193 @@ $$
 <big><big><big>
 向量空间、基、线性映射
 </big></big></big>
+
+### 2.1 动力：线性组合，线性无关和秩
+
+&emsp;&emsp;在线性优化问题中，我们经常遇到线性方程组的求解。例如考虑如下问题：求解包含三个变量 $x_1,x_2,x_3 \in \mathbb{R}$ 的三个线性方程组成的方程组：
+$$
+x_1 + 2x_2 - x_3 = 1\\
+2x_1 + x_2 + x_3 = 2\\
+x_1 - 2x_2 - 2x_3 = 3
+$$
+
+&emsp;&emsp;其中一种求解方法是引入向量 $u,v,w,b$，各向量的具体值如下所示：
+$$
+u=
+\left(
+ \begin{matrix}
+   1\\
+   2\\
+   1
+ \end{matrix}
+\right)  \ \
+v=
+\left(
+ \begin{matrix}
+   2\\
+   1\\
+   -2
+ \end{matrix}
+\right)  \ \
+w=
+\left(
+ \begin{matrix}
+   -1\\
+   1\\
+   -2
+ \end{matrix}
+\right)  \ \
+b=
+\left(
+ \begin{matrix}
+   1\\
+   2\\
+   3
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;并且将我们的线性系统用下式进行表示：
+$$
+x_1u+x_2v+v_3w=b
+$$
+
+&emsp;&emsp;在上述等式中，我们使用了向量 $z$ 与标量 $\lambda \in \mathbb{R}$ 相乘的计算法则，其具体计算规则如下：
+$$
+\lambda z=
+\lambda
+\left(
+ \begin{matrix}
+   z_1\\
+   z_2\\
+   z_3
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   \lambda z_1\\
+   \lambda z_2\\
+   \lambda z_3
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;并且两个向量 $y$ 和 $z$ 之间能够相加，计算方式如下：
+$$
+y+z=
+\left(
+ \begin{matrix}
+   y_1\\
+   y_2\\
+   y_3
+ \end{matrix}
+\right)+
+\left(
+ \begin{matrix}
+   z_1\\
+   z_2\\
+   z_3
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   y_1 + z_1\\
+   y_2 + z_2\\
+   y_3 + z_3
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;同样的，给定一个向量
+$$
+x=
+\left(
+ \begin{matrix}
+   x_1\\
+   x_2\\
+   x_3
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;我们可以用下式定义 $x$ 的加法逆元 $-x$：
+$$
+-x=
+\left(
+ \begin{matrix}
+   -x_1\\
+   -x_2\\
+   -x_3
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;不难发现 $-x=(-1)x$，即用标量 $-1$ 与 $x$ 进行相乘。
+
+&emsp;&emsp;我们将向量（其中每个向量均包含3个元素）构成的集合记为 $\mathbb{R}^{3 \times 1}$，那为什么我们使用记号 $\mathbb{R}^{3 \times 1}$ 表示该集合，而不用更加简单的记号 $\mathbb{R}^3$ 进行表示呢？原因是 $\mathbb{R}^{3 \times 1}$ 的元素均为列向量，并且这些向量的一列中包含3行，这样就解释了上标 $3 \times 1$ 的由来。另外一方面，$\mathbb{R}^3=\mathbb{R} \times \mathbb{R} \times \mathbb{R}$ 包含了 $(x_1, x_2, x_3)$ 这三项，其中 $x_1, x_2, x_3 \in \mathbb{R}$，并且他们都是行向量。然而显然在 $\mathbb{R}^{3 \times 1}$ 与 $\mathbb{R}^3$ 之间存在双射关系，并且这两个集合往往是不同的。为了清晰地表述我们所用的集合，在本文中，我们将 $n$ 个元素组成的列向量所构成的集合记为 $\mathbb{R}^{n \times 1}$。
+
+&emsp;&emsp;例如下式的这种表述方式：
+$$
+x_1u+x_2v+v_3w
+$$
+
+&emsp;&emsp;其中 $u,v,w$ 均为向量且 $x_is \in \mathbb{R}$ 是标量。形如这样的表达式我们将其称为<font color=#ea4335>线性组合</font>。鉴于这个概念，解线性方程组的问题
+$$
+x_1u+x_2v+v_3w=b
+$$
+
+&emsp;&emsp;其实就是考虑 $b$ 是否能够由 $u,v,w$ 构成的线性组合进行表示。
+
+&emsp;&emsp;现在，若向量 $u,v,w$ 是<font color=#ea4335>线性无关的</font>，即不存在全不为零的三元组 $(x_1,x_2,x_3) \neq (0,0,0)$ 使得
+$$
+x_1u+x_2v+v_3w=0_3
+$$
+
+&emsp;&emsp;可以发现，$\mathbb{R}^{3 \times 1}$ 中的任意一个向量都可以写为 $u,v,w$ 的线性组合，这里的 $0_3$ 是一个零向量。
+$$
+0_3=
+\left(
+ \begin{matrix}
+   0\\
+   0\\
+   0
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;通常情况下大家会乱用记号 $0$ 而不是 $0_3$ 表示零向量，但这也很少引发错误，因为在大多数情况下，可以通过上下文推理出 $0$ 是用于表示数值0还是零向量。
+
+&emsp;&emsp;事实上，每一个向量 $z \in \mathbb{R}^{3 \times 1}$ 可以用线性组合这种独特的方式进行表示。
+$$
+z=x_1u+x_2v+v_3w
+$$
+
+&emsp;&emsp;这是因为如果
+$$
+z=x_1u+x_2v+x_3w=y_1u+y_2v+y_3w
+$$
+
+&emsp;&emsp;那么，在我们的向量上进行线性运算，可以得到
+$$
+(y_1-x_1)u+(y_2-x_2)v+(y_3-x_3)w=0
+$$
+
+&emsp;&emsp;通过 $u,v,w$ 之间的线性无关便可得出
+$$
+y_1-x_1=y_2-x_2=y_3-x_3=0\\
+y_1=x_1, \ \ y_2=x_2, \ \ y_3=x_3
+$$
+
+&emsp;&emsp;上式说明 $z$ 有唯一的线性组合表示方法，那么我们的等式
+$$
+x_1u+x_2v+x_3w=b
+$$
+
+&emsp;&emsp;有唯一解，并且我们可以验证下列值就是线性方程组的解
+$$
+x_1=1.4\\
+x_2=-0.4\\
+x_3=-0.4
+$$
+
+&emsp;&emsp;但是，我们如何验证向量之间满足线性无关呢？
