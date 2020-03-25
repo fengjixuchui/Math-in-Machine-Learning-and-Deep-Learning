@@ -1368,12 +1368,30 @@ $$
 
 接下来我们将介绍一种有效的构造群的方法：直积构造。
 
-**定义1.12：** 给定两个群 $G$ 和 $H$，我们令 $G \times H$ 表示集合 $G$ 与集合 $H$ 通过乘法运算 $\cdot$ 得到的笛卡尔积，其计算过程如下：
+**定义1.12：** 给定两个群 $G$ 和 $H$，我们令 $G \times H$ 表示先对集合 $G$ 与集合 $H$ 计算笛卡尔积，然后对笛卡尔积的运算结果做乘法运算 $\cdot$ 得到 $G$ 和 $H$ 的直积，其计算过程如下：
 $$
 (g_1, \ h_1) \cdot (g_2, \ h_2)=(g_1g_2, \ h_1h_2)
 $$
 
-&emsp;&emsp;不难验证 $G \times H$ 的计算结果是一个群，我们将其称作 $G$ 和 $H$ 的直积。
+&emsp;&emsp;不难验证 $G \times H$ 的计算结果是一个群。我们这里给出具体的证明过程：
+
+**待证结论：** 给定正整数 $n \geq 1$，假定 $\{G_1, \cdots, G_n\}$ 是由群构成的有限集合。定义集合 $G=G_1 \times G_2 \times \cdots \times G_n$ 的计算方式为：由元素 $g_i \in G_i$ 构成的有序 $n$ 元组 $(g_1, g_2, \cdots, g_n)$。通过下式定义的乘积运算 $\bullet: \ G \times G \rightarrow G$ 能够使得 $G$ 是一个群：
+$$
+(g_1, g_2, \cdots, g_n) \bullet (g_1', g_2', \cdots, g_n')=(g_1g_1', g_2g_2', \cdots, g_ng_n')
+$$
+
+**[证明过程](https://math.stackexchange.com/questions/1162848/proving-a-direct-product-of-groups-is-a-group/3049114#comment2370733_1162848)：**
+1. **封闭性：** 因为 $(g_1, g_2, \cdots, g_n) \bullet (g_1', g_2', \cdots, g_n')=(g_1g_1', g_2g_2', \cdots, g_ng_n')$，又因为每一个 $G_i$ 都是一个群，所以根据群的封闭性可知 $g_ig_i' \in G_i$，故而 $G$ 满足封闭性。
+2. **结合律：** $((g_1, g_2, \cdots, g_n) \bullet (g_1', g_2', \cdots, g_n')) \bullet (g_1'', g_2'', \cdots, g_n'')=(g_1g_1', g_2g_2', \cdots, g_ng_n') \bullet$ <br> $(g_1'', g_2'', \cdots, g_n'')=((g_1g_1')g_1'', (g_2g_2')g_2'', \cdots, (g_ng_n')g_n'')=$ <br> $(g_1(g_1'g_1''), g_2(g_2'g_2''), \cdots, g_n(g_n'g_n''))=(g_1, g_2, \cdots, g_n) \bullet (g_1'g_1'', g_2'g_2'', \cdots, g_n'g_n'')=$ <br> $(g_1, g_2, \cdots, g_n) \bullet ((g_1', g_2', \cdots, g_n') \bullet (g_1'', g_2'', \cdots, g_n''))$
+3. **单位元：** 对于每一个群 $G_i$ 都存在单位元，我们将其单位元记为 $e_i$。$G$ 中元素与单位元的乘积如下式：
+$$
+(g_1, g_2, \cdots, g_n) \bullet (e_1, e_2, \cdots, e_n)=(g_1, g_2, \cdots, g_n)
+$$
+
+4. **逆元素：** 由于每一个 $G_i$ 都是一个群，所以 $G_i$ 中的每一个元素 $g_i$ 都存在其逆元素 $g_i^{-1}$，我们通过下式计算 $G$ 中元素的逆元素：
+$$
+(g_1, g_2, \cdots, g_n) \bullet (g_1^{-1}, g_2^{-1}, \cdots, g_n^{-1})=(e_1, e_2, \cdots, e_n)
+$$
 
 &emsp;&emsp;同样的，若给定 $n$ 个群 $G_1,\cdots,G_n$，我们可以通过相似的方式定义直积 $G_1 \times G_2 \times \cdots \times G_n$。若 $G$ 为一个阿贝尔群且 $H_1, \cdots , H_n$ 均为 $G$ 的子群，我们便可做类似的分析。考虑映射 $a:H_1 \times \cdots \times H_n \rightarrow G$，其中映射方式为 $a(h_1,\cdots,h_n)=h_1+\cdots+h_n$，即对群 $G$ 中的元素做加法 $+$ 操作。很容易验证 $a$ 是一个群同态，所以它的象为 $G$ 的子群，表示为 $H_1+ \cdots + H_n$，称作对群 $H_i$ 进行相加。基于此我们给出如下命题。
 
@@ -1385,6 +1403,22 @@ $$
 &emsp;&emsp;证明：定义中的映射是一个满射，所以我们仅需要检验其是否满足单射。为此，我们可以发现 $\text{Ker} \ a=\{(0,0)\}$，我们有 $a(a_1,a_2)=0 \Leftrightarrow a_1+a_2=0 \Leftrightarrow a_1=-a_2$，由于 $a_1 \in H_1, \ a_2 \in H_2$，我们可以发现 $a_1,a_2 \in H_1 \cap H_2=\{0\}$，所以 $a_1=a_2=0$，这证明了 $\text{Ker} \ a=\{(0,0)\}$。
 
 &emsp;&emsp;在命题1.12的前提下，意味着 $H_1 \cap H_2=\{0\}$，群 $H_1+H_2$ 称作 $H_1$ 和 $H_2$ 的直和，记作 $H_1 \oplus H_2$，那么我们将有同构 $H_1 \times H_2 \cong H_1 \oplus H_2$。
+
+**备注**：我们在这里说明一下<u>笛卡尔积</u>、<u>直积</u>以及<u>直和</u>之间的区别与联系，以下内容参考自[博客](http://www.boris-belousov.net/2016/06/22/tensor-products/)：
+1. **笛卡尔积**：这是我们学习到的最简单的一种运算方式。它将多个集合作为输入，而最终会返回一个集合。在计算过程中我们不会假定集合的结构。例如，我们有 $A$ 和 $B$ 两个集合，他们的笛卡尔积 $C$ 将包含所有的有序数对 $(a,b)$，其中 $a \in A, \ b \in B$。$C$ 的计算结果为：
+$$
+C=A \times B=\{(a,b) \ | \ a \in A, \ b \in B\}
+$$
+
+2. **直积**：若集合 $A$ 和 $B$ 具有某些代数结构（例如，他们均为群），那么我们也可以为其乘积结果定义合适的代数结构，所以直积就像满足特定代数结构的笛卡尔积。例如，若 $(A,\cdot)$ 与 $(B,\cdot)$ 均为群，他们的直积 $(A \times B,*)$ 的运算结果也为一个群，其计算方式为对应位置元素相乘：
+$$
+(a,b)*(a',b')=(a \cdot a',b \cdot b')
+$$
+
+3. **直和**：直和与直积具有非常紧密的联系。直和仅仅是将直积的作用方式改为加法即可，我们通常使用记号 $A \oplus B$ 表示直和，其计算方式如下：
+$$
+(a,b) \oplus (a',b')=(a + a',b + b')
+$$
 
 ### 1.2 循环群
 
