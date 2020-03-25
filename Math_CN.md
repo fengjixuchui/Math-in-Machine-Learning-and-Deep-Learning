@@ -1393,7 +1393,7 @@ $$
 (g_1, g_2, \cdots, g_n) \bullet (g_1^{-1}, g_2^{-1}, \cdots, g_n^{-1})=(e_1, e_2, \cdots, e_n)
 $$
 
-&emsp;&emsp;同样的，若给定 $n$ 个群 $G_1,\cdots,G_n$，我们可以通过相似的方式定义直积 $G_1 \times G_2 \times \cdots \times G_n$。若 $G$ 为一个阿贝尔群且 $H_1, \cdots , H_n$ 均为 $G$ 的子群，我们便可做类似的分析。考虑映射 $a:H_1 \times \cdots \times H_n \rightarrow G$，其中映射方式为 $a(h_1,\cdots,h_n)=h_1+\cdots+h_n$，即对群 $G$ 中的元素做加法 $+$ 操作。很容易验证 $a$ 是一个群同态，所以它的象为 $G$ 的子群，表示为 $H_1+ \cdots + H_n$，称作对群 $H_i$ 进行相加。基于此我们给出如下命题。
+&emsp;&emsp;同样的，若给定 $n$ 个群 $G_1,\cdots,G_n$，我们可以通过相似的方式定义直积 $G_1 \times G_2 \times \cdots \times G_n$。若 $G$ 为一个阿贝尔群且 $H_1, \cdots , H_n$ 均为 $G$ 的子群，我们便可做类似的分析。考虑映射 $a:H_1 \times \cdots \times H_n \rightarrow G$，其中映射方式为 $a((h_1,\cdots,h_n))=h_1+\cdots+h_n$，即对群 $G$ 中的元素做加法 $+$ 操作。很容易验证 $a$ 是一个同态映射，所以它的象为 $G$ 的子群，表示为 $H_1+ \cdots + H_n$，称作对群 $H_i$ 进行相加。基于此我们给出如下命题。
 
 **命题1.12：** 给定一个阿贝尔群 $G$，如果 $H_1$ 和 $H_2$ 是群 $G$ 的任意两个子群，即 $H_1 \cap H_2=\{0\}$，那么映射 $a$ 是一个同构
 $$
@@ -1981,3 +1981,126 @@ x_3=-0.4
 $$
 
 &emsp;&emsp;但是，我们如何验证向量之间满足线性无关呢？
+
+&emsp;&emsp;我们的方法是计算数值 $\text{det}(u,v,w)$，这个数值被称为 $(u,v,w)$ 的行列式，并且检验该值是否非零。在我们的示例中，其计算结果如下：
+$$
+\text{det}(u,v,w)=
+\left|
+ \begin{matrix}
+   1 & 2 & -1\\
+   2 & 1 & 1\\
+   1 & -2 & -2
+ \end{matrix}
+\right|=15
+$$
+
+```Mathematica
+In[1]:= A = {{1, 2, -1}, {2, 1, 1}, {1, -2, -2}};
+        Det[A]
+Out[1]= 15
+```
+
+&emsp;&emsp;当矩阵的元素很多时，我们也有一些行之有效的方法判断矩阵的列向量是否线性无关。比如将矩阵进行LU分解、QR分解或者计算包含三个列向量 $(u,v,w)$ 矩阵的SVD分解。
+$$
+A=
+\left(
+ \begin{matrix}
+   u & v & w
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   1 & 2 & -1\\
+   2 & 1 & 1\\
+   1 & -2 & -2
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;我们将未知数利用向量进行表示：
+$$
+x=
+\left(
+ \begin{matrix}
+   x_1\\
+   x_2\\
+   x_3
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;那么我们的线性组合 $x_1u+x_2v+x_3w$ 可以用下述矩阵进行表示：
+$$
+x_1u+x_2v+x_3w=
+\left(
+ \begin{matrix}
+   1 & 2 & -1\\
+   2 & 1 & 1\\
+   1 & -2 & -2
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   x_1\\
+   x_2\\
+   x_3
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;所以我们的线性系统可以表示为：
+$$
+\left(
+ \begin{matrix}
+   1 & 2 & -1\\
+   2 & 1 & 1\\
+   1 & -2 & -2
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   x_1\\
+   x_2\\
+   x_3
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   1\\
+   2\\
+   3
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;或者更简单的表示为 $Ax=b$。
+
+&emsp;&emsp;那么，现在如何判断向量 $u,v,w$ 之间是线性无关的呢？例如，如果我们考虑下述向量：
+$$
+u=
+\left(
+ \begin{matrix}
+   1\\
+   2\\
+   1
+ \end{matrix}
+\right)\ \
+v=
+\left(
+ \begin{matrix}
+   2\\
+   1\\
+   -1
+ \end{matrix}
+\right)\ \
+w=
+\left(
+ \begin{matrix}
+   -1\\
+   1\\
+   2
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;我们会发现等式 $u-v=w$ 是成立的。
