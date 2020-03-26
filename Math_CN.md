@@ -1368,16 +1368,34 @@ $$
 
 接下来我们将介绍一种有效的构造群的方法：直积构造。
 
-**定义1.12：** 给定两个群 $G$ 和 $H$，我们令 $G \times H$ 表示集合 $G$ 与集合 $H$ 通过乘法运算 $\cdot$ 得到的笛卡尔积，其计算过程如下：
+**定义1.12：** 给定两个群 $G$ 和 $H$，我们令 $G \times H$ 表示先对集合 $G$ 与集合 $H$ 计算笛卡尔积，然后对笛卡尔积的运算结果做乘法运算 $\cdot$ 得到 $G$ 和 $H$ 的直积，其计算过程如下：
 $$
 (g_1, \ h_1) \cdot (g_2, \ h_2)=(g_1g_2, \ h_1h_2)
 $$
 
-&emsp;&emsp;不难验证 $G \times H$ 的计算结果是一个群，我们将其称作 $G$ 和 $H$ 的直积。
+&emsp;&emsp;不难验证 $G \times H$ 的计算结果是一个群。我们这里给出具体的证明过程：
 
-&emsp;&emsp;同样的，若给定 $n$ 个群 $G_1,\cdots,G_n$，我们可以通过相似的方式定义直积 $G_1 \times G_2 \times \cdots \times G_n$。若 $G$ 为一个阿贝尔群且 $H_1, \cdots , H_n$ 均为 $G$ 的子群，我们便可做类似的分析。考虑映射 $a:H_1 \times \cdots \times H_n \rightarrow G$，其中映射方式为 $a(h_1,\cdots,h_n)=h_1+\cdots+h_n$，即对群 $G$ 中的元素做加法 $+$ 操作。很容易验证 $a$ 是一个群同态，所以它的象为 $G$ 的子群，表示为 $H_1+ \cdots + H_n$，称作对群 $H_i$ 进行相加。基于此我们给出如下命题。
+**待证结论：** 给定正整数 $n \geq 1$，假定 $\{G_1, \cdots, G_n\}$ 是由群构成的有限集合。定义集合 $G=G_1 \times G_2 \times \cdots \times G_n$ 的计算方式为：由元素 $g_i \in G_i$ 构成的有序 $n$ 元组 $(g_1, g_2, \cdots, g_n)$。通过下式定义的乘积运算 $\bullet: \ G \times G \rightarrow G$ 能够使得 $G$ 是一个群：
+$$
+(g_1, g_2, \cdots, g_n) \bullet (g_1', g_2', \cdots, g_n')=(g_1g_1', g_2g_2', \cdots, g_ng_n')
+$$
 
-**命题1.12：** 给定一个阿贝尔群 $G$，如果 $H_1$ 和 $H_2$ 是群 $G$ 的任意两个子群，即 $H_1 \cap H_2=\{0\}$，那么映射 $a$ 是一个同构
+**[证明过程](https://math.stackexchange.com/questions/1162848/proving-a-direct-product-of-groups-is-a-group/3049114#comment2370733_1162848)：**
+1. **封闭性：** 因为 $(g_1, g_2, \cdots, g_n) \bullet (g_1', g_2', \cdots, g_n')=(g_1g_1', g_2g_2', \cdots, g_ng_n')$，又因为每一个 $G_i$ 都是一个群，所以根据群的封闭性可知 $g_ig_i' \in G_i$，故而 $G$ 满足封闭性。
+2. **结合律：** $((g_1, g_2, \cdots, g_n) \bullet (g_1', g_2', \cdots, g_n')) \bullet (g_1'', g_2'', \cdots, g_n'')=(g_1g_1', g_2g_2', \cdots, g_ng_n') \bullet$ <br> $(g_1'', g_2'', \cdots, g_n'')=((g_1g_1')g_1'', (g_2g_2')g_2'', \cdots, (g_ng_n')g_n'')=$ <br> $(g_1(g_1'g_1''), g_2(g_2'g_2''), \cdots, g_n(g_n'g_n''))=(g_1, g_2, \cdots, g_n) \bullet (g_1'g_1'', g_2'g_2'', \cdots, g_n'g_n'')=$ <br> $(g_1, g_2, \cdots, g_n) \bullet ((g_1', g_2', \cdots, g_n') \bullet (g_1'', g_2'', \cdots, g_n''))$
+3. **单位元：** 对于每一个群 $G_i$ 都存在单位元，我们将其单位元记为 $e_i$。$G$ 中元素与单位元的乘积如下式：
+$$
+(g_1, g_2, \cdots, g_n) \bullet (e_1, e_2, \cdots, e_n)=(g_1, g_2, \cdots, g_n)
+$$
+
+4. **逆元素：** 由于每一个 $G_i$ 都是一个群，所以 $G_i$ 中的每一个元素 $g_i$ 都存在其逆元素 $g_i^{-1}$，我们通过下式计算 $G$ 中元素的逆元素：
+$$
+(g_1, g_2, \cdots, g_n) \bullet (g_1^{-1}, g_2^{-1}, \cdots, g_n^{-1})=(e_1, e_2, \cdots, e_n)
+$$
+
+&emsp;&emsp;同样的，若给定 $n$ 个群 $G_1,\cdots,G_n$，我们可以通过相似的方式定义直积 $G_1 \times G_2 \times \cdots \times G_n$。若 $G$ 为一个阿贝尔群且 $H_1, \cdots , H_n$ 均为 $G$ 的子群，我们便可做类似的分析。考虑映射 $a:H_1 \times \cdots \times H_n \rightarrow G$，其中映射方式为 $a((h_1,\cdots,h_n))=h_1+\cdots+h_n$，即对群 $G$ 中的元素做加法 $+$ 操作。很容易验证 $a$ 是一个同态映射，所以它的象为 $G$ 的子群，表示为 $H_1+ \cdots + H_n$，称作对群 $H_i$ 进行相加。基于此我们给出如下命题。
+
+**命题1.12：** 给定一个阿贝尔群 $G$，如果 $H_1$ 和 $H_2$ 是群 $G$ 中任意两个满足 $H_1 \cap H_2=\{0\}$ 的子群，那么映射 $a$ 是一个同构
 $$
 a:H_1 \times H_2 \rightarrow H_1 + H_2
 $$
@@ -1385,6 +1403,22 @@ $$
 &emsp;&emsp;证明：定义中的映射是一个满射，所以我们仅需要检验其是否满足单射。为此，我们可以发现 $\text{Ker} \ a=\{(0,0)\}$，我们有 $a(a_1,a_2)=0 \Leftrightarrow a_1+a_2=0 \Leftrightarrow a_1=-a_2$，由于 $a_1 \in H_1, \ a_2 \in H_2$，我们可以发现 $a_1,a_2 \in H_1 \cap H_2=\{0\}$，所以 $a_1=a_2=0$，这证明了 $\text{Ker} \ a=\{(0,0)\}$。
 
 &emsp;&emsp;在命题1.12的前提下，意味着 $H_1 \cap H_2=\{0\}$，群 $H_1+H_2$ 称作 $H_1$ 和 $H_2$ 的直和，记作 $H_1 \oplus H_2$，那么我们将有同构 $H_1 \times H_2 \cong H_1 \oplus H_2$。
+
+**备注**：我们在这里说明一下<u>笛卡尔积</u>、<u>直积</u>以及<u>直和</u>之间的区别与联系，以下内容参考自[博客](http://www.boris-belousov.net/2016/06/22/tensor-products/)：
+1. **笛卡尔积**：这是我们学习到的最简单的一种运算方式。它将多个集合作为输入，而最终会返回一个集合。在计算过程中我们不会假定集合的结构。例如，我们有 $A$ 和 $B$ 两个集合，他们的笛卡尔积 $C$ 将包含所有的有序数对 $(a,b)$，其中 $a \in A, \ b \in B$。$C$ 的计算结果为：
+$$
+C=A \times B=\{(a,b) \ | \ a \in A, \ b \in B\}
+$$
+
+2. **直积**：若集合 $A$ 和 $B$ 具有某些代数结构（例如，他们均为群），那么我们也可以为其乘积结果定义合适的代数结构，所以直积就像满足特定代数结构的笛卡尔积。例如，若 $(A,\cdot)$ 与 $(B,\cdot)$ 均为群，他们的直积 $(A \times B,*)$ 的运算结果也为一个群，其计算方式为对应位置元素相乘：
+$$
+(a,b)*(a',b')=(a \cdot a',b \cdot b')
+$$
+
+3. **直和**：直和与直积具有非常紧密的联系。直和仅仅是将直积的作用方式改为加法即可，我们通常使用记号 $A \oplus B$ 表示直和，其计算方式如下：
+$$
+(a,b) \oplus (a',b')=(a + a',b + b')
+$$
 
 ### 1.2 循环群
 
@@ -1947,3 +1981,182 @@ x_3=-0.4
 $$
 
 &emsp;&emsp;但是，我们如何验证向量之间满足线性无关呢？
+
+&emsp;&emsp;我们的方法是计算数值 $\text{det}(u,v,w)$，这个数值被称为 $(u,v,w)$ 的行列式，并且检验该值是否非零。在我们的示例中，其计算结果如下：
+$$
+\text{det}(u,v,w)=
+\left|
+ \begin{matrix}
+   1 & 2 & -1\\
+   2 & 1 & 1\\
+   1 & -2 & -2
+ \end{matrix}
+\right|=15
+$$
+
+```Mathematica
+In[1]:= A = {{1, 2, -1}, {2, 1, 1}, {1, -2, -2}};
+        Det[A]
+Out[1]= 15
+```
+
+&emsp;&emsp;当矩阵的元素很多时，我们也有一些行之有效的方法判断矩阵的列向量是否线性无关。比如将矩阵进行LU分解、QR分解或者计算包含三个列向量 $(u,v,w)$ 矩阵的SVD分解。
+$$
+A=
+\left(
+ \begin{matrix}
+   u & v & w
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   1 & 2 & -1\\
+   2 & 1 & 1\\
+   1 & -2 & -2
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;我们将未知数利用向量进行表示：
+$$
+x=
+\left(
+ \begin{matrix}
+   x_1\\
+   x_2\\
+   x_3
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;那么我们的线性组合 $x_1u+x_2v+x_3w$ 可以用下述矩阵进行表示：
+$$
+x_1u+x_2v+x_3w=
+\left(
+ \begin{matrix}
+   1 & 2 & -1\\
+   2 & 1 & 1\\
+   1 & -2 & -2
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   x_1\\
+   x_2\\
+   x_3
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;所以我们的线性系统可以表示为：
+$$
+\left(
+ \begin{matrix}
+   1 & 2 & -1\\
+   2 & 1 & 1\\
+   1 & -2 & -2
+ \end{matrix}
+\right)
+\left(
+ \begin{matrix}
+   x_1\\
+   x_2\\
+   x_3
+ \end{matrix}
+\right)=
+\left(
+ \begin{matrix}
+   1\\
+   2\\
+   3
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;或者更简单的表示为 $Ax=b$。
+
+&emsp;&emsp;那么，如果向量 $u,v,w$ 之间是线性相关的呢？例如，如果我们考虑下述向量：
+$$
+u=
+\left(
+ \begin{matrix}
+   1\\
+   2\\
+   1
+ \end{matrix}
+\right)\ \
+v=
+\left(
+ \begin{matrix}
+   2\\
+   1\\
+   -1
+ \end{matrix}
+\right)\ \
+w=
+\left(
+ \begin{matrix}
+   -1\\
+   1\\
+   2
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;我们会发现等式 $u-v=w$ 是成立的，也即这三个向量之间是线性相关的。可以验证 $u,v$ 之间仍然是线性无关的。那么如果我们的问题 $x_1u+x_2v+x_3w=b$ 有解，那么 $b$ 必然可以被表示为 $u$ 和 $v$ 的线性组合。但是在本例中 $u,v,b$ 之间是线性无关的（我们可以通过计算行列式 $\text{det} \ (u,v,b)=-6$ 得出这三个向量之间线性无关），所以 $b$ 不能表示为 $u,v$ 的线性组合，所以我们的方程组没有解。
+
+&emsp;&emsp;如果我们把向量 $b$ 改为：
+$$
+b=
+\left(
+ \begin{matrix}
+   3\\
+   3\\
+   0
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;那么有 $b=u+v$ 所以方程组 $x_1u+x_2v+x_3w=b$ 有解，计算结果分别为 $x_1=1,$$x_2=1,x_3=0.$
+```Mathematica
+In[6]:= A = {{1, 2, -1}, {2, 1, 1}, {1, -1, 2}};
+        b = {3, 3, 0};
+        LinearSolve[A, b]    (*线性求解*)
+Out[8]= {1, 1, 0}
+```
+
+&emsp;&emsp;实际上，由于 $w=u-v$，所以上述问题的求解等同于对下式进行求解：
+$$
+(x_1+x_3)u+(x_2-x_3)v=b
+$$
+
+&emsp;&emsp;由于 $u,v$ 是线性无关的，所以 $x_1+x_3$ 以及 $x_2-x_3$ 的解是唯一的，且 $x_1+x_3=1,$$x_2-x_3=1$。不难发现 $x_3$ 的解有无穷多个，并且对于任意的一个 $x_3$ 都有 $x_1=1-x_3,$$x_2=1+x_3$。
+
+&emsp;&emsp;总之，一个 $3 \times 3$ 的线性系统有可能有唯一解，有可能无解，也有可能有无穷多解。解的个数取决于向量 $u,v,w,b$ 的取值及其之间的线性相关（无关）性。这个结论可以推广到任意 $n \times n$ 系统，甚至适用于任意 $n \times m$ 系统（包含 $m$ 个变量的 $n$ 个等式组成的方程组），我们将在后边对此情况展开分析。
+
+&emsp;&emsp;通过上文可知我们的线性系统可以表示为诸如 $Ax=b$ 这样矩阵的形式，这就说明了映射 $x \mapsto Ax$ 是一个线性变换，这意味着对于 $\forall \ x \in \mathbb{R}^{3 \times 1}$ 以及 $\forall \
+ \lambda \in \mathbb{R}$ 都有 $A(\lambda x)=\lambda(Ax)$。并且对于 $\forall \ u,v \in \mathbb{R}^{3 \times 1}$ 都有 $A(u+v)=Au+Av$。我们可以将矩阵 $A$ 视为 $\mathbb{R}^{3 \times 1}$ 到 $\mathbb{R}^{3 \times 1}$ 的一种线性映射方法。而对系统 $Ax=b$ 进行求解其实就是确定 $b$ 是否属于这个线性映射的象。
+
+&emsp;&emsp;给定一个 $3 \times 3$ 的矩阵：
+$$
+A=
+\left(
+ \begin{matrix}
+   a_{11} & a_{12} & a_{13}\\
+   a_{21} & a_{22} & a_{23}\\
+   a_{31} & a_{32} & a_{33}
+ \end{matrix}
+\right)
+$$
+
+&emsp;&emsp;我们将该矩阵的三个列向量分别表示为 $A^1,A^2,A^3$ 并且对于任意的向量 $x=(x_1,x_2,x_3)$ 我们都可以利用线性组合对乘积 $Ax$ 进行表示。
+$$
+Ax=x_1A^1+x_2A^2+x_3A^3=
+\left(
+ \begin{matrix}
+   a_{11}x_1+a_{12}x_2+a_{13}x_3\\
+   a_{21}x_1+a_{22}x_2+a_{23}x_3\\
+   a_{31}x_1+a_{32}x_2+a_{33}x_3
+ \end{matrix}
+\right)
+$$
