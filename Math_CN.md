@@ -2160,3 +2160,69 @@ Ax=x_1A^1+x_2A^2+x_3A^3=
  \end{matrix}
 \right)
 $$
+
+&emsp;&emsp;通常情况下，$Ax$ 的第 $i$ 个元素是通过内积给出的，即将 $A$ 的第 $i$ 个行向量与列向量 $x$ 相乘：
+$$
+\left(
+ \begin{matrix}
+   a_{i1} & a_{i2} & a_{i3}
+ \end{matrix}
+\right)\cdot
+\left(
+ \begin{matrix}
+   x_1\\
+   x_2\\
+   x_3
+ \end{matrix}
+\right)=a_{i1}x_1+a_{i2}x_2+a_{i3}x_3
+$$
+
+&emsp;&emsp;更一般的，给定任意两个向量 $x=(x_1, \cdots, x_n), \ y=(y_1, \cdots, y_n) \in \mathbb{R}^n$，他们的内积记作 $x \cdot y$ 或者记作 $\langle x, y \rangle$ 具体计算方式如下：
+$$
+x \cdot y=
+\left(
+ \begin{matrix}
+   x_1 & x_2 & \cdots & x_n
+ \end{matrix}
+\right)\cdot
+\left(
+ \begin{matrix}
+   y_1\\
+   y_2\\
+   \vdots \\
+   y_n
+ \end{matrix}
+\right)=
+\sum_{i=1}^nx_iy_i
+$$
+
+&emsp;&emsp;内积占有着十分重要的地位。首先我们考虑下述运算过程：
+$$
+\parallel  \ x \parallel_{2}=\sqrt{x \cdot x}=(x_1^2+ \cdots +x_n^2)^{1/2}
+$$
+
+&emsp;&emsp;上式的计算结果通常用于表示向量的长度，称作欧几里得范数或 $l^2$ 范数。除此之外，我们还能得到不等式 $|x \cdot y| \leq \parallel x \parallel \parallel y \ \parallel$。所以，如果 $x,y \neq 0$ 那么比值 $(x \cdot y)/(\parallel x \parallel \parallel y \parallel)$ 可以被视为向量 $x$ 与 向量 $y$ 夹角的余弦值。更准确地讲，若 $x \cdot y=0$ 那么向量 $x$ 与 $y$ 的夹角为 $\pi/2$，也就是说他们是正交的。矩阵（平方矩阵）$Q$ 也可计算内积，在某种意义上 $\forall \ x,y \in \mathbb{R}^n,$$\langle Qx,Qy \rangle=\langle x,y \rangle$ 他们可以被认为是一种广义旋转。
+
+&emsp;&emsp;我们继续讨论矩阵的相关内容，若 $A$ 是一个包含 $n$ 个列向量 $A^1, \cdots, A^n \in \mathbb{R}^n$ 的 $m \times n$ 矩阵，$B$ 是一个包含 $p$ 个列向量 $B^1, \cdots, B^p \in \mathbb{R}^n$ 的 $n \times p$ 矩阵。我们可以计算得到 $p$ 个列向量 $AB^1,\cdots,AB^p$，且$AB^1,\cdots,AB^p \in \mathbb{R}^m$。这 $p$ 个列向量构成了 $m \times p$ 矩阵，我们将该矩阵记作 $AB$。我们用 $AB^j$ 表示 $AB$ 的第 $j$ 个列向量。$AB^j$ 的第 $i$ 个元素是 $A$ 矩阵的第 $i$ 个行向量与 $B$ 矩阵的第 $j$ 个列向量做内积的计算结果：
+$$
+\left(
+ \begin{matrix}
+   a_{i1} & a_{i2} & \cdots & a_{in}
+ \end{matrix}
+\right)\cdot
+\left(
+ \begin{matrix}
+   b_{1j}\\
+   b_{2j}\\
+   \vdots \\
+   b_{nj}
+ \end{matrix}
+\right)=\sum_{k=1}^na_{ik}b_{kj}
+$$
+
+&emsp;&emsp;我们通过上式便可定义矩阵的乘积运算，即若 $A=(a_{ik})$ 是一个 $m \times n$ 矩阵并且 $B=(b_{jk})$ 是一个 $n \times p$ 矩阵，那么他们的乘积 $AB$ 是 $m \times n$ 矩阵。$AB$ 的第 $i$ 行，第 $j$ 列元素是 $A$ 矩阵的第 $i$ 行与 $B$ 矩阵第 $j$ 列元素做内积的计算结果。
+$$
+(AB)_{ij}=\sum_{k=1}^na_{ik}b_{kj}
+$$
+
+&emsp;&emsp;注意，不像实数或者复数的乘法，通常情况下对于 $n \times n$ 的矩阵 $A$ 与矩阵 $B$ 做乘积运算，其 $AB \neq BA$。
